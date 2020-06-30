@@ -1,0 +1,56 @@
+[
+    {
+        "id": "ame_ice",
+        "name": "아메리카노(ICE)",
+        "img": "../images/coffee1.jpg",
+        "price": 2500
+    },
+    {
+        "id": "ame_hot",
+        "name": "아메리카노(HOT)",
+        "img": "../images/coffee2.jpg",
+        "price": 2000
+    },
+    {
+        "id": "cafelatte",
+        "name": "카페라떼",
+        "img": "../images/coffee3.jpg",
+        "price": 3500
+    },
+    {
+        "id": "caramel",
+        "name": "캬라멜 마키아또",
+        "img": "../images/coffee4.jpg",
+        "price": 3000
+    },
+    {
+        "id": "capuchino",
+        "name": "카푸치노",
+        "img": "../images/coffee5.jpg",
+        "price": 4000
+    },
+    {
+        "id": "cafemoka",
+        "name": "카페모카",
+        "img": "../images/coffee6.jpg",
+        "price": 3500
+    },
+    {
+        "id": "espresso",
+        "name": "에스프레소",
+        "img": "../images/coffee7.jpg",
+        "price": 2000
+    },
+    {
+        "id": "Frappuccino-caramel",
+        "name": "카라멜 플랫치노",
+        "img": "../images/coffee8.jpg",
+        "price": 5000
+    },
+    {
+        "id": "Frappuccino-java",
+        "name": "자바칩 플랫치노",
+        "img": "../images/coffee9.jpg",
+        "price": 5000
+    }
+]

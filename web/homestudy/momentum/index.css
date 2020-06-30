@@ -1,0 +1,94 @@
+body{
+    background-color: #2c3e50;
+}
+body {
+    color: #E0F7FA;
+    text-align: center;
+}
+.btn{
+    cursor: pointer;
+}
+.clicked {
+    color: #95a5a6;
+} 
+
+.form,
+.greetings {
+    display: none;
+    
+}
+
+.js-toDoForm>input,.showing>input{
+    width: 350px;
+    height: 40px;
+    font-size: 25px;
+    padding-left: 10px;
+    opacity: 0.75;
+    
+}
+
+.showing {
+     display: block;
+     font-size: 2em;
+     
+}
+
+.js-clock{
+    font-size: 2.5em;
+    text-align: center;
+}
+.js-clock h1, .js-clock h3{
+    margin: 10px;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+        margin-left: 0px;
+    }
+    to{
+        opacity: 0;
+        margin-left: 100px;
+    }
+}
+
+li {
+    animation: fadeIn .3s ease-in-out;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.del{
+    animation: fadeOut .3s linear;
+
+}
+
+.bgImage{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 
+    z축 인덱스값설정
+        더 큰 z-index 값을 가진 요소가 작은 값의 요소 위를 덮습니다
+        음수 값으로 우선순위를 낮출수 잇음
+    */
+    z-index: -1;
+    filter: brightness(70%);
+    animation: fadeIn .3s linear;
+}
+
+.js-weather{
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: 100px;
+
+}

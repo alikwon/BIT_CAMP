@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 이벤트</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        h1 {
+            border: 3px solid black;
+            cursor: pointer;
+        }
+
+        .over {
+            background-color: cadetblue;
+            color: antiquewhite;
+        }
+
+        .big {
+            font-size: 2em;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .alert {
+            color: red;
+        }
+
+        div.card {
+            width: 200px;
+            height: 100px;
+            ;
+            border-radius: 10px;
+            border: 1px solid #DDD;
+            margin: 10px;
+            float: left;
+        }
+
+        #form {
+            clear: both;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            // h1 영역에 클릭 이벤트 적용
+            // 클릭할때마다 '!'가 붙음
+            $('h1').on('click', function () {
+                $(this).html(function (index, html) {
+                    return html + '!';
+                });
+            });
+
+            // $('h1').on({
+            //     mouseenter:function(){
+            //         //this : 이벤트가 발생한 객체
+            //         $(this).addClass('over');
+            //     },
+            //     mouseleave:function(){
+            //         $(this).removeClass('over');
+            //     }
+            // });
+
+            //hover : 마우스엔터와 마우스리브 이벤트를 동시에 연결
+            $('h1').hover(function () {
+                $(this).addClass('over');
+            }, function () {
+                $(this).removeClass('over');
+            });
+            /* 
+                        $('h1').blur();
+                        $('h1').focus();
+                        $('h1').load(); //ready랑 같음
+                        $('h1').resize(); 
+                        $('h1').scroll(); 
+                        $('h1').dblclick(); //더블클릭 
+                        $('h1').scroll(); 
+                        $('h1').mouseup(); 
+                        $('h1').mousemove(); 
+                        $('h1').keyup(); 
+             */
+            // var fin = function () {
+            //     //parent : 인풋을 감싸는 div
+            //     $(this).parent().addClass('big');
+            //     $('div.alert').remove();
+            // }
+            $('input:text').focusin(function () {
+                //parent : 인풋을 감싸는 div
+                $(this).parent().addClass('big');
+                $('div.alert').remove();
+            });
+            $('input:text').focusout(function () {
+                //parent : 인풋을 감싸는 div
+                $(this).parent().removeClass('big');
+                var uid = $('#uid').val();
+                if (uid.length < 1) {
+                    $(this).after('<div class="alert">아이디는 필수항목이에염</div>');
+                }
+            });
+
+            // $('h1').off('click');
+            // $('input:text').off('focusin', fin);
+
+            $('div.card').click(function () {
+                var name = $('h1',this).text();
+                alert(name);
+            });
+
+        });
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="card">
+        <h1>naver</h1>
+        <p>www.naver.com</p>
+    </div>
+    <div class="card">
+        <h1>daum</h1>
+        <p>www.daum.net</p>
+    </div>
+    <div class="card">
+        <h1>kakao</h1>
+        <p>www.kakao.com</p>
+    </div>
+
+    <h1>click</h1>
+    <h1>click2</h1>
+    <div id="form">
+        <input type="text" id="uid">
+
+    </div>
+</body>
+
+</html>

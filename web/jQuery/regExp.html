@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규식 표현</title>
+    <style>
+        form>input{
+            padding: 15px;
+            font-size: 1.5em;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $('form').submit(function(){
+                //RegExp 객체를 생성 후 사용
+                var objCheck = new RegExp('[a-z]+$');
+
+                var idCheck = /[a-z]+$/; 
+
+                var uid = $('#uid').val();
+
+                if(!idCheck.test(uid)){
+                    alert('ID 는 영어 소문자로 만들어야합니다');
+                    return false;
+                }
+
+
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="uid"><span></span>
+        <br><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+[
+    {
+        "id": "caramelscone",
+        "name": "카라멜 스콘",
+        "img": "../images/dessert1.jpg",
+        "price": 4500
+    },{
+        "id": "chocomuffin",
+        "name": "초코 머핀",
+        "img": "../images/dessert2.jpg",
+        "price": 3500
+    },{
+        "id": "blueberrybagel",
+        "name": "블루베리베이글",
+        "img": "../images/dessert3.jpg",
+        "price": 4000
+    },{
+        "id": "redvelvetcake",
+        "name": "레드벨벳케이크",
+        "img": "../images/dessert4.jpg",
+        "price": 4000
+    },{
+        "id": "tiramisu",
+        "name": "티라미수",
+        "img": "../images/dessert5.jpg",
+        "price": 4000
+    }
+]

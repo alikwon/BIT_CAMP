@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout1</title>
+    <style>
+        body{
+            background: #c8e8c9;
+        }
+        #wrap{
+            width: 900px;
+            height: 900px;
+            /* margin: (상하)(좌우); */
+            margin: 0 auto;
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        #header{
+            width: 900px;
+            height: 100px;
+            background: #2e7d32;
+            line-height: 100px;
+        }
+        #nav{
+            width: 900px;
+            height: 100px;
+            background: #388e3c;
+
+            line-height: 100px;
+        }
+        #side{
+            width: 250px;
+            height: 600px;
+            background: #43a047;
+
+            line-height: 600px;
+            /* 정렬상태 */
+            float: left;
+        }
+        #contents{
+            width: 650px;
+            height: 600px;
+            background: #4caf50;
+            float: left;
+            line-height: 600px;
+        }
+        #footer{
+            clear: both;
+            line-height: 100px;
+            width: 900px;
+            height: 100px;
+            background: #66dd6a;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">HEADER</div>
+        <div id="nav">NAV</div>
+        <div id="side">SIDE</div>
+        <div id="contents">CONTENTS</div>
+        <div id="footer">FOOTER</div>
+    </div>
+</body>
+</html>

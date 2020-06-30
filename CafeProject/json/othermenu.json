@@ -1,0 +1,28 @@
+[
+    {
+        "id": "greekyogurt",
+        "name": "그릭요거트",
+        "img": "../images/other1.jpg",
+        "price": 3500
+    },{
+        "id": "xylitol",
+        "name": "자이리톨",
+        "img": "../images/other2.jpg",
+        "price": 3000
+    },{
+        "id": "organicjelly",
+        "name": "오가닉젤리",
+        "img": "../images/other3.jpg",
+        "price": 3000
+    },{
+        "id": "shrimpciabatta",
+        "name": "쉬림프치아바타",
+        "img": "../images/other4.jpg",
+        "price": 4500
+    },{
+        "id": "beefsalad",
+        "name": "비프샐러드",
+        "img": "../images/other5.jpg",
+        "price": 4500
+    }
+]

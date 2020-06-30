@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        #header {
+            height: 140px;
+            line-height: 140px;
+            background-color: #EC407A;
+        }
+
+        #banner {
+            height: 450px;
+            line-height: 450px;
+            background-color: #F06292;
+        }
+
+        #contents {
+            height: 950px;
+            line-height: 950px;
+            background-color: #F48FB1;
+        }
+
+        #footer {
+            height: 220px;
+            line-height: 220px;
+            background-color: #F8BBD0;
+        }
+
+        .container{
+            width: 900px;
+            margin: 0 auto;
+            /* height 는 상속 */
+            height: inherit;
+            background: rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="container">header</div>
+        </div>
+        <div id="banner">
+            <div class="container">banner</div>
+
+        </div>
+        <div id="contents">
+            <div class="container">contents</div>
+
+        </div>
+        <div id="footer">
+            <div class="container">footer</div>
+
+        </div>
+    </div>
+</body>
+
+</html>

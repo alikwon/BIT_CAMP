@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 랜덤숫자</title>
+    <script>
+        //승부 결과가 나왔을때 body에 맨트 출력하기위해 window.onload
+        window.onload =
+            function () {
+                var rnum = Math.random() * 100 + 1;
+                alert(parseInt(rnum)); //확인용 
+                alert('기회가 10번 주어집니다\n 1~100사이의 숫자를 맞춰보세요')
+                var cnt = 10;
+                while (true) {
+                    if (cnt == 0) {
+                        alert('실패하였습니다 \n 패배하셨어요');
+                        document.body.innerHTML = '<h1>루저 녀석</h1>';
+                        break;
+                    }
+
+                    var input = prompt(cnt + '번 남았습니다' + '\n숫자입력');
+                    var check = Number(input);
+
+                    //범위 이상의 값 입력시 카운팅 안함
+                    //  ※ 유효성검사는 form 으로 넘어가는게 좋을듯 
+                    if (check > 0 && check <= 100) {
+                        cnt -= 1;
+                    } else {
+                        alert('1~100까지의 값만 입력하세요')
+                        continue;
+                    }
+
+                    // 렌덤값과 입력값 비교
+                    if (check == parseInt(rnum)) {
+                        alert('정답! \n 승리하셨어요');
+                        document.body.innerHTML = '<h1>승리자 시네요</h1>';
+                        break;
+                    } else if (check > parseInt(rnum)) {
+                        alert('더 작은 숫자를 입력하세요')
+                    } else if (check < parseInt(rnum)) {
+                        alert('더 큰 숫자를 입력하세요')
+                    }
+                }
+            }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

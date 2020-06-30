@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 선택자</title>
+	<style>
+		
+/*
+		속성선택자
+		선택자[속성이름]: 특정 속성을 가지는 태그들을 선택
+		ex) input[type]
+		선택자[속성이름=속성값] : 특정 속성을 가지며, 속성에 특성값을 가지는 태그들을 선택
+		
+*/
+		input {
+			border : 1px solid blue;
+		}
+		input[type] {
+			height: 100px;
+		}
+		input[type=text]{
+			background-color: aqua;
+		}
+		input[type=password]{
+			background-color: aquamarine;
+		}
+		img[alt]{
+			/* width는 브라우저의 사이즈에 영향을 받음 */
+			width: 50%;
+		}
+		img[src$=png]{
+			border: 3px solid red;
+		}
+		img[src$=jpg]{
+			border: 3px solid blue;
+			width: 40%;
+		}
+		
+		/*후손 선택자*/
+		div h1{
+			color: blue;
+		}
+		#nav h1{
+			color: red;
+		}
+		form input{
+			width: 70%;
+		}
+		
+		/*자손 선택자*/
+		#header>h1{
+			background-color: black;
+		}
+		table>tbody>tr>td{
+    	/* 찾아들어가는 느낌 */  
+   		}
+		
+		/*동위 선택자*/
+		h1 + h2 { color: red; } 
+		h1 ~ h2 { background-color: orange; }
+		
+		/*반응 선택자*/
+		h3:hover{
+			color : red;
+			font-size: 32px;
+		}
+		h3:active{
+			color : cadetblue;
+			font-style: italic;
+		}
+		
+		#myform input:focus{
+			background-color: aliceblue;
+			width: 300px;
+		}
+		
+		input[type=checkbox]:checked{ width: 10px; }
+		
+		
+		/* 체크 했을 때 div가 보이게 만들기 */
+		#viewmanu+div{
+			display: none;
+		}
+		#viewmenu:checked+div{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<form id="myform">
+		<input type="text">
+		<br>
+		<input type="checkbox" checked>
+	</form>
+	<hr>
+	<h3 style="background-color: aqua">반응선택자</h3>
+	<hr>
+	<div id="header">
+		<h1 class="title">Title</h1>	
+		<div id="nav">
+			<h1>Navigation</h1>
+		</div>
+		
+	</div>
+	<div id="section">
+		<h1 class="title">Title</h1>
+		<p>안녕하세요. </p>
+	</div>
+
+	<hr>
+	<form>
+		<input>
+		<br>
+		<input type = "text">
+		<br>
+		<input type = "password">
+		<br>
+	</form>
+	<img src="../Ex_0605/image/Iron_man.png"><br>
+	<img src="../Ex_0605/image/spider_man.jpg"><br>
+	<img src="../Ex_0605/image/Iron_man.png" alt="아이언맨">
+	
+</body>
+</html>

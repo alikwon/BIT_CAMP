@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json 객체</title>
+    <script src = "../json_0615/json_test.js">
+    </script>
+    <script>
+        var book ={
+            name: 'java',
+            price:10000,
+            publisher:'Orange Media'
+        }
+        console.log(obj);
+        console.log(typeof(book));
+        // javascript object → Json(String)
+        var jsondata = JSON.stringify(book);
+        console.log('jsondate type: '+typeof(jsondata));
+
+        window.onload = function(){
+            document.getElementById('json').innerHTML=jsondata;
+        }
+        //string JSON
+        var newdata = '{"memberid":"cool","membername":"COOL","age":27, "program":["java","python","javascript"]}';
+        console.log('newdata type: '+typeof(newdata));
+
+        //JSON(String) → javascript Object
+        var newObj = JSON.parse(newdata);
+        console.log('newObj type : '+typeof(newObj));
+        console.log(newObj);
+
+        alert(newObj.memberid);
+    </script>
+</head>
+<body>
+    <h1 id ="json">안녕하세요</h1>    
+</body>
+</html>

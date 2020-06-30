@@ -1,0 +1,62 @@
+input {
+    border: 1px solid #111;
+    width: 150px;
+    height: 35px;
+    padding-left: 10px;
+    border-radius: 3px;
+}
+
+#inp td {
+
+}
+
+label{
+    padding: 10px;
+}
+hr {
+    border: 1px solid #DDD;
+}
+
+#head {
+    background-color: #DDD;
+}
+
+#tIndex, #tName {
+    width: 100px;
+    height: 25px;
+}
+
+#tId {
+    width: 200px;
+    height: 25px;
+}
+
+#tPw ,#tManage{
+    width: 150px;
+    height: 25px;
+}
+
+#list {
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#list th, #list td {
+    border: 1px solid #999;
+    height: 30px;
+}
+
+input[type=submit] {
+    background-color: #EEE;
+    border: 1px solid black;
+    color: black;
+    border-radius: 3px;
+    height: 68px;
+}
+label{
+    display: block;
+    background-color: black;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

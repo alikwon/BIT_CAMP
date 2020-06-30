@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Window 객체생성</title>
+	<script>
+		//open('URL','통신시 사용하는 윈도이름','출력모양 지정' )
+		//실행시 새로운 창이열림
+		// window.open('http:www.naver.com', 'new');
+
+		// window.open('http:www.daum.net',
+		//             'new2', 
+		//             'width=600,height=600,location=1,menubar=1,status=1,toolbar=1');
+
+		// var child = window.open('','','width=820,height=860');
+
+		// var html = '';
+		// html+='<img src="https:funshop.akamaized.net/products/0000067616/vs_image800.jpg">';
+		// html+='<br>';
+		// html+='<input type="button" value = "닫기" onclick="window.close();">';
+		// child.document.write(html);
+
+		// alert(location.href);
+
+		// console.log(location.href);
+		// console.log(location);
+
+		// setTimeout(function(){
+		// 	location.href='https://www.naver.com';
+		// },3000);
+/* 
+		//test가 로드안됨 
+		var html_val = document.getElementById('test').innerHTML;
+		
+		alert(html_val); */
+
+		//onload 사용
+		window.onload = function () {
+			var html_val = document.getElementById('test').innerHTML;
+
+			alert(html_val);
+		};
+	</script>
+</head>
+
+<body>
+	<h1 id="test">안녕하세요 </h1>
+
+	<script>
+		var html_val = document.getElementById('test').innerHTML;
+
+		alert(html_val);
+	</script>
+</body>
+
+</html>

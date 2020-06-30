@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[JavaScript] function </title>
+    <script>
+/*
+		// window → 최상위 객체
+        window.onload = function(){
+            alert('page load');
+		} 
+*/
+		
+/* 
+        //익명함수
+        var addNum =
+            function (x, y) {
+                return x + y;
+            }
+
+        //선언적 함수
+        function addNum2(x, y) {
+            return x + y;
+        }
+
+        //함수 호출
+        alert(addNum(10, 20));
+		alert(addNum2(30, 40)); 
+*/
+		
+//가변 매개변수 : arguments 객체를 사용
+/*
+        function sumAll() {
+            var output = 0;
+            // for (var i = 0; i < arguments.length; i++) {
+            //     output += arguments[i];
+            // }
+            // return output;
+            for(var i in arguments){
+                output += arguments[i];
+                console.log('output +'+arguments[i]+'=> '+output); //디버깅
+            }
+            return output;
+		} 
+		//함수 호출
+		alert(sumAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+*/
+
+//콜백함수 : 매개변수로 전달된 함수
+/* 		
+		//	정의하는 함수 내부에서 실행할 목적으로 구성한다.
+		function callTenTimes(callback){
+			if(typeof(callback)=='function'){
+				for(var i =0; i<10; i++){
+					callback();
+				}
+			}
+		}
+		var cnt = 0;
+		var handler = function(){
+			console.log('handler function'+cnt++);
+		}
+
+		callTenTimes(handler);
+ */
+
+//내장 함수 : alert(), prompt(), confirm()
+/*
+		// 타이머함수
+		// 	setTimeout(callback, ms) → ms 이후에 callback() 한번 실행
+		// 	setInterval(callback, ms) → ms 마다 callback() 실행 반복
+		var intervalId = setInterval(function(){
+			document.body.innerHTML='<h1>'+new Date+'</h1>'
+		},1000);
+
+		setTimeout(function(){
+			clearInterval(intervalId);
+		}, 10*1000);
+*/
+
+/* 
+		// 코드실행 함수
+		//	eval : 문자열을 자바 스크립트 코드로 실행
+		var jsCode ='';
+		jsCode +='var number=100;';
+		jsCode += 'alert(number)';
+
+		eval(jsCode);
+*/		
+
+/*
+		//숫자 변환함수
+		var won = '1000원';
+		var dollar = '1.5$';
+		console.log('Number()\t: ' + Number(won)+' , ' +Number(dollar));
+		console.log('parseInt()\t: ' + parseInt(won)+' , ' +parseInt(dollar));
+		console.log('parseFloat(): ' + parseFloat(won)+' , ' +parseFloat(dollar));
+*/
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

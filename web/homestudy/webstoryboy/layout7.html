@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout6</title>
+    <style>
+        /* 리셋 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 전체레이아웃 */
+        #wrap {
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        #header {
+            height: 140px;
+        }
+
+        #banner {
+            height: 450px;
+            background-color: #F06292;
+        }
+
+        #contents {
+            height: 950px;
+            background-color: #F48FB1;
+        }
+
+        #footer {
+            height: 220px;
+            background-color: #F8BBD0;
+        }
+
+        /* 레이아웃 */
+        .header-top {
+            width: 100%;
+            height: 70px;
+            background-color: #EF5350;
+        }
+
+        .header-nav {
+            width: 100%;
+            height: 70px;
+            background-color: #E57373;
+        }
+        .contents1{
+            width: 100%;
+            height: 90px;
+            background-color: #EC407A;
+        }
+        .contents2{
+            width: 100%;
+            height: 480px;
+            background-color: #F06292;
+        }
+        .contents3{
+            width: 100%;
+            height: 380px;
+            background-color: #F48FB1;
+        }
+        .footer1{
+            width: 100%;
+            height: 60px;
+            background-color: #D81B60;
+        }
+        .footer2{
+            width: 100%;
+            height: 160px;
+            background-color: #FF80AB;
+        }
+
+        /* 컨테이너 */
+        .container {
+            width: 900px;
+            margin: 0 auto;
+            /* height 는 상속 */
+            height: inherit;
+            background: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="header-top">
+                <div class="container">header-top</div>
+
+            </div>
+            <div class="header-nav">
+                <div class="container">header-top</div>
+            </div>
+        </div>
+        <!-- header -->
+        <div id="banner">
+            <div class="container">banner</div>
+        </div>
+        <!-- banner -->
+        <div id="contents">
+            <div class="contents1">
+                <div class="container">contents1</div>
+            </div>
+            <div class="contents2">
+                <div class="container">contents2</div>
+            </div>
+            <div class="contents3">
+                <div class="container">contents3</div>
+            </div>
+        </div>
+        <!-- contents -->
+        <div id="footer">
+            <div class="footer1">
+                <div class="container">footer1</div>
+            </div>
+            <div class="footer2">
+                <div class="container">footer2</div>
+            </div>
+
+        </div>
+        <!-- footer -->
+    </div>
+</body>
+
+</html>

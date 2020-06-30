@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout4</title>
+    <style>
+        body {
+            background-color: #b3e5fc;
+        }
+
+        .wrap {
+            width: 900px;
+            height: 900px;
+            margin: auto;
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .header {
+            line-height: 100px;
+            width: 900px;
+            height: 100px;
+            background-color: #0277bd;
+        }
+
+        .nav {
+            line-height: 100px;
+            width: 900px;
+            height: 100px;
+            background-color: #0288d1;
+        }
+
+        .side {
+            float: left;
+            width: 250px;
+            height: 600px;
+            line-height: 600px;
+            background-color: #039bd5;
+        }
+
+        .content1 {
+            float: left;
+            background-color: #2979FF;
+            width: 650px;
+            height: 300px;
+            line-height: 300px;
+        }
+
+        .content2 {
+            float: left;
+            width: 650px;
+            height: 300px;
+            background-color: #03a9f4;
+            line-height: 300px;
+        }
+
+        .footer {
+            /* float: left; 성질을 차단 */
+            clear: both;
+
+            line-height: 100px;
+            width: 900px;
+            height: 100px;
+            background-color: #0288d1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header">header</div>
+        <div class="nav">nav</div>
+        <div class="side">side</div>
+        <div class="content1">content1</div>
+        <div class="content2">content2</div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+
+</html>

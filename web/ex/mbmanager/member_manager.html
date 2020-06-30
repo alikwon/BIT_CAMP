@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 관리 프로그램</title>
+    <link href="member_style.css" rel="stylesheet">
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Member Manager</h1>
+    </header>
+    <hr>
+    <div id="divReg">
+        <h2 class="title">회원등록</h2>
+        <form method="GET" id="regData">
+            <table id="reg">
+                <tr>
+
+                    <td>
+                        <label>아이디(이메일)</label>
+                        <input type="text" name="id" placeholder="아이디 입력" required>
+                    </td>
+                    <td>
+                        <label>비밀번호</label>
+                        <input type="password" name="pw" placeholder="비밀번호 입력" required>
+                    </td>
+                    <td>
+                        <label>이름</label>
+                        <input type="text" name="name" placeholder="이름 입력" required>
+                    </td>
+                    <td>
+                        <input type="submit" value="등록">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <hr>
+    <div id="divEdit">
+        <h2 class="title">회원 수정</h2>
+        <form id="editForm">
+            <input type="hidden" id="idx" required>
+            <table>
+                <tr>
+                    <td>
+                        <label>아이디</label>
+                        <input type="text" id="eid" placeholder="아이디" required>
+                    </td>
+                    <td>
+                        <label>비밀번호</label>
+                        <input type="password" id="epw" placeholder="비밀번호" required>
+                    </td>
+                    <td>
+                        <label>이름</label>
+                        <input type="text" id="ename" placeholder="이름" required>
+                    </td>
+                    <td>
+                        <input type="submit" value="수정">
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+    <div id="divList">
+        <h2 class="title">회원리스트</h2>
+        <table id="list">
+            <tr id="head">
+                <th id="tIndex">index</th>
+                <th id="tId">아이디(이메일)</th>
+                <th id="tPw">비밀번호</th>
+                <th id="tName">이름</th>
+                <th id="tManage">관리</th>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

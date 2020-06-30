@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='app.css'>
+</head>
+
+<body>
+    <!-- <div id='content' class='container-fluid' ng-view></div>
+    <div class="category-list" ng-hide='$location.path() != "/"'>
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3 category-banner" ng-repeat='banner in banner_list' style="display:none" on-finish-render="completeBannerListRender()">
+                <a href="" class="thumbnail" ng-click="setEvent($index, banner)" ng-style="{'background': banner.background_color}">
+                    <img ng-src="{{banner.event_image_url}}" alt="{{banner.event_name}}">
+                    <i class="icon-move"></i>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <a href="" class="thumbnail" ng-click="select_home_category('all')">
+                    <div class="category-title">아메리카노</div>
+                    <img src="image/coffe1.png">
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <a href="" class="thumbnail" ng-click="select_home_category('1인분주문')">
+                    <div class="category-title">라떼</div>
+                    <img src="image/coffe4.png">
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a href="" class="thumbnail" ng-click="select_home_category('프랜차이즈')">
+                    <div class="category-title">카라멜마끼</div>
+                    <img src="image/coffe3.png">
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a href="" class="thumbnail" ng-click="select_home_category('치킨')">
+                    <div class="category-title">콜드브루</div>
+                    <img src="image/coffe2.png">
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a href="" class="thumbnail" ng-click="select_home_category('피자양식')">
+                    <div class="category-title">프라프치노</div>
+                    <img src="image/coffe5.png">
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <a href="" class="thumbnail" ng-click="select_home_category('중식')">
+                    <div class="category-title">에스프레소</div>
+                    <img src="image/coffe6.png">
+                </a>
+            </div>
+           
+        </div>
+    </div> -->
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn-cof">커피</button>
+                <button class="btn-bev">음료</button>
+                <button class="btn-des">디저트</button>
+                <button class="btn-etc">기타메뉴</button>
+            </div>
+            <div class="col-7"
+                style="border: 1px solid black; margin-right: 10px;  margin-top: 10px;  margin-bottom: 10px;">
+                <div class="row main menu showing">
+                    <img src="image/cafe1.jpg" id="mainImg" />
+
+                </div>
+                <div class="row coffee menu" style="padding: 20px;">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="americano" onclick="choiceMenu(id)">
+                            <div class="category-title"></div>
+                            <img src="image/coffe1.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="latte" onclick="choiceMenu(id)">
+                            <div class="category-title">라떼</div>
+                            <img src="image/coffe4.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="caramelMacchiato" onclick="choiceMenu(id)">
+                            <div class="category-title">카라멜마끼</div>
+                            <img src="image/coffe3.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="coldBrew" onclick="choiceMenu(id)">
+                            <div class="category-title">콜드브루</div>
+                            <img src="image/coffe2.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="frappuccino" onclick="choiceMenu(id)">
+                            <div class="category-title">프라프치노</div>
+                            <img src="image/coffe5.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="espresso" onclick="choiceMenu(id)">
+                            <div class="category-title">에스프레소</div>
+                            <img src="image/coffe6.png">
+                        </button>
+                    </div>
+                </div>
+                <div class="row beverage menu" style="padding: 20px;">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="smoothie" onclick="choiceMenu(id)">
+                            <div class="category-title">스무디</div>
+                            <img src="image/bev1.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="aid" onclick="choiceMenu(id)">
+                            <div class="category-title">에이드</div>
+                            <img src="image/bev2.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="juice" onclick="choiceMenu(id)">
+                            <div class="category-title">쥬스</div>
+                            <img src="image/bev3.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="cak" onclick="choiceMenu(id)">
+                            <div class="category-title">칵테일</div>
+                            <img src="image/bev4.png">
+                        </button>
+                    </div>
+
+                </div>
+                <div class="row desert menu" style="padding: 20px;">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="don" onclick="choiceMenu(id)">
+                            <div class="category-title">도넛</div>
+                            <img src="image/desert1.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="prz" onclick="choiceMenu(id)">
+                            <div class="category-title">프레즐</div>
+                            <img src="image/desert2.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="cck" onclick="choiceMenu(id)">
+                            <div class="category-title">컵케잌</div>
+                            <img src="image/desert3.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="cke" onclick="choiceMenu(id)">
+                            <div class="category-title">쿠키</div>
+                            <img src="image/desert4.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="cake" onclick="choiceMenu(id)">
+                            <div class="category-title">케이크</div>
+                            <img src="image/desert5.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="iceCream" onclick="choiceMenu(id)">
+                            <div class="category-title">아이스크림</div>
+                            <img src="image/desert6.png">
+                        </button>
+                    </div>
+                </div>
+                <div class="row etc menu" style="padding: 20px;">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="lat" onclick="choiceMenu(id)">
+                            <div class="category-title">아메리카노</div>
+                            <img src="image/coffe1.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="lat" onclick="choiceMenu(id)">
+                            <div class="category-title">라떼</div>
+                            <img src="image/coffe4.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="lat" onclick="choiceMenu(id)">
+                            <div class="category-title">카라멜마끼</div>
+                            <img src="image/coffe3.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="lat" onclick="choiceMenu(id)">
+                            <div class="category-title">콜드브루</div>
+                            <img src="image/coffe2.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="lat" onclick="choiceMenu(id)">
+                            <div class="category-title">프라프치노</div>
+                            <img src="image/coffe5.png">
+                        </button>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <button class="thumbnail" id="lat" onclick="choiceMenu(id)">
+
+                            <div class="category-title">에스프레소</div>
+                            <img src="image/coffe6.png">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-4"
+                style="border: 1px solid black; margin-left: 10px;  margin-top: 10px;  margin-bottom: 10px;">
+                <div class="col-12">
+                    <div class="row">
+                        <h3>주문목록</h3>
+                    </div>
+                    <div class="row" style="height: 50rem;">
+                        <table border="1" class="col-12" style="text-align: center;">
+                            <thead>
+                                <tr>
+                                    <td>이름</td>
+                                    <td>수량</td>
+                                    <td>가격</td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <h5>할인금액</h5>
+                            <h5>주문금액</h5>
+                        </div>
+                        <div class="col-4" style="text-align: right;">
+                            <h5>11000원</h5>
+                            <h5>5000원</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" style="border: 1px solid black; text-align: center; ">
+                    <h4>결제</h4>
+                </div>
+
+            </div>
+
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h6>Use `col` for Columns that evenly fill across the viewport:</h6>
+        <div class="row mb-5">
+            <div class="col" style="border: 1px solid blue;">col</div>
+            <div class="col" style="border: 1px solid blue;">col</div>
+            <div class="col" style="border: 1px solid blue;">col</div>
+            <div class="col" style="border: 1px solid blue;">col</div>
+            <div class="col" style="border: 1px solid blue;">col</div>
+        </div>
+        <h6>Use `col-auto` for Columns that shrink to fit their content:</h6>
+        <div class="row mb-5">
+            <div class="col" style="border: 1px solid blue;">col</div>
+            <div class="col-auto" style="border: 1px solid blue;">col-auto</div>
+            <div class="col-auto" style="border: 1px solid blue;">col-auto</div>
+            <div class="col" style="border: 1px solid blue;">col</div>
+            <div class="col" style="border: 1px solid blue;">col</div>
+            <div class="col" style="border: 1px solid blue;">col</div>
+        </div>
+        <h6>The Auto-layout Columns can be combined with the 12-unit Columns:</h6>
+        <div class="row mb-5">
+            <div class="col-5" style="border: 1px solid blue;">col-5</div>
+            <div class="col" style="border: 1px solid blue;">col</div>
+            <div class="col-5" style="border: 1px solid blue;">col-5</div>
+        </div>
+        <h6>The Auto-layout Columns have responsive tiers (-sm,-md,-lg,-xl) too!</h6>
+        <div class="row mb-5">
+            <div class="col-md" style="border: 1px solid blue;">col-md</div>
+            <div class="col-md" style="border: 1px solid blue;">col-md</div>
+            <div class="col-md" style="border: 1px solid blue;">col-md</div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12"><span class="float-right">-</span>.container-fluid</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><span class="float-right">-</span>.container</div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col">
+                <h4>One column layout</h4>
+                <p>
+                    Here is my page content. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                    sed quia cor magni dolores
+                    eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
+                    sit amet, consectetur, adipisci velit,
+                    sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                    voluptatem.
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+                    aliquid ex ea commodi consequatur?
+                </p>
+            </div>
+        </div>
+        <!--/row-->
+    </div>
+    <!--container-->
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col">
+                <h4>Left column</h4>
+                <p>
+                    Here is my page content. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                    sed quia cor magni dolores
+                    eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor.
+                </p>
+            </div>
+            <div class="col">
+                <h4>Right column</h4>
+                <p>
+                    Here is my page content. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                    sed quia cor magni dolores
+                    eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor.
+                </p>
+            </div>
+        </div>
+        <!--/row-->
+    </div>
+    <!--container-->
+
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col">
+                <h4>Left column</h4>
+                <p>
+                    Here is my page content. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.
+                </p>
+            </div>
+            <div class="col">
+                <h4>Center column</h4>
+                <p>
+                    Here is my page content. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.
+                </p>
+            </div>
+            <div class="col">
+                <h4>Right column</h4>
+                <p>
+                    Here is my page content. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.
+                </p>
+            </div>
+        </div>
+        <!--/row-->
+    </div>
+    <!--container-->
+    <div class="flex-grow-1 d-flex flex-column">
+        <nav class="navbar navbar-expand-md navbar-light bg-light navbar-expand-md">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <ul class="navbar-nav w-100">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+                <li class="nav-item ml-md-auto"><a href="https://themestr.app/" class="nav-link">Themestr.app</a></li>
+            </ul>
+        </nav>
+        <!-- /bootstrap nav -->
+        <div class="container-fluid">
+            <!-- bootstrap nav -->
+            <div class="row">
+                <div class="col-xl-9 col-lg-10 mx-auto" id="content">
+                    <div class="row">
+                        <div class="col-md pt-5">
+                            <section id="buttons" class="pb-2">
+                                <div class="row">
+                                    <div class="col-12">
+
+                                        <!-- Breadcrumb -->
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Breadcrumb</li>
+                                            </ol>
+                                        </nav>
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="pb-3">
+                                            <button type="button" class="btn btn-primary mr-1">Button</button>
+                                            <button type="button" class="btn btn-outline-primary">Outline</button>
+                                        </div>
+                                        <div class="pb-3">
+                                            <!-- Large Button -->
+                                            <button type="button"
+                                                class="btn btn-primary align-bottom btn-lg mr-1">Large</button>
+
+                                            <!-- Small Button -->
+                                            <button type="button"
+                                                class="btn btn-primary align-bottom btn-sm mr-1">Small</button>
+
+                                            <!-- Link -->
+                                            <a href="#">Text</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 text-right">
+
+                                        <!-- Button toolbar -->
+                                        <div class="btn-toolbar d-inline-block mb-3" role="toolbar"
+                                            aria-label="Toolbar with button groups">
+                                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                <button type="button" class="btn btn-outline-primary">1</button>
+                                                <button type="button" class="btn btn-primary">2</button>
+                                                <button type="button" class="btn btn-primary">3</button>
+                                                <button type="button" class="btn btn-primary">4</button>
+                                            </div>
+                                            <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                                <button type="button" class="btn btn-primary">5</button>
+                                                <button type="button" class="btn btn-primary">6</button>
+                                                <button type="button" class="btn btn-primary">7</button>
+                                            </div>
+                                            <div class="btn-group" role="group" aria-label="Third group">
+                                                <button type="button" class="btn btn-primary">8</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Dropdown Button -->
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Dropdown button
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 py-4">
+                                        <button class="btn btn-primary mr-1 mb-1">Primary</button>
+                                        <button class="btn btn-secondary mr-1 mb-1">Secondary</button>
+                                        <button class="btn btn-info mr-1 mb-1">Info</button>
+                                        <button class="btn btn-danger mr-1 mb-1">Danger</button>
+                                        <button class="btn btn-success mr-1 mb-1">Success</button>
+                                        <button class="btn btn-warning mr-1 mb-1">Warning</button>
+                                        <button class="btn btn-light border mr-1 mb-1">Light</button>
+                                        <button class="btn btn-dark mr-1 mb-1">Dark</button>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="navs" class="py-3">
+                                <div class="row">
+                                    <div class="col-lg-9 pb-4">
+
+                                        <!-- Nav -->
+                                        <ul class="nav">
+                                            <li class="nav-item">
+                                                <a class="nav-link pl-0" href="#">Link</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link disabled" href="#">Disabled</a>
+                                            </li>
+                                        </ul>
+                                        <hr>
+
+                                        <!-- Nav Tabs -->
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#tab1" data-toggle="tab">Tab</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#tab2" data-toggle="tab">Tab</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#tab3" data-toggle="tab">Tab</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link disabled" href="#tab4" data-toggle="tab">Disabled</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content px-1 pt-2">
+                                            <div class="tab-pane active" id="tab1">
+                                                <p>
+                                                    Welcome to my custom Bootstrap 4 test page that is a simple way to
+                                                    see various Bootstrap component examples. Customize Bootstrap with
+                                                    <a href="https://themestr.app">Themestr.app</a>.
+                                                </p>
+                                                <nav aria-label="Page navigation example">
+                                                    <ul class="pagination">
+                                                        <li class="page-item"><a class="page-link" href="#">Previous</a>
+                                                        </li>
+                                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">Next</a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <div class="tab-pane" id="tab2">2. Put a little content in your pane.</div>
+                                            <div class="tab-pane" id="tab3">3. Put some more content in your pane here.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 pb-4">
+
+                                        <!-- Vertical Nav -->
+                                        <ul class="nav nav-pills flex-column mb-3">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#" data-toggle="popover"
+                                                    data-trigger="hover" data-placement="top" data-title="Primary color"
+                                                    data-content="Links and 'active' elements always use the primary color.">Active</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Link</a>
+                                            </li>
+                                        </ul>
+
+
+                                        <!-- Dropdown Split Button -->
+                                        <div class="btn-group mb-3">
+                                            <button type="button" class="btn btn-primary btn-block">Split
+                                                Dropdown</button>
+                                            <button type="button"
+                                                class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Link</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Separated link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="cards" class="bg-faded py-2">
+                                <div class="d-flex my-3">
+
+                                    <!-- Jumbotron -->
+                                    <div class="jumbotron w-100 py-5 mx-auto">
+                                        <h1 class="display-3">Hello, world!</h1>
+                                        <p class="lead">This is a simple hero unit, a simple jumbotron-style component
+                                            for calling extra attention to featured content or information.</p>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-4 mb-4">
+
+                                        <!-- Card -->
+                                        <div class="card border-primary h-100">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <h4 class="card-title text-primary">Card Outline</h4>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content. This has text that may wrap to the next line.
+                                                </p>
+                                                <a href="#" class="btn btn-primary mt-auto">Button</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6 col-lg-4 mb-4">
+                                        <div class="card border-primary h-100">
+                                            <div class="card-body">
+
+                                                <!-- List Group -->
+                                                <div class="list-group">
+                                                    <a href="#"
+                                                        class="list-group-item list-group-item-action active">List
+                                                        Group</a>
+                                                    <a href="#" class="list-group-item list-group-item-action">List
+                                                        item</a>
+                                                    <a href="#" class="list-group-item list-group-item-action">List item
+                                                        2</a>
+                                                    <a href="#"
+                                                        class="list-group-item list-group-item-action disabled">List
+                                                        item 3</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-4 mb-4">
+                                        <div class="card bg-primary text-white h-100">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <h4 class="card-title">Card</h4>
+                                                <p class="card-text">Watch me scale, scale. Now watch me stack, stack.
+                                                    Watch me scale, scale...</p>
+                                                <a href="#" class="btn btn-primary border-white mt-auto">Button</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section>
+                                <h1>Heading 1</h1>
+                                <h2>Heading 2</h2>
+                                <h3>Heading 3</h3>
+                                <h4>Heading 4</h4>
+                                <h5>Heading 5</h5>
+                            </section>
+
+                            <section id="grid" class="py-3">
+                                <p class="lead">The rows &amp; columns of the world famous Bootstrap grid speak for
+                                    themselves.</p>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        6
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card my-1 bg-light">6</div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        5
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="card my-1">7</div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        4
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card my-1">8</div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        3
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="card my-1">9</div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        2
+                                    </div>
+                                    <div class="col-10">
+                                        <div class="card my-1">10</div>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        1
+                                    </div>
+                                    <div class="col-11">
+                                        <div class="card my-1">11</div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="forms" class="py-3">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Forms and Inputs</h4>
+
+                                        <!-- Form -->
+                                        <form role="form">
+                                            <div class="form-group row">
+                                                <label
+                                                    class="col-md-2 col-form-label form-control-label text-muted">First</label>
+                                                <div class="col-md-4">
+                                                    <input class="form-control" type="text" value="Jane">
+                                                </div>
+                                                <label
+                                                    class="col-md-1 col-form-label form-control-label text-muted">Last</label>
+                                                <div class="col-md-5">
+                                                    <input class="form-control" type="text" value="Bishop">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label
+                                                    class="col-lg-2 col-form-label form-control-label text-muted">Address</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" type="text" placeholder="Street">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label
+                                                    class="col-lg-2 col-form-label form-control-label text-muted"></label>
+                                                <div class="col-lg-6">
+                                                    <input class="form-control" type="text" placeholder="City">
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <select class="form-control">
+                                                        <option>State</option>
+                                                        <option>AK</option>
+                                                        <option>AZ</option>
+                                                        <option>CA</option>
+                                                        <option>CO</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row was-validated">
+                                                <label
+                                                    class="col-lg-2 col-form-label form-control-label text-muted">Username</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" type="text" required="">
+                                                    <div class="invalid-feedback">
+                                                        Username is required.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label
+                                                    class="col-lg-2 col-form-label form-control-label text-muted">Password</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" type="password" value="11111122333">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label form-control-label"></label>
+                                                <div class="col-lg-10">
+                                                    <input type="reset" class="btn btn-outline-secondary mr-2"
+                                                        value="Cancel">
+                                                    <input type="button" class="btn btn-primary mr-2" value="Submit">
+                                                    <div class="custom-control custom-checkbox d-inline">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheck" checked="">
+                                                        <label class="custom-control-label" for="customCheck">Check me
+                                                            out</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="more" class="py-2">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover table-sm">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="w-25">Location</th>
+                                                        <th class="w-50">Date</th>
+                                                        <th class="w-25">Visits</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Westfield</td>
+                                                        <td>08.05.18 <span class="badge badge-primary">badge</span></td>
+                                                        <td>2323</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Galway</td>
+                                                        <td>08.05.18 <span
+                                                                class="badge badge-pill badge-primary">badge-pill</span>
+                                                        </td>
+                                                        <td>5362</td>
+                                                    </tr>
+                                                    <tr class="table-primary">
+                                                        <td>Bern</td>
+                                                        <td>08.05.18</td>
+                                                        <td>153</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="w-100 my-4"></div>
+                                    <div class="col-md-12">
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar bg-primary w-25" role="progressbar"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+
+                                        <!-- Alert -->
+                                        <div class="alert alert-primary alert-dismissable show fade" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <strong>Well done!</strong> You successfully read this important alert
+                                            message.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="display.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

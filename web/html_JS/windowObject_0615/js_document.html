@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object</title>
+    <script>
+
+        window.onload = function () {
+            //Tag Element 생성
+            //  <h1></h1> 만들어줌
+            var h1 = document.createElement('h1');
+            // Text Node 생성
+            var text = document.createTextNode('js 에서 동적으로 만든 태그에용')
+
+            //  <h1>hs 에서 동적으로 만든 태그에용</h1>
+            h1.appendChild(text);
+
+            // Tag Element 생성
+            var img = document.createElement('img');
+            img.src = '../../Ex_0605/Iron_man.png';
+            img.width = 200; //스크립트는 무조건 픽셀단위의 수치
+            img.height = 200;
+            // img.alt = '아이언맨사진';
+            img.setAttribute('data-role', 'test-Image');
+
+            //document.body.appendChild(h1);
+            //document.body.appendChild(img);
+
+            //정적 문서에서 문서 객체로 캐스팅하는 방법
+            //  ★★★★document.getElementById('아이디의 속성값');
+            var title = document.getElementById('title');
+            console.log(title);
+
+            title.innerHTML = '<i>' + title.innerHTML + '</i>';
+            title.innerHTML += '안녕하세요';
+
+            //배열형식 반환
+            var jobs = document.getElementsByName('job');
+            console.log(jobs[0].value);
+            console.log(jobs[1].value);
+            var inputs = document.getElementsByTagName('input');
+            console.log(inputs[0].value);
+            console.log(inputs[1].value);
+
+            inputs[0].value = " 하핫";
+            inputs[1].value = " 후훗";
+
+            var h1 = document.querySelector('#title');
+
+            //스타일 조작
+            h1.style.color = 'red';
+
+            console.log(h1.innerHTML);
+            console.log(h1.innerText);//text 요소만
+
+            //배열형식 반환
+            var h1s = document.querySelectorAll('input[type=text]');
+            console.log(h1s);
+            console.log(h1s[0].value);
+            console.log(h1s[1].value);
+
+            var btn_change = document.getElementById('btn')
+            btn_change.onclick = function change() {
+                var header = document.getElementById('title');
+                header.style.fontSize = '16px';
+            };
+
+            document.getElementById('btn_del').onclick = function () {
+                //삭제대상 Element 캐스팅
+                var h1_del = document.getElementById('title');
+
+                //삭제대상의 부모 Element 캐스팅
+                var wrap = document.getElementById('wrap');
+
+                //부모 Element에서 자식 Element를 삭제
+                wrap.removeChild(h1_del);
+            };
+        };
+
+        function change2() {
+            var header = document.getElementById('title');
+            header.style.fontSize = '16px';
+        }
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1 id="title">문서내부에 정의된 h1 태그에용</h1>
+        <h2 id="title">문서내부에 정의된 h2 태그에용</h2>
+
+        <input type="text" name="job" value="one" readonly><br>
+        <input type="text" name="job" value="two"><br>
+        <input type="button" id="btn" value="체인지">
+        <input type="button" value="h1 tag delete" id="btn_del">
+    </div>
+</body>
+
+</html>

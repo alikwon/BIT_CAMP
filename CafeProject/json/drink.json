@@ -1,0 +1,29 @@
+[
+    {
+        "id": "mangosmootie",
+        "name": "망고스무디",
+        "img": "../images/beverage1.jpg",
+        "price": 5500
+    },{
+        "id": "orangesmootie",
+        "name": "오렌지스무디",
+        "img": "../images/beverage2.jpg",
+        "price": 5500
+    },{
+        "id": "peachsmootie",
+        "name": "복숭아스무디",
+        "img": "../images/beverage3.jpg",
+        "price": 5500
+    },{
+        "id": "strawsmootie",
+        "name": "딸기요거트",
+        "img": "../images/beverage4.jpg",
+        "price": 5500
+    },{
+        "id": "earlgrey",
+        "name": "얼그레이",
+        "img": "../images/beverage5.jpg",
+        "price": 3000
+    }
+
+]

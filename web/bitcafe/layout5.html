@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout5</title>
+    <link href="cafe.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="cafe.json"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header-wrap">
+            <div class="header-container">
+                <div id="header">
+                    <label class="btn-cof btn">COFFEE</label>
+                    <label class="btn-bev btn">BEVERAGE</label>
+                    <label class="btn-des btn">DESERT</label>
+                    <label class="btn-etc btn">ETC</label>
+                </div>
+                <div id="cafelogo">
+                </div>
+
+            </div>
+        </div>
+        <!-- <div id="banner-wrap">
+            <div class="banner-container">banner</div>
+
+        </div> -->
+        <div id="content_wrap">
+            <div class="content-container">
+                <div class="main-content">
+                    <div class="swiper-container coffee swiper1" style="display: none;">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="menubox">
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(ice❄️)</div>
+                                            <img src="image/ameice.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="amehot" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(hot🔥)</div>
+                                            <img src="image/amehot.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">에스프레소</div>
+                                            <img src="image/espre.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="latte" onclick="choiceMenu(id)">
+                                            <div class="category-title">카페라떼</div>
+                                            <img src="image/latte.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="menubox">
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(ice❄️)</div>
+                                            <img src="image/amehot.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(hot🔥)</div>
+                                            <img src="image/ameice.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">에스프레소</div>
+                                            <img src="image/espre.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">카페라떼</div>
+                                            <img src="image/latte.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="swiper-container beverage swiper1" style="display: none;">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="menubox">
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(ice❄️)</div>
+                                            <img src="image/applejuice.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="amehot" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(hot🔥)</div>
+                                            <img src="image/amehot.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">에스프레소</div>
+                                            <img src="image/espre.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="latte" onclick="choiceMenu(id)">
+                                            <div class="category-title">카페라떼</div>
+                                            <img src="image/latte.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="menubox">
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(ice❄️)</div>
+                                            <img src="image/amehot.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(hot🔥)</div>
+                                            <img src="image/ameice.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">에스프레소</div>
+                                            <img src="image/espre.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">카페라떼</div>
+                                            <img src="image/latte.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="swiper-container desert swiper1" style="display: none;">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="menubox">
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(ice❄️)</div>
+                                            <img src="image/ameice.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="amehot" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(hot🔥)</div>
+                                            <img src="image/amehot.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">에스프레소</div>
+                                            <img src="image/espre.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="latte" onclick="choiceMenu(id)">
+                                            <div class="category-title">카페라떼</div>
+                                            <img src="image/latte.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="menubox">
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(ice❄️)</div>
+                                            <img src="image/amehot.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(hot🔥)</div>
+                                            <img src="image/ameice.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">에스프레소</div>
+                                            <img src="image/espre.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">카페라떼</div>
+                                            <img src="image/latte.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="swiper-container etc swiper1" style="display: none;">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="menubox">
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(ice❄️)</div>
+                                            <img src="image/bluejuice.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="amehot" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(hot🔥)</div>
+                                            <img src="image/amehot.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">에스프레소</div>
+                                            <img src="image/espre.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="latte" onclick="choiceMenu(id)">
+                                            <div class="category-title">카페라떼</div>
+                                            <img src="image/latte.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="menubox">
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(ice❄️)</div>
+                                            <img src="image/amehot.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">아메리카노<br>(hot🔥)</div>
+                                            <img src="image/ameice.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">에스프레소</div>
+                                            <img src="image/espre.png">
+                                        </label>
+                                    </div>
+                                    <div class="select">
+                                        <label class="thumbnail" id="espre" onclick="choiceMenu(id)">
+                                            <div class="category-title">카페라떼</div>
+                                            <img src="image/latte.png">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+
+                <div class="side-content">
+                    <div class="order">
+                        <div class="orderlist">
+
+                        </div>
+                    </div>
+                    <div class="pay">
+                        <div class="totalcal">
+                            <div class="total">
+                                TOTAL PRICE :
+                            </div>
+                            <div class="totalprice">
+                                10000원
+                            </div>
+                        </div>
+                        <div class="paybuttons">
+                            <div class="paybutton">결&nbsp;&nbsp;제</div>
+                            <div class="resetbutton">초기화</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="footer_wrap">
+            <div class="footer-container"></div>
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script src="display.js"></script>
+    <script src="index.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper1', {
+            observer: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+package TimeTable;
+
+import java.util.ArrayList;
+/*
+ *20.05.05 가격추가  
+ *
+ */
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import Movie.MovieManager;
+
+public class TimeTableManager {
+
+	private LinkedList<TimeTable> table;
+	private int pos;
+	Scanner ip = new Scanner(System.in);
+	MovieManager mManager = MovieManager.getInstance();
+	ScreenManager sManager = ScreenManager.getInstance();
+	int searchIndex;
+	ArrayList<String> timeList;
+
+	public TimeTableManager() {
+		table = new LinkedList<>();
+		timeList = new ArrayList<String>();
+
+		timeList.add("9:00");
+		timeList.add("12:00");
+		timeList.add("15:00");
+		timeList.add("18:00");
+		
+		table.add(new TimeTable(mManager.getMovieList().get(0), sManager.screenList.get(0),"9:00"));
+
+
+	}
+	
+	String calcEndTime(TimeTable timeT) {
+		String restr = timeT.getTime().replaceAll("[^0~9]", "");
+		int hour = timeT.getMovie().getRuntime()/60;
+		int minutes = timeT.getMovie().getRuntime()%60;
+		int end = Integer.parseInt(restr)+minutes+ (hour*100);
+		String endTime = Integer.toString(end);
+		StringBuffer sb = new StringBuffer(endTime);
+		sb.insert(endTime.length()-2, ":");
+		String result= sb.toString();
+		
+		return result;
+	}
+	
+	void add() {
+
+		int selectM;
+		int selectS;
+		int selectT;
+		System.out.println("<<상영관 목록>>");
+		for (int i = 0; i < sManager.screenList.size(); i++) {
+			System.out.print(i + ")");
+			System.out.println(sManager.screenList.get(i).getName());
+			System.out.println("-----------");
+		}
+		System.out.println("영화를 상영할 상영관 입력");
+		selectS = ip.nextInt();
+		ip.nextLine();
+
+		System.out.println("<<시간 목록>>");
+		for (int i = 0; i < timeList.size(); i++) {
+			System.out.print(i+")");
+			System.out.println(timeList.get(i));
+		}
+		Loop1 :while (true) {
+
+			System.out.println("상영할 시간 선택");
+			selectT = ip.nextInt();
+			ip.nextLine();
+
+			for (int i = 0; i < table.size(); i++) {
+				if (sManager.screenList.get(selectS) == table.get(i).getScreen()) {
+					if (timeList.get(selectT).equals(table.get(i).getTime())) {
+						table.get(i).showTimeTable();
+						System.out.println("입력하신 시간에 이미 스케쥴이 있습니다");
+						continue Loop1;
+					}
+				}
+			}
+			break;
+		}
+
+		System.out.println("<<영화 목록>>");
+		for (int i = 0; i < mManager.getMovieList().size(); i++) {
+			System.out.println(i + ")");
+			System.out.println(mManager.getMovieList().get(i).getTitle());
+			System.out.println("-----------");
+		}
+
+		System.out.println("시간 표에 입력하실 영화의 번호를 입력:");
+		selectM = ip.nextInt();
+		ip.nextLine();
+
+		table.add(new TimeTable(mManager.getMovieList().get(selectM), sManager.screenList.get(selectS),timeList.get(selectT)));
+		table.get(0).showTimeTable();
+
+	}
+
+	public int searchIndexNum(String movie) {
+
+		searchIndex = -1;
+
+		for (int i = 0; i < table.size(); i++) {
+			if (table.get(i).checkTimeTable(movie)) {
+				searchIndex = i;
+				break;
+			}
+		}
+		return searchIndex;
+	}
+
+	void edittime(TimeTable tt) {
+
+		tt.showTimeTable();
+		System.out.println("시간을 변경하실 영화를 선택하세요");
+		String movie = ip.nextLine();
+
+		searchIndex = searchIndexNum(movie);
+
+		System.out.println("변경할 시간을 입력하세요");
+
+		System.out.println("시간 입력 :");
+		String h = ip.nextLine();
+		System.out.println("분 입력 :");
+		String min = ip.nextLine();
+
+		String t1 = h + "시" + min + "분";
+
+		table.get(searchIndex).setTime(t1);
+		// -------------
+
+//		table.remove(searchIndex);
+//		TimeTable.add(new TimeTable(movie, screen, time));
+
+	}
+
+	public LinkedList<TimeTable> getTable() {
+		return table;
+	}
+
+	public int getPos() {
+		return pos;
+	}
+
+	public void setPos(int pos) {
+		this.pos = pos;
+	}
+
+}

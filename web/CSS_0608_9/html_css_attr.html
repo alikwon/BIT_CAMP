@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 속성</title>
+	<style>
+/*
+		
+		CSS에서 사용하는 단위 : px, %, em
+		px : 절대단위
+		em : 배수
+		16px = 1em = 100%
+		
+*/
+		
+		tr:nth-child(1)>td:nth-child(2){
+			font-size: 16px;
+			color: red;
+		}
+		tr:nth-child(1)>td:nth-child(3){
+			font-size: 24px;
+			color: #009F00
+		}
+		tr:nth-child(1)>td:nth-child(4){
+			font-size: 32px;
+			color: rgb(0,0,255)
+		}
+		tr:nth-child(2)>td:nth-child(2){
+			font-size: 1em;
+			color: red;
+		}
+		tr:nth-child(2)>td:nth-child(3){
+			font-size: 1.5em;
+			color: #009F00
+		}
+		tr:nth-child(2)>td:nth-child(4){
+			font-size: 2em;
+			color: rgb(0,0,255)
+		}
+		tr:nth-child(3)>td:nth-child(2){
+			font-size: 100%;
+			color: red;
+		}
+		tr:nth-child(3)>td:nth-child(3){
+			font-size: 150%;
+			color: #009F00
+		}
+		tr:nth-child(3)>td:nth-child(4){
+			font-size: 200%;
+			color: rgba(0,0,255);
+		}
+		body{
+			background-image:url('../Ex_0605/image/yourname.jpg');
+			background-size: 100% 20%;
+			background-repeat: repeat;
+			background-attachment: fixed;
+		}
+		hr {
+			border: 0;
+			border-top: thick solid #0000ff;
+		}
+		
+		div.box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		#box1{
+			background-color: aqua;
+			border-width: 5px;
+			border-style: dotted;
+			border-color: cadetblue;
+			padding: 10px;
+			border-radius: 30px;
+		}
+		#box2{
+			background-color: aquamarine;
+		}
+		img {
+			border-radius: 1000px
+		}
+		span{
+			border: 1px solid red;
+		}
+		#box{
+			border:1px solid blue;
+/*			display: none;*/
+/*			display: inline;*/
+		}
+		#sp{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<h1>크기단위, 색상단위, URL단위</h1>
+	<table border="1" >
+		<tr>
+			<th>px</th>
+			<td>html-16px</td>
+			<td>html-24px</td>
+			<td>html-32px</td>
+		</tr>
+		<tr>
+			<th>em</th>
+			<td>html-1em</td>
+			<td>html-1.5em</td>
+			<td>html-2em</td>
+		</tr>
+		<tr>
+			<th>%</th>
+			<td>html5-100%</td>
+			<td>html5-150%</td>
+			<td>html5-200%</td>
+		</tr>
+	</table>
+	<hr>
+	<h1>박스 속성</h1>
+	<div class="box" id="box1">
+		
+	</div>
+	<div class="box" id="box2">
+	</div>
+	<img src="../Ex_0605/image/Iron_man.png">	
+	<hr>
+	<h1>Display 속성</h1>
+	<span id="sp">Dummy</span>
+	<div id="box">
+		<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+	</div>
+	<span>Dummy</span>
+	<hr>
+	
+	<br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,123 @@
+body {
+    background-color: gray;
+}
+
+.navbar{
+    margin: 0;
+}
+.selected {
+     background: #9E9E9E;
+     border-radius: 20%;
+}
+
+.menu-grid {
+    /* overflow: scroll; */
+    background-color: white;
+    border: 3px solid black;
+    /* left: 30px;
+    
+    width: 700px;
+    height: 800px; */
+    height: 800px;
+}
+
+.col-sm-2.menu1 {
+    background-color: black;
+    color: white;
+    height: 139.22px;
+}
+
+.select-grid {
+    background-color: white;
+    border: 3px solid black;
+    /* right: 30px;
+
+    width : 500px;
+    height : 550px; */
+    height: 600px;
+}
+
+.pay-grid {
+    background-color: white;
+    border: 3px solid black;
+    /* margin-top: 50px;
+
+    right: 30px;
+    bottom: 5px;
+    
+    width: 500px;
+    height: 200px; */
+    height: 176px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.select-grid.center{
+    overflow: hidden;
+}
+.menu_coffee,
+.menu_drink,
+.menu_dessert,
+.menu_etclist {
+    display: none;
+}
+
+
+img{
+    width: 100%;
+    height: 80%;
+}
+.col-sm-5.menu1,
+.col-sm-5.menu2,
+.col-sm-5.menu3,
+.col-sm-5.menu4
+{
+    /* background-color: black; */
+    /* color: white; */
+    color: black;
+    height: 300px;
+}
+img:hover:not(.notcss){
+    transform:scale(1.1);
+    cursor: pointer;
+}
+
+/* .swiper-slide{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  } */
+  .swiper-button-next,
+  .swiper-button-prev{
+    --swiper-navigation-color: gray;
+  
+  
+  }
+
+  
+.swiper-slide {
+    font-size: 18px;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 30px;
+}

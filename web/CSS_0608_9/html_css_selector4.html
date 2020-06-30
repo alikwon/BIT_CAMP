@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 선택자</title>
+	<style>
+/*		구조 선택자   */
+		ul {
+			overflow: hidden;
+		}
+
+		#ul>li {
+			/*리스트 앞의 점*/
+			list-style: none;
+			/*정렬방향*/
+			float: left;
+			/*간격*/
+			padding: 15px;
+		}
+
+		/* 첫번째 태그*/
+		#ul>li:first-child {
+			/* 둥글게 */
+			border-radius: 10px 0 0 10px;
+		}
+
+		/* 끝 태그*/
+		#ul>li:last-child {
+			border-radius: 0 10px 10px 0;
+		}
+
+		/* 수열 */
+		#ul>li:nth-child(2n) {
+			background-color: aquamarine;
+		}
+
+		#ul>li:nth-child(2n+1) {
+			background-color: darkcyan;
+		}
+		
+		/* 전체 적용 된다 */
+/*		li > a:first-child { color: red; } */
+		/* 첫번째만 적용하려면 */
+		li:first-child > a { color: red; } 
+		
+/*		문자 선택자   */
+		/* 시작 문자 */
+		p::first-letter { font-size: 3em; } 
+		p::first-line { color: darkorchid; }
+		
+		/* 반응 문자 */
+		p::selection { background: black; color: red; }
+		
+/*		링크 선택자   */
+		a { text-decoration: none; }
+		a:visited { color: red; }
+		/* href 속성을 가지고 있는 a 태그 뒤의 공간에 
+		"- (href 속성)"을 추가합니다. */
+		a:link::after { content: ' - ' attr(href); }
+		a:hover{
+			text-decoration: overline underline; 
+		}
+/*		부정 선택자   */
+		input:not([type=password]) {
+		background: red;
+		}
+	</style>
+</head>
+
+<body>
+	<h1> 구조선택자 </h1>
+	<ul id="ul">
+		<li>First</li>
+		<li>Second</li>
+		<li>Third</li>
+		<li>Fourth</li>
+		<li>Fifth</li>
+		<li>Sixth</li>
+		<li>Seventh</li>
+	</ul>
+	<br>
+	<ul>
+		<li><a href="#">Condrasa</a></li>
+		<li><a href="#">Condrasa</a></li>
+		<li><a href="#">Condrasa</a></li>
+		<li><a href="#">Condrasa</a></li>
+		<li><a href="#">Condrasa</a></li>
+	</ul>
+	<hr>
+	<h1> 문자 선택자 </h1>
+	<h2>Lorem ipsum dolor sit amet</h2> 
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+	<p>Aenean ac erat et massa <br>vehicula laoreet consequat et sem.</p>
+	<p> 안녕하세요</p>
+	<hr>
+	<h1> 링크 선택자 </h1>
+	<h2><a>Nothing</a></h2>
+	<h2><a href="http://www.naver.com">Naver</a></h2>
+	<h2><a href="http://www.w3.org/">W3C</a></h2>
+	<h2><a href="https://github.com/">Github</a></h2>
+	<hr>
+	<h1>부정 선택자</h1>
+	<input type="password">
+	<input type="text">
+	<input type="password">
+	<input type="text">
+	
+	
+	<br><br><br><br><br><br><br><br><br>
+	</body>
+
+</html>
