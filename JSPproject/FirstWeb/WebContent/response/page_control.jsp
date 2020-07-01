@@ -9,6 +9,6 @@
 <body>
 	<h1>안녕하세요. pagecontrol 페이지임</h1>
 	<% response.sendRedirect("../index.jsp"); %>
-	
+	<!--<jsp:forward page="../index.jsp"/>-->
 </body>
 </html>
