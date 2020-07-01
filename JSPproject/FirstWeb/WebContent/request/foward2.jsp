@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<!-- post를 쓰면 깨지기 때문에 request의 setChracterEncoding()메서드 사용-->
 <%
-	request.setCharacterEncoding("utf-8");
+	
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사용자의 요청정보 출력</title>
+<title>포워드2</title>
 </head>
 <body>
 	<table border="1">
@@ -52,11 +50,9 @@
 		</tr>
 		<tr>
 			<td>요청 정보</td>
-			<td><%=request.getProtocol()%><br> <!-- URL : 주소 다가져옴 -->
-				<!-- URI : localhost:8080 뒤 주소 가져옴 --> <%=request.getRequestURL()%><br>
-				<%=request.getRequestURI()%></td>
+			<td><%=request.getProtocol()%><br> <!-- URL : 주소 다가져옴 --> <!-- URI : localhost:8080 뒤 주소 가져옴 -->
+				<%=request.getRequestURL()%><br> <%=request.getRequestURI()%></td>
 		</tr>
 	</table>
-	
 </body>
 </html>
