@@ -2,6 +2,9 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	String userName = (String)session.getAttribute("username");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +24,14 @@
 	<br>
 	오늘의 날짜와 시간은 : 
 	<%= new java.util.Date() %>
-
+	<br>
+	현재 접속중인 사용자의 이름 : <%= userName %>
+	<br>
+	
+	<!-- 갱신 -->
+	<%
+		session.setAttribute("username", "KING");
+	%>
+	<a href="session/sessionView01.jsp">KING으로 다시 set</a>
 </body>
 </html>
