@@ -9,6 +9,8 @@
 	String cookieName = "";
 	if(uid!=null && chk!=null){
 		response.addCookie(CookieBox.createCookie(uid, pw, "/aiaweb/member", -1));
+	}else{
+		
 	}
 %>
 <!DOCTYPE html>
