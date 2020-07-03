@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>로그인 정보</h1>
-	<table border="1">
+	<table>
 		<tr>
 			<td>아이디</td>
 			<td><%= request.getParameter("id") %></td>
@@ -20,7 +20,7 @@
 		<tr>
 			<td>아이디 저장</td>
 			<td>
-			<%= request.getParameter("check")%>
+			<%= request.getParameter("chk") %>
 			</td>
 		</tr>
 	</table>

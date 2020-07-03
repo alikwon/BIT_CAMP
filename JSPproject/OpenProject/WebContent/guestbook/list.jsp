@@ -16,7 +16,7 @@
 	<%@ include file="/include/header.jsp" %>
 	
 	<div>
-		<h1>방명록</h1>
+		<h1>비회원 방명록 입니다</h1>
 	</div>
 	<%@ include file="/include/footer.jsp" %>
 

@@ -16,7 +16,8 @@
 	<%@ include file="/include/header.jsp" %>
 	
 	<div>
-		<h1>로그인</h1>
+		<h1>홈 화면</h1>
+		<img src="https://lh3.googleusercontent.com/proxy/1DvPNIvYAOVxRSQNXRRUrwi-UVSdMdQ0yslVU1xzLR44YURzCSIFEOi3dOwpAMqeVuIWofrr8pNoHTG_uUX3gHpreYhCPr1eD45Jubew7AuPS-dC2LUgncv28lKu6JpJ"/>
 	</div>
 	<%@ include file="/include/footer.jsp" %>
 
