@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
-	<head>
-	<title>Ex1_Login</title>
-	<meta charset="UTF-8">
+<head>
+<title>Ex1_Login</title>
+<meta charset="UTF-8">
 </head>
 
 <body>
 	<h1>회원 로그인</h1>
 	<hr>
-	<form action="" method="get">
+	<form action="loginResult.jsp" method="post">
 		<table>
 			<tr>
 				<td>아이디(이메일)</td>
@@ -19,9 +19,10 @@
 				<td><input type="password" name="pw"><br></td>
 			</tr>
 			<tr>
-				<td></td>
+				<td><input type="checkbox" name="check" />아이디저장</td>
 				<td><input type="submit" value="로그인"></td>
 			</tr>
 		</table>
 	</form>
-</body></html>
+</body>
+</html>
