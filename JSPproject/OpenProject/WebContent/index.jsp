@@ -17,7 +17,7 @@
 	
 	<div>
 		<h1>홈 화면</h1>
-		<img src="https://lh3.googleusercontent.com/proxy/1DvPNIvYAOVxRSQNXRRUrwi-UVSdMdQ0yslVU1xzLR44YURzCSIFEOi3dOwpAMqeVuIWofrr8pNoHTG_uUX3gHpreYhCPr1eD45Jubew7AuPS-dC2LUgncv28lKu6JpJ"/>
+		<img src="https://www.bloter.net/wp-content/uploads/2016/08/%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0-%EC%82%AC%EC%A7%84.jpg"/>
 	</div>
 	<%@ include file="/include/footer.jsp" %>
 
