@@ -24,6 +24,7 @@
 <!-- href 로드되는건 루트경로 잡아줘야함 -->
 <link rel="stylesheet"
 	href="<%= request.getContextPath()%>/css/default.css" />
+
 </head>
 <body>
 	<!-- 절대경로 / 쓰면 루트경로 -->
@@ -36,6 +37,7 @@
 				<tr>
 					<td>아이디(이메일)</td>
 					<td><input type="text" name="id" value="<%= uidValue %>"><br></td>
+					<td><input type="button" value="중복체크"/></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
