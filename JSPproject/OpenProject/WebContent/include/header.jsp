@@ -16,6 +16,7 @@
 %>
 <h1 id="header">Open Project</h1>
 <ul id="nav">
+	<li><a href="${pageContext.request.contextPath}/member/memberRegForm.jsp">회원가입</a></li>
 	<li><a href="<%= request.getContextPath() %>/member/memberRegForm.jsp">회원가입</a></li>
 	<li><a href="<%= request.getContextPath()+displayLogin%>"><%= text %></a></li>
 	<li><a href="<%= request.getContextPath() %>/member/mypage/mypage.jsp">마이페이지</a></li>
