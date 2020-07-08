@@ -41,8 +41,6 @@
 	%>
 	<%-- <jsp:forward page="empList_view"/> --%>
 	
-	<%-- ${empList} --%>
-	
 	<table border="1">
 		<tr>
 			<th>사원 번호</th>
