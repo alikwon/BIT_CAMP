@@ -40,7 +40,6 @@ public class LifeCycleEx extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("dopost");
 	}
-	/*
 	@PostConstruct
 	private void initPostConstruct() {
 		System.out.println("initPostConstruct");
@@ -50,5 +49,4 @@ public class LifeCycleEx extends HttpServlet {
 	private void destroyPreDestroy() {
 		System.out.println("destroyPreDestroy");
 	}
-	*/
 }

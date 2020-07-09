@@ -21,7 +21,7 @@ public class Loader extends HttpServlet{
 			while(st.hasMoreTokens()) {
 				String driver = st.nextToken();
 				Class.forName(driver);
-				System.out.println(driver+"드라이버 로드~~성공!!!");
+				System.out.println(driver+"드라이버 로드~~성공!!! loader");
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

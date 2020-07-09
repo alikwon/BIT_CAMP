@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 const IMG_NUM = 8;
-
+const a = document.getElementsByClassName("write");
 function handleImgLoad(){
     console.log("load finish")
 }
