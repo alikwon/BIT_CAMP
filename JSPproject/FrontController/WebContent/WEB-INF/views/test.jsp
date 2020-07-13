@@ -7,12 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Index</h1>
-	<ul>
-		<li><a href="index">index</a></li>
-		<li><a href="greeting">greeting</a></li>
-		<li><a href="date">date</a></li>
-		<li><a href="test">test</a></li>
-	</ul>
+	<h1>오늘 골넣은 사람 누규~~~?? <br>
+	${name}</h1>
 </body>
 </html>
