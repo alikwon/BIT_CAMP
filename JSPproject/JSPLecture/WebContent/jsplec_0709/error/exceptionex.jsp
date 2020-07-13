@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page isErrorPage="true" %>
+<%@ page errorPage="errorPage.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>404</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>NullPointerException 발생</h1>
-	<a href="<%= request.getContextPath()%>/index.jsp">홈으로 가기</a>
+	<% int i = 40/0; %>
+	name 파라미터 값: <%= request.getParameter("name").toUpperCase() %>
+	
 </body>
 </html>

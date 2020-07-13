@@ -8,7 +8,7 @@
 <title>404</title>
 </head>
 <body>
-	<h1>NullPointerException 발생</h1>
+	<h1>잘못된 요청 입니다. 경로를 다시 확인하시고 요청해주세요.</h1>
 	<a href="<%= request.getContextPath()%>/index.jsp">홈으로 가기</a>
 </body>
 </html>

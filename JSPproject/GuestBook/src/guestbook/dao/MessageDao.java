@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import guestbook.model.Message;
@@ -19,7 +20,6 @@ public class MessageDao {
 	public static MessageDao getInstance() {
 		return dao;
 	}
-
 	public int insertMessage(Connection conn, Message message) throws SQLException {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
