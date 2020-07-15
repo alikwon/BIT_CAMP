@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>잘못된 요청입니다.</h1>
-	<a href="<%= request.getContextPath() %>/index">홈으로가기</a>
+	<a href="index">홈으로가기</a>
 </body>
 </html>

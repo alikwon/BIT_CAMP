@@ -108,6 +108,7 @@ public class ReportRegService {
 				dao = ReportDao.getInstance();
 				resultCnt = dao.insertReport(conn, report);
 				
+				//응답을 report에 저장
 				request.setAttribute("report", report);
 			}
 		} catch (FileUploadException e) {

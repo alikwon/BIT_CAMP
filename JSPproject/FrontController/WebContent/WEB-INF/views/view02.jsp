@@ -9,5 +9,6 @@
 <body>
 	<h1>현재시간! view02</h1>
 	<h1>${result}</h1>
+	<a href="index">홈으로가기</a>
 </body>
 </html>

@@ -144,13 +144,13 @@ public class FrontController extends HttpServlet{
 //		}
 		
 		String page = service.getViewPage(request, response);
-		
+//		service.getViewPage(request, response);
 	
 		// 5. 포워딩
-		RequestDispatcher dispatcher = request.getRequestDispatcher(page);
-		dispatcher.forward(request, response);
-		
-		
+		if ( page != null ) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+			dispatcher.forward(request, response);
+		}
 	}
 
 

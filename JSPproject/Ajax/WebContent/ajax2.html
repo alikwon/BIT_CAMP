@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+	<input type="text" id="uid">
+	<h3 id="checkmsg"></h3>
+	
+</body>
+</html>
+<script>
+	$(function(){
+		
+	});
+	$(document).ready(function(){
+		
+		$('#uid').focusout(function(){
+			$.ajax({
+				url: 'idCheck.jsp',
+				type : 'get', //GET,POST,PUT,DELETE
+				data : {uid: $(this).val()},
+				success : function(data){
+					
+					if(data=='Y'){
+						$('#checkmsg').html('사용가능한 아이디에염');
+					}else{
+						$('#checkmsg').html('ID 사용불가염');
+						
+					}
+				}
+			});
+			
+		});		
+		
+	});
+</script>

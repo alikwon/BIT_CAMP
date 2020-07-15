@@ -42,6 +42,7 @@ public class FrontController extends HttpServlet{
 		
 		//설정파일의 시스템절대경로
 		String configFile = config.getServletContext().getRealPath(path);
+		System.out.println("config : " +configFile);
 		//1. 외부 설정파일의 내용을 메모리의 데이터로 이동
 		Properties prop = new Properties();
 		FileInputStream fis = null;
@@ -119,8 +120,7 @@ public class FrontController extends HttpServlet{
 //		/fc/simple --> URI
 		String type = null;
 		String command = req.getRequestURI();
-		System.out.println(command);
-		System.out.println(command.indexOf(req.getContextPath()));
+		System.out.println("command : "+command);
 		if(command.indexOf(req.getContextPath())== 0) { //ContextPate의 인덱스 시작이 0이면
 			//시작인덱스 이후를 뽑아냄 --> contextpate 이후의 스트링을 뽑아냄
 			type = command.substring(req.getContextPath().length()); 

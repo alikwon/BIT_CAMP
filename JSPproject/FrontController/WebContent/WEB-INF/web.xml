@@ -16,6 +16,7 @@
   	<servlet-name>SimpleController</servlet-name>
   	<url-pattern>/simple</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   	<servlet-name>FrontController</servlet-name>
   	<servlet-class>controller.FrontController</servlet-class>

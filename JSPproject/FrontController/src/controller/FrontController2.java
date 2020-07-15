@@ -33,11 +33,11 @@ public class FrontController2 extends HttpServlet{
 		//String type = request.getParameter("type");
 		String type = null;
 		String command = request.getRequestURI();
-		System.out.println(command);
-		System.out.println(command.indexOf(request.getContextPath()));
+		System.out.println("command : "+command);
+		System.out.println("contextpath : "+request.getContextPath());
 		
 		// /fc/date
-		if(  command.indexOf(request.getContextPath()) == 0 ) {
+		if(command.indexOf(request.getContextPath()) == 0 ) {
 			type = command.substring(request.getContextPath().length());
 		}
 		

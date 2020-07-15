@@ -9,5 +9,6 @@
 <body>
 	<h1>오늘 골넣은 사람 누규~~~?? <br>
 	${name}</h1>
+	<a href="index">홈으로가기</a>
 </body>
 </html>

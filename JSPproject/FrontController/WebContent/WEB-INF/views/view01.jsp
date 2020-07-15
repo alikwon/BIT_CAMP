@@ -9,5 +9,6 @@
 <body>
 	<h1>환영합니다.view01</h1>
 	<h1>${result}</h1>
+	<a href="index">홈으로</a>
 </body>
 </html>

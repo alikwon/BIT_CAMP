@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+	<h1>메뉴</h1>
+	<h3></h3>
+</body>
+</html>
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			url : 'data.xml',
+			success : function(data){
+				$(data).find('product').each(function(){
+					name= $(this).find('name').text();
+					price= $(this).find('price').text();
+					$('<h3></h3>').html('제품 :'+name+'<br> 가격 : '+price).appendTo('body');
+					$('body').append('<h3> 제품 :'+name+'<br> 가격 : '+price+'</h3>');
+				});
+			}
+		});
+		
+	});
+</script>
