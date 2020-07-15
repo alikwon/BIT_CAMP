@@ -37,9 +37,9 @@
 	</table>
 	</div>
 	<div class="edit_del_div">
-	<a href="memberEditForm.do">수정</a>
+	<a href="memberEditForm.do">회원정보수정</a>
 	&nbsp;&nbsp;&nbsp;
-	<a href="memberDelConfirm.do">삭제</a>
+	<a href="memberDelConfirm.do">탈퇴</a>
 	</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>

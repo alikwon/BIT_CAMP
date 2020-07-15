@@ -149,4 +149,20 @@ public class MemberDao {
 		}
 		return member;
 	}
+	public int deleteMember(Connection conn, String uid) throws SQLException{
+		int resultCnt=0;
+		PreparedStatement pstmt=null;
+		String sql = "delete from project.member where uid=?";
+		try {
+			pstmt= conn.prepareStatement(sql);
+			pstmt.setString(1, uid);
+			resultCnt = pstmt.executeUpdate();
+		}finally {
+			if (pstmt != null) {
+				pstmt.close();				
+			}
+		}
+		
+		return resultCnt;
+	}
 }

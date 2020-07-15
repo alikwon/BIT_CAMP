@@ -6,10 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>DELETE CONFIRM</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
 <style>
 </style>
+<script>
+	$(document).ready(function(){
+		if(!confirm("정말로 삭제할거임??")){
+			history.go(-1);
+		}
+	});
+</script>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 		<h1>비밀번호 확인</h1>
@@ -20,13 +28,6 @@
 			</form>
 		</div>
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
-<script>
-	$(document).ready(function(){
-		$('#confirm').submit(function(){
-			
-		});
-	});
-</script>
 </body>
 
 </html>
