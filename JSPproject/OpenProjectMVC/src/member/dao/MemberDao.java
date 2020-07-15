@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import member.model.Member;
 
@@ -60,5 +63,60 @@ public class MemberDao {
 			}
 		}
 		return resultCnt;
+	}
+	public int selectTotalCnt(Connection conn) throws SQLException {
+		int resultCnt = 0;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			stmt = conn.createStatement();
+			String sql = "select count(*) from project.member";
+			rs= stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				resultCnt= rs.getInt(1);
+			}
+		} finally {
+			if(stmt!=null) {
+				stmt.close();
+			}
+			if(rs!=null) {
+				rs.close();
+			}
+		}
+		return resultCnt;
+	}
+	public List<Member> selectMemberList(Connection conn, int startRaw, int mESSAGE_COUNT_PER_PAGE) throws SQLException {
+		List<Member> list = new ArrayList<Member>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Member mb;
+		String sql = "select idx,uid,upw,uname,uphoto,regdate from project.member limit ?,?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRaw);
+			pstmt.setInt(2, mESSAGE_COUNT_PER_PAGE);
+			rs= pstmt.executeQuery();
+			
+			while(rs.next()) {
+				mb = new Member(
+							rs.getInt("idx"), 
+							rs.getString("uid"), 
+							rs.getString("upw"), 
+							rs.getString("uname"), 
+							rs.getString("uphoto"), 
+							rs.getDate("regdate"));
+				list.add(mb);
+			}
+		}finally {
+			if (rs != null) {
+				rs.close();				
+			}
+			if (pstmt != null) {
+				pstmt.close();				
+			}
+		}
+		return list;
 	}
 }

@@ -50,6 +50,12 @@ input[type=text], input[type=password],input[type=email]{
 	padding : 3px;
 }
 
+.check_not{
+	color : red;
+}
+.check_ok{
+	color : blue;
+}
 
 
 
