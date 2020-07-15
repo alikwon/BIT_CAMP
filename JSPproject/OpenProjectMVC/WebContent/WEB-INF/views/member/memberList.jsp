@@ -67,7 +67,7 @@ td{
 					<td>${member.uid}</td>
 					<td>${member.uname}</td>
 					<td>${member.regdate}</td>
-					<%-- <td><a href="memberDel.do?delid=${member.uid}">삭제</a></td> --%>
+					<td><a href="memberDel.do?delid=${member.uid}">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</table>

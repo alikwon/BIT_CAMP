@@ -4,18 +4,24 @@ import java.sql.Connection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import member.dao.MemberDao;
+import member.model.Member;
 import service.Service;
 
 public class MemberDelServiceImpl implements Service {
 
-	private MemberDao dao;
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
-		Connection conn = null;
-		String uid = request.getParameter("delid");
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("loginInfo");
+		String upw = member.getUpw();
+		String chkpw = request.getParameter("upw");
 		
+		if(upw==chkpw) {
+			
+		}
 		
 		return "/WEB-INF/views/member/memberList.jsp";
 	}

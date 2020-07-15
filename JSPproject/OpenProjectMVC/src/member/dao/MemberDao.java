@@ -119,4 +119,34 @@ public class MemberDao {
 		}
 		return list;
 	}
+	public Member logincheck(Connection conn, String uid, String upw) throws SQLException {
+		int result=0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Member member =null;
+		String sql = "select * from project.member where uid=?";
+		try {			
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, uid);
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new Member(
+						rs.getInt("idx"), 
+						rs.getString("uid"), 
+						rs.getString("upw"), 
+						rs.getString("uname"), 
+						rs.getString("uphoto"), 
+						rs.getDate("regdate"));
+			}
+		}finally {
+			if (rs != null) {
+				rs.close();				
+			}
+			if (pstmt != null) {
+				pstmt.close();				
+			}
+		}
+		return member;
+	}
 }
