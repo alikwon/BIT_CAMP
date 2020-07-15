@@ -5,14 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>REG FORM</title>
-
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
-
 <style>
-
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
 </head>
 <body>
 
