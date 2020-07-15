@@ -14,11 +14,19 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 		<h1>비밀번호 확인</h1>
 		<div>
-			<form action="memberDel.do">
+			<form id="confirm" action="memberDel.do">
 				<input type="password" name="upw"/>
 				<input type="submit" value="확인"/>
 			</form>
 		</div>
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+<script>
+	$(document).ready(function(){
+		$('#confirm').submit(function(){
+			
+		});
+	});
+</script>
 </body>
+
 </html>

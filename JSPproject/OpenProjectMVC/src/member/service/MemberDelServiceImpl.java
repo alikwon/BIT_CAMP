@@ -18,12 +18,12 @@ public class MemberDelServiceImpl implements Service {
 		Member member = (Member)session.getAttribute("loginInfo");
 		String upw = member.getUpw();
 		String chkpw = request.getParameter("upw");
-		
+		Connection conn =null;
 		if(upw==chkpw) {
 			
 		}
 		
-		return "/WEB-INF/views/member/memberList.jsp";
+		return "/WEB-INF/views/member/memberDelete.jsp";
 	}
 
 }
