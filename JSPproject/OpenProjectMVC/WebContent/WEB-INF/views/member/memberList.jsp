@@ -32,9 +32,11 @@ td{
 		opacity: 0.8;
 }
 .paging{
+	padding-left : 30%;
 	margin-left: 30px;
 	margin-top: 15px;
 	align-items: center;
+	height: 40px;
 }
 
 .list_num_sel{
@@ -48,7 +50,10 @@ td{
 }
 .list{
 	width : 100%;
-	height: 200px;
+	height: 400px;
+}
+#thumbnail{
+	width : 40px;
 }
 </style>
 <body>
@@ -59,6 +64,7 @@ td{
 			<tr class="category">
 				<td>아이디</td>
 				<td>이름</td>
+				<td>사진</td>
 				<td>가입날짜</td>
 				
 			</tr>
@@ -66,8 +72,9 @@ td{
 				<tr class="member_box">
 					<td>${member.uid}</td>
 					<td>${member.uname}</td>
+					<td><img src="<c:url value="${member.uphoto}"/>" id="thumbnail"/></td>
 					<td>${member.regdate}</td>
-					<td><a href="memberDel.do?delid=${member.uid}">삭제</a></td>
+		<%-- 			<td><a href="memberDel.do?delid=${member.uid}">삭제</a></td> --%>
 				</tr>
 			</c:forEach>
 		</table>
@@ -80,8 +87,6 @@ td{
 		</c:forEach>
 	</c:if>
 	</div>
-	<br><br><br><br><br>
-	<a href="/index.do">홈으로</a>
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
