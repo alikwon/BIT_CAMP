@@ -1,5 +1,6 @@
 package member.service;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -34,6 +35,15 @@ public class MemberDelServiceImpl implements Service {
 				dao= MemberDao.getInstance();
 				resultCnt = dao.deleteMember(conn,uid);
 				session.invalidate();
+				
+				File oFile = new File(request.getSession().getServletContext().getRealPath(member.getUphoto()));
+				// oldFile 경로 이름으로 표시된 파일 또는 디렉터리가 있는 경우에만 true, 그렇지 않으면 false
+				if(oFile.exists()) {
+					//파일 또는 디렉토리가 성공적으로 삭제된 경우에만 true, 그렇지 않으면 false
+					if(oFile.delete()) {
+						System.out.println("이전 파일은 삭제되엇습니다.");
+					}
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

@@ -68,16 +68,15 @@ public class FrontController extends HttpServlet{
 			String command = (String) itr.next();
 			// 사용자 요청의 처리를 위한 클래스 이름, 정보
 			String serviceClassName = prop.getProperty(command);
-			
 			try {
 				// 인스턴스 생성을 위한 Class 객체
-				Class serviceClass = Class.forName(serviceClassName);
-				
-				// 인스턴스 생성
-				Service service = (Service) serviceClass.newInstance();
-				
+//				Class serviceClass = Class.forName(serviceClassName);
+//				
+//				// 인스턴스 생성
+//				Service service = (Service) serviceClass.newInstance();
+				Service service = (Service) Class.forName(serviceClassName).newInstance();
 				commands.put(command, service);
-				System.out.println(command + "=" + service );
+				System.out.println(command + "=" + service ); 
 				
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block

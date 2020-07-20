@@ -29,6 +29,7 @@
 		<tr>
 			<td>사진</td>
 			<td><img src="<c:url value="${loginInfo.uphoto}"/>"></td>
+			<c:url value="${loginInfo.uphoto}"/>
 		</tr>
 		<tr>
 			<td>가입날짜</td>
@@ -36,11 +37,30 @@
 		</tr>
 	</table>
 	</div>
+	<form name="test">
+		<input type="hidden" name="uid"/> 
+		<input type="hidden" name="upw"/> 
+	</form>
 	<div class="edit_del_div">
 	<a href="memberEditForm.do">회원정보수정</a>
+	<%-- <a href="javascript:page_move('${loginInfo.uid}','${loginInfo.upw}')">수정폼</a> --%>
+	
 	&nbsp;&nbsp;&nbsp;
 	<a href="memberDelConfirm.do">탈퇴</a>
 	</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+<script>
+	
+ 	function page_move(uid,upw){
+	    var f = document.test; //폼 name
+	    f.uid.value = uid; //POST방식으로 넘기고 싶은 값
+	    f.upw.value = upw; //POST방식으로 넘기고 싶은 값
+	    f.action="memberEditForm.do";//이동할 페이지
+	    f.method="post";//POST방식
+	    f.submit();
+	}
+
+
+</script>
 </body>
 </html>

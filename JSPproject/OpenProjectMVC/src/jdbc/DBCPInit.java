@@ -45,6 +45,11 @@ public class DBCPInit extends HttpServlet {
 							  + "useUnicode=true&"
 							  + "characterEncoding=utf-8&"
 							  + "serverTimezone=UTC";
+//			String jdbcDriver = "jdbc:mysql://aia.cgcmfq7auqmh.ap-northeast-2.rds.amazonaws.com:3306/project?"
+//							  + "autoReconnect=true&"
+//							  + "useUnicode=true&"
+//							  + "characterEncoding=utf-8&"
+//							  + "serverTimezone=UTC";
 			String username = "bit";
 			String pw = "bit";
 			

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+<script>
+	var apiURL = 'tourweather.jsp';
+	var params = {
+			serviceKey : 'erExZTbqugByetOUL%2B%2FeGnDHua6EsxmSZqLJfaNmCX3f7zzFb8r8w4kJBbs9qvEGMQkxsYTXdcVqn%2BCgzMusQg%3D%3D',
+			pageNo : 1,
+			numOfRows : 10,
+			dataType : 'XML',
+			CURRENT_DATE : '2020071623',
+			HOUR : 24,
+			COURSE_ID : 1
+	}
+	$(document).ready(function(){
+		$.ajax({
+			url : 'tourweather.jsp',
+			type : 'get',
+			data : params,
+			dataType : 'XML',
+			contentType: 'text/xml; charset=utf-8',
+			success : function(data){
+				$('body').html(new XMLSerializer().serializeToString(data));
+				
+			},
+			error:function(request,status,error){
+			    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+
+		});
+	});
+	
+
+</script>
+</body>
+</html>

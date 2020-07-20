@@ -39,7 +39,6 @@ public class MemberDao {
 		}
 		return resultCnt;
 	}
-	
 	public int selectById(Connection conn, String id) throws SQLException {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;

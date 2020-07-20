@@ -30,7 +30,6 @@ public class MemberEditServiceImpl implements Service {
 		// 사진 수정이 발생했을 때 기존 사진을 삭제하기위해 로그인한 객체를 가져옴
 		Member loginInfo = (Member) session.getAttribute("loginInfo");
 		int resultCnt = 0;
-		int idx = -1;
 		String upw = null;
 		String uname = null;
 		String oldFile = loginInfo.getUphoto();
