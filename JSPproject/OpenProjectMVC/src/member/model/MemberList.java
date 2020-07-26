@@ -19,7 +19,6 @@ public class MemberList {
 		private int startRaw;
 		public MemberList(List<Member> mbList, int memberTotalCount, int currentPageNumber, int pageTotalCount,
 				int memberCountPerPage, int startRaw) {
-			super();
 			this.mbList = mbList;
 			this.memberTotalCount = memberTotalCount;
 			this.currentPageNumber = currentPageNumber;
