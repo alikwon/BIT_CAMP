@@ -23,8 +23,9 @@ public class Program {
 				new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		
 		//ExamConsole console = (ExamConsole) context.getBean("console");
+		//getBean으로 가져오게 되면 싱글턴을 보장 
 		ExamConsole console = context.getBean("console",ExamConsole.class);
-		console.print();
+		console.print(); 
 		
 		
 	}
