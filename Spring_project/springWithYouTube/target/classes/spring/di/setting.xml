@@ -9,9 +9,9 @@
 		<property name="kor">
 			<value>10</value>
 		</property>
-		<property name="eng" value="10"></property>
-		<property name="math" value="10"></property>
-		<property name="com" value="10"></property>
+		<property name="eng" value="10"/>
+		<property name="math" value="10"/>
+		<property name="com" value="10"/>
 	</bean>
 	
 	<!-- ExamConsole console = new GridExamConsole(exam); -->
