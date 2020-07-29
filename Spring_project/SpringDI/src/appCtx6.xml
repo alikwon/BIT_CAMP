@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- byName을 쓰기위해 id를 dao로 바꿔줌 -->
+	<bean id="dao" class="di.dao.MemberDao"></bean>
+	
+	<!-- MemberDao2를 만든뒤엔 문제가 됨 -->
+	<!-- <bean id="dao2" class="di.dao.MemberDao2"></bean> -->
+	
+	<!-- 의존관계 자동설정  autowire -->
+	<bean id="memberregSvc" 
+		  class="di.service.MemberRegisterService2" 
+		  autowire="byName">
+		
+	</bean>
+	
+	<bean id="memberPwSvc" 
+		  class="di.service.ChangePasswordService2"
+		  autowire="byType">
+		
+	</bean>
+</beans>

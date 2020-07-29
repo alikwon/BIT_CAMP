@@ -11,6 +11,7 @@ public class MemberRegisterService {
 	
 	private MemberDao memberDao;
 
+	//생성자 를 이용한 주입
 	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}

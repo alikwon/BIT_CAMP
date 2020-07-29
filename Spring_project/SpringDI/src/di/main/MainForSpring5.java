@@ -8,17 +8,17 @@ import di.domain.RegisterRequest;
 import di.exception.AlreadyExistingMemberException;
 import di.exception.IdPasswordNotMatchingException;
 import di.exception.MemberNotFoundException;
-import di.service.ChangePasswordService2;
-import di.service.MemberRegisterService2;
+import di.service.ChangePasswordService4;
+import di.service.MemberRegisterService4;
 
-public class MainForSpring {
-	
+public class MainForSpring5 {
+	//어노테이션 설정하면 생성자나 setter가 없더라도 괜찮쓰
 	private static GenericXmlApplicationContext ctx = null;
 
 	public static void main(String[] args) {
 		
-		ctx = new GenericXmlApplicationContext("classpath:appCtx2.xml");
-
+		ctx = new GenericXmlApplicationContext("classpath:appCtx9.xml");
+		
 		Scanner reader = new Scanner(System.in);
 		while (true) {
 			System.out.println("명렁어를 입력하세요:");
@@ -46,7 +46,7 @@ public class MainForSpring {
 		}
 		
 		//Spring Container 객체 저장 타입은 Object
-		MemberRegisterService2 regSvc = ctx.getBean("memberregSvc", MemberRegisterService2.class);
+		MemberRegisterService4 regSvc = ctx.getBean("memberRegisterService4", MemberRegisterService4.class);
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail(arg[1]);
 		req.setName(arg[2]);
@@ -69,7 +69,7 @@ public class MainForSpring {
 			printHelp();
 			return;
 		}
-		ChangePasswordService2 changePwdSvc = ctx.getBean("memberPwSvc", ChangePasswordService2.class);
+		ChangePasswordService4 changePwdSvc = ctx.getBean("memberPwsvc", ChangePasswordService4.class);
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
 			System.out.println("암호를 변경했습니다.\n");
