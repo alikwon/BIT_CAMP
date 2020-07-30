@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANGCHI</title>
+    <style>
+        /* 리셋 */
+        html,body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 전체레이아웃 */
+        .pj-mangchi {
+            text-align: center;
+            font-size: 15px;
+            color: #fff;
+        }
+        .top {
+            height: 50px;
+            background-color: #E0F2F1;
+            line-height: 50px;
+        }
+        .header {
+            height: 110px;
+            position: sticky;
+            top: 0;
+            line-height: 110px;
+            background-color: #7fd1cd;
+        }
+
+        .banner {
+            height: 450px;
+            background-color: #B2DFDB;
+            line-height: 450px;
+        }
+
+        .statistics{
+            height: 300px;
+            line-height: 300px;
+            background-color: #009688;
+        }
+        .contents {
+            height: 1680px;
+            background-color: #F48FB1;
+        }
+
+        .footer {
+            height: 220px;
+            background-color: #F8BBD0;
+        }
+
+        /* 레이아웃 */
+        .header-top {
+            width: 100%;
+            height: 120px;
+            background-color: #7fd1cd;
+            line-height: 110px;
+        }
+
+        .header-nav {
+            width: 100%;
+            height: 50px;
+            background-color: #4fc5bf;
+            line-height: 50px;
+        }
+        .contents1,.contents3{
+            width: 100%;
+            height: 90px;
+            background-color: #00796B;
+            line-height: 90px;
+        }
+        .contents2, .contents4{
+            width: 100%;
+            height: 500px;
+            background-color: #5db9ad;
+            line-height: 500px;
+        }
+        .contents5{
+            width: 100%;
+            height: 500px;
+            background-color: #B2DFDB;
+            line-height: 500px;
+        }
+        .footer1{
+            width: 100%;
+            height: 60px;
+            background-color: #00897B;
+            line-height: 60px;
+        }
+        .footer2{
+            width: 100%;
+            height: 160px;
+            background-color: #26A69A;
+            line-height: 160px;
+        }
+
+        /* 컨테이너 */
+        .container {
+            width: 1280px;
+            margin: 0 auto;
+            /* height 는 상속 */
+            height: inherit;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .mangchi-member{
+            text-align: center;
+            float: right;
+        }
+        .mangchi-logo{
+            width: 300px;
+            height: inherit;
+            float: left;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .mangchi-mainsearch{
+            width: 680px;
+            height: inherit;
+            float: left;
+            background: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pj-mangchi">
+        <div class="top">
+            <div class="container">
+                <div class="mangchi-member">
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="container">
+                <div class="mangchi-logo">
+                    로고
+                </div>
+                <div class="mangchi-mainsearch">
+                    검색창
+                </div>
+                <div class="mangchi-hamburger">
+                    햄버거
+                </div>
+            </div>
+        </div>
+        <!-- header -->
+        <div class="banner">
+            <div class="container">배너</div>
+        </div>
+        <div class="statistics">
+            <div class="container">통계</div>
+        </div>
+        <!-- banner -->
+        <div class="contents">
+            <div class="contents1">
+                <div class="container">컨텐츠 제목</div>
+            </div>
+            <div class="contents2">
+                <div class="container">컨텐츠 내용</div>
+            </div>
+            <div class="contents3">
+                <div class="container">컨텐츠 제목2</div>
+            </div>
+            <div class="contents4">
+                <div class="container">컨텐츠 내용2</div>
+            </div>
+            <div class="contents5">
+                <div class="container">사이트 설명</div>
+            </div>
+        </div>
+        <!-- contents -->
+        <div class="footer">
+            <div class="footer1">
+                <div class="container">footer1</div>
+            </div>
+            <div class="footer2">
+                <div class="container">footer2</div>
+            </div>
+
+        </div>
+        <!-- footer -->
+    </div>
+</body>
+
+</html>

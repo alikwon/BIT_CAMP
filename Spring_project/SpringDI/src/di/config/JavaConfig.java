@@ -10,19 +10,18 @@ import di.service.MemberRegisterService;
 @Configuration
 public class JavaConfig {
 
-	@Bean
+	@Bean(name = "mDao")
 	public MemberDao memberDao() {
 		return new MemberDao();
 	}
-
-	@Bean
-	public MemberRegisterService memberRegSvc() {
+	
+	@Bean("regSvc")
+	public MemberRegisterService memberRegSvc () {
 		return new MemberRegisterService(memberDao());
 	}
-
+	
 	@Bean
-	public ChangePasswordService memberPwSvc() {
+	public ChangePasswordService changePwSvc() {
 		return new ChangePasswordService(memberDao());
 	}
-
 }
