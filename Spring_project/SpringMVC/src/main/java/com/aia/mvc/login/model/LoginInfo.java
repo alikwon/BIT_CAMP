@@ -1,4 +1,4 @@
-package com.aia.mvc.model;
+package com.aia.mvc.login.model;
 
 public class LoginInfo {
 	private String uid;
