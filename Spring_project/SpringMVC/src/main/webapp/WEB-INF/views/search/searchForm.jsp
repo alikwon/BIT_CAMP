@@ -8,8 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>검색 키워드 : ${query}</h1>
-	<h1>페이지 번호 : ${page}</h1>
 	<h3>검색 ${searchType}</h3>
 	<select>
 	<c:forEach items="${searchType}" var="type">
