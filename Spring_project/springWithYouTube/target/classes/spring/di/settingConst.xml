@@ -2,7 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+		
+	<!-- @Component 사용하기위해 컴포넌트 스캔 설정 ==> 오토와이어도 자동으로 읽음 -->
+	<!-- base패키지로 스캔영역을 설정 -->
+	<context:component-scan base-package="spring.di.ui, spring.di.entity"/>
+	
+	<!-- Autowired를 사용하기 위해 context네임스페이스를 사용해야함 -->	
+	<!-- <context:annotation-config/> -->
+	
 	<!-- xml형태로 지시하기 -->
 	<!-- Exam exam = new NewlecExam(); -->
 	<!-- <bean id="exam" class="spring.di.entity.NewlecExam">
@@ -11,15 +23,32 @@
 		<constructor-arg name="eng" value="40"/>
 		<constructor-arg name="com" value="30"/>
 	</bean> -->
-	
-	<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10" p:com="20" p:math="40" p:eng="10"></bean>
+<!-- 	<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10" p:com="10"></bean> -->
+	<!-- <bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:com="10"></bean>
+	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="20" p:com="20"></bean> -->
 	
 	<!-- ExamConsole console = new GridExamConsole(exam); -->
-	<bean id="console" class="spring.di.ui.GridExamConsole">
-		<!-- console.setExam(exam); -->
-		<!-- setter의 경우 set을 빼고 exam==>name -->
-		<!-- NewlecExam 의 id ==> ref(참조변수) -->
+	<!-- <bean id="console" class="spring.di.ui.GridExamConsole"> -->
+	<!--<bean id="console" class="spring.di.ui.InlineExamConsole">
+		console.setExam(exam);
+		setter의 경우 set을 빼고 exam==>name
+		NewlecExam 의 id ==> ref(참조변수)
 		<property name="exam" ref="exam"/>
-	</bean>
+	</bean> -->
 	
+	<!-- <bean id="exams" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<bean class="spring.di.entity.NewlecExam" p:kor="1" p:com="2" p:math="4" p:eng="1"></bean>
+				<ref bean="exam"/>
+			</list>
+		</constructor-arg>
+	</bean> -->
+	
+	<!-- 위와 같은 리스트 이지만 객체까지 생성해줌(위의 주석 코드는 단지 목록을 세팅해줄뿐) -->
+	<!-- list-class로 어떤 컬렉션을 사용할것인지 알려줌 -->
+	<!-- <util:list id="exams" list-class="java.util.ArrayList">
+		<bean class="spring.di.entity.NewlecExam" p:kor="1" p:com="2" p:math="4" p:eng="1"></bean>
+		<ref bean="exam"/>		
+	</util:list> -->
 </beans>

@@ -1,5 +1,9 @@
 package spring.di.entity;
 
+import org.springframework.stereotype.Service;
+
+//@Component 에 비해서 좀더 역할이 분명한 어노테이션
+@Service
 public class NewlecExam implements Exam {
 	private int kor;
 	private int eng;

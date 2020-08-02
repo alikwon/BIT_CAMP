@@ -1,9 +1,14 @@
 package spring.di;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import spring.di.entity.Exam;
+import spring.di.entity.NewlecExam;
 import spring.di.ui.ExamConsole;
 
 public class Program {
@@ -21,14 +26,21 @@ public class Program {
 		console.setExam(exam);
 		*/
 		ApplicationContext context = 
-				new ClassPathXmlApplicationContext("spring/di/settingConst.xml");
-		
-		Exam exam = context.getBean(Exam.class);
-		System.out.println(exam.toString());
-		//ExamConsole console = (ExamConsole) context.getBean("console");
+		//		new ClassPathXmlApplicationContext("spring/di/settingConst.xml");
+				new AnnotationConfigApplicationContext(NewlecDIConfig.class); 
+		//Exam exam = context.getBean(Exam.class);
+		//System.out.println(exam.toString());
+		ExamConsole console = (ExamConsole) context.getBean("console");
 		//getBean으로 가져오게 되면 싱글턴을 보장 
-		ExamConsole console = context.getBean("console",ExamConsole.class);
+//		ExamConsole console = context.getBean(ExamConsole.class);
 		console.print(); 
+		
+		
+		//콜랙션 생성
+		//List<Exam>exams = (List<Exam>) context.getBean("exams");//new ArrayList<>();
+		 
+		//for(Exam e : exams)
+		//	System.out.println(e);
 		
 		
 		
