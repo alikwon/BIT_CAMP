@@ -9,6 +9,9 @@
 </head>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/default.css">
 <style>
+img {
+	width : 200px;
+}
 </style>
 <body>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
@@ -29,7 +32,6 @@
 		<tr>
 			<td>사진</td>
 			<td><img src="<c:url value="${loginInfo.uphoto}"/>"></td>
-			<c:url value="${loginInfo.uphoto}"/>
 		</tr>
 		<tr>
 			<td>가입날짜</td>
