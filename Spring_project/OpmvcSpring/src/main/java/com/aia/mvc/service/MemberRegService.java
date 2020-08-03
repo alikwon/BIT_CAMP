@@ -33,30 +33,30 @@ public class MemberRegService {
 		int resultCnt = 0;
 
 		// 유저가 등록한 사진파일
-		MultipartFile file = info.getUphoto();
+		MultipartFile file = null;
 
 		// DB에 저장할 사진경로
 		String uphoto = null;
-
 		Connection conn = null;
 
 		try {
-			String uri = "/upload/users";
-//						String uri = request.getSession()
-//											.getServletContext()
-//											.getInitParameter("uploadPath");
-			String realPath = request.getSession().getServletContext().getRealPath(uri);
-
-			// 파일 덮어쓰면 안되니까 앞에 나노초 붙여줌
-			String newFileName = System.nanoTime() + "_" + file.getOriginalFilename();
-
-			File saveFile = new File(realPath, newFileName);
-			file.transferTo(saveFile);
-			System.out.println("저장완료"+newFileName);
-
-			uphoto = uri + "/" + newFileName; // 웹경로
-
-			// 공백문자일 때 null처리
+			
+			file = info.getUphoto();
+			if(file.getSize()>0 && file !=null) {
+				String uri = "/resources/upload/users";
+				String realPath = request.getSession().getServletContext().getRealPath(uri);
+				
+				// 파일 덮어쓰면 안되니까 앞에 나노초 붙여줌
+				String newFileName = System.nanoTime() + "_" + file.getOriginalFilename();
+				
+				File saveFile = new File(realPath, newFileName);
+				file.transferTo(saveFile);
+				System.out.println("저장완료"+newFileName);
+				
+				uphoto = uri + "/" + newFileName; // 웹경로
+			} else {
+				System.out.println("사진없음");
+			}
 
 			// 데이터 베이스 저장
 			Member member = new Member();
