@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.aia.mvc.dao.MemberDao;
@@ -14,27 +15,19 @@ import com.aia.mvc.jdbc.ConnectionProvider;
 import com.aia.mvc.model.Member;
 
 @Component("login")
-public class LoginCheckServiceImpl implements Service {
+public class LoginCheckService{
+	
+	@Autowired
 	private MemberDao dao;
-	@Override
-	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession sesson=request.getSession();
-		String uid = request.getParameter("uid");
-		String upw = request.getParameter("upw");
+	
+	public Member loginResult(Member mb, HttpServletRequest request) {
+		String uid = mb.getUid();
+		String upw = mb.getUpw();
 		Connection conn = null;
-		
+		Member member = null;
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MemberDao.getInstance();
-			Member member = dao.logincheck(conn,uid,upw);
-			if (member != null) {
-				request.setAttribute("loginChk", 1);
-				request.setAttribute("uid", uid);
-				sesson.setAttribute("loginInfo", member);
-			}else {
-				request.setAttribute("loginChk", 0);
-				
-			}
+			member = dao.logincheck(conn,uid,upw);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -52,7 +45,7 @@ public class LoginCheckServiceImpl implements Service {
 			}
 		}
 		
-		return "member/login";
+		return member;
 	}
 
 }

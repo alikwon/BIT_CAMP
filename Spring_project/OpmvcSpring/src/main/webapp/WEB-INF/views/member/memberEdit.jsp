@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:if test="${resultDel==1}">
+<c:if test="${result==1}">
 	<script>
-		console.log(${pageContext.request.contextPath});
-		alert('삭제됐음요');
-		location.href='${pageContext.request.contextPath}/';
+		alert('수정됐음요');
+		location.href="${pageContext.request.contextPath}/";
 	</script>
 </c:if>
-<c:if test="${resultDel<1}">
+<c:if test="${result<1}">
 	<script>
-		alert('비번 틀리심');
+		alert('수정실패요');
 		location.href ='mypage';
 	</script>
 </c:if>

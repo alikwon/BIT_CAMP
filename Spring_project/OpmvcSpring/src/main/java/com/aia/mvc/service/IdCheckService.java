@@ -6,32 +6,29 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.aia.mvc.dao.MemberDao;
 import com.aia.mvc.jdbc.ConnectionProvider;
 
 @Component("idCheck")
-public class IdCheckServiceImpl implements Service {
+public class IdCheckService {
 
-	MemberDao dao;
+	@Autowired
+	private MemberDao dao;
 	
-	@Override
-	public String getViewPage(
-			HttpServletRequest request, 
-			HttpServletResponse response) {
+	public String checkId(String uid) {
 		
 		String result = "N";
 		
-		String id = request.getParameter("uid");
 		
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MemberDao.getInstance();
 			
-			int resultCnt = dao.selectById(conn, id);
+			int resultCnt = dao.selectById(conn, uid);
 			
 			if(resultCnt<1) {
 				result = "Y";
@@ -42,9 +39,8 @@ public class IdCheckServiceImpl implements Service {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("idcheck", result);
 		
-		return "member/idCheck";
+		return result;
 	}
 
 }

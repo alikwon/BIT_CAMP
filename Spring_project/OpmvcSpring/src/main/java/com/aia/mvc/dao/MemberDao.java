@@ -8,15 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.aia.mvc.model.Member;
 
-
+@Repository
 public class MemberDao {
-	private MemberDao() {}
-	private static MemberDao dao = new MemberDao();
-	public static MemberDao getInstance () {
-		return dao;
-	}
+	
 	public int insertMemeber(Connection conn, Member member) throws SQLException {
 		int resultCnt=0;
 		PreparedStatement pstmt=null;
@@ -120,14 +118,14 @@ public class MemberDao {
 		return list;
 	}
 	public Member logincheck(Connection conn, String uid, String upw) throws SQLException {
-		int result=0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Member member =null;
-		String sql = "select * from project.member where uid=?";
+		String sql = "select * from project.member where uid=? and upw=?";
 		try {			
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, uid);
+			pstmt.setString(2, upw);
 			rs= pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -149,13 +147,13 @@ public class MemberDao {
 		}
 		return member;
 	}
-	public int deleteMember(Connection conn, String uid) throws SQLException{
+	public int deleteMember(Connection conn, int idx) throws SQLException{
 		int resultCnt=0;
 		PreparedStatement pstmt=null;
-		String sql = "delete from project.member where uid=?";
+		String sql = "delete from project.member where idx=?";
 		try {
 			pstmt= conn.prepareStatement(sql);
-			pstmt.setString(1, uid);
+			pstmt.setInt(1, idx);
 			resultCnt = pstmt.executeUpdate();
 		}finally {
 			if (pstmt != null) {
@@ -169,13 +167,13 @@ public class MemberDao {
 		int resultCnt=0;
 		PreparedStatement pstmt=null;
 		
-		String sql = "update project.member set upw=?,uname=?,uphoto=? where idx=?";
+		String sql = "update project.member set upw=?,uname=?,uphoto=? where uid=?";
 		try {
 			pstmt= conn.prepareStatement(sql);
 			pstmt.setString(1, member.getUpw());
 			pstmt.setString(2, member.getUname());
 			pstmt.setString(3, member.getUphoto());
-			pstmt.setInt(4, member.getIdx());
+			pstmt.setString(4, member.getUid());
 			resultCnt = pstmt.executeUpdate();
 		}finally {
 			if (pstmt != null) {

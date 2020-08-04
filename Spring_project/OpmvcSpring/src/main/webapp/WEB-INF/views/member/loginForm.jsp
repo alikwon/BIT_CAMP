@@ -13,7 +13,7 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 	<div>
 		<h1>로그인</h1>
-		<form action="login.do" method="post">
+		<form action="login" method="post">
 			<table>
 				<tr>
 					<td>아이디(이메일)</td>

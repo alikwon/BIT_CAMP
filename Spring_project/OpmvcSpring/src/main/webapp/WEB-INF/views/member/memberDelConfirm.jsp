@@ -8,15 +8,15 @@
 <title>DELETE CONFIRM</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/default.css">
 <style>
 </style>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jsp" %>
 		<h1>비밀번호 확인</h1>
 		<div>
-			<form id="confirm" action="memberDel.do">
-				<input type="password" name="upw"/>
+			<form action="memberDel" method="post">
+				<input type="password" name="chkpw"/>
 				<input type="submit" value="확인"/>
 			</form>
 		</div>

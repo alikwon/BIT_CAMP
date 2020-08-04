@@ -32,6 +32,9 @@ public class MemberRegInfo {
 	public void setUphoto(MultipartFile uphoto) {
 		this.uphoto = uphoto;
 	}
+	public Member setMember() {
+		return new Member(uid, upw, uname);
+	}
 	@Override
 	public String toString() {
 		return "MemberRegInfo [uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", uphoto=" + uphoto + "]";

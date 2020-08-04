@@ -20,6 +20,11 @@ public class Member {
 		this.regdate = regdate;
 	}
 
+	public Member(String uid,String upw,String uname) {
+		this.uid = uid;
+		this.upw = upw;
+		this.uname = uname;
+	}
 	public Member() {}
 
 	public int getIdx() {

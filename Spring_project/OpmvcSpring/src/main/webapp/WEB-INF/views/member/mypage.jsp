@@ -44,15 +44,22 @@ img {
 		<input type="hidden" name="upw"/> 
 	</form>
 	<div class="edit_del_div">
-	<a href="memberEditForm">회원정보수정</a>
+	<a href="memberEdit" id="">회원정보수정</a>
 	<%-- <a href="javascript:page_move('${loginInfo.uid}','${loginInfo.upw}')">수정폼</a> --%>
 	
 	&nbsp;&nbsp;&nbsp;
-	<a href="memberDelConfirm">탈퇴</a>
+	<a href="#none" id="mbDel" onclick="mbDel()">탈퇴</a>
 	</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 <script>
 	
+	function mbDel(){
+		if(confirm("정말로 삭제할거임??")){
+			location.href='memberDel';
+		}else{
+			location.href='mypage';
+		}
+	}
  	function page_move(uid,upw){
 	    var f = document.test; //폼 name
 	    f.uid.value = uid; //POST방식으로 넘기고 싶은 값
