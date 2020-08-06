@@ -17,7 +17,7 @@ table{
 }
 td{
 	text-align: center;
-	width: 25%;
+	width: 20%;
 	padding: 10px;
 }
 .category{
@@ -81,6 +81,7 @@ div.searchBox{
 				<td>이름</td>
 				<td>사진</td>
 				<td>가입날짜</td>
+				<td>보기</td>
 				
 			</tr>
 			<c:forEach items="${listView.memberList}" var="member">
@@ -89,16 +90,18 @@ div.searchBox{
 					<td>${member.uname}</td>
 					<td><img src="<c:url value="/${member.uphoto}"/>" id="thumbnail"/></td>
 					<td>${member.regdate}</td>
+					<td><a href="view/${member.idx}">상세</a>
 		<%-- 			<td><a href="memberDel.do?delid=${member.uid}">삭제</a></td> --%>
 				</tr>
 			</c:forEach>
 		</table>
 		</c:if>
 	</div>
+	
 	<div class="paging">
 	<c:if test="${listView.pageTotalCount > 0}">
 		<c:forEach var="num" begin="1" end="${listView.pageTotalCount}">
-			<div class="${listView.currentPageNumber == num? 'list_num_sel':'list_num'}"><a href="memberList.do?page=${num}&searchType=${param.searchType}&keyword=${param.keyword}" >&nbsp;${num}&nbsp;</a></div>
+			<div class="${listView.currentPageNumber == num? 'list_num_sel':'list_num'}"><a href="memberList?page=${num}&searchType=${param.searchType}&keyword=${param.keyword}" >&nbsp;${num}&nbsp;</a></div>
 		</c:forEach>
 	</c:if>
 	</div>
