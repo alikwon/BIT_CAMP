@@ -20,6 +20,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE uid=#{param1} AND upw=#{param2}
 	</select>
 
+<!-- 
+		idx<10 and idx>1 ==> 태그로 인식한다
+		<![CDATA[idx<10 and idx>1]]> 이렇게 쓰면 됨 
+-->
+		
 	<!-- 검색 : id, name, id or name map.put("searchType","id"(or name or both)) 
 		map.put("keyword","cool") -->
 	<!-- select의 결과를 객체에 바인딩 : 테이블의 컬럼명과 자바빈즈의 변수의 이름이 다른 경우 -->
@@ -125,5 +130,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectById"
 			resultType="int">
 		SELECT COUNT(*) FROM project.member WHERE uid=#{param1}
+	</select>
+	
+	<select id="selectByIdx"
+			resultType="com.aia.mvc.model.Member">
+		SELECT * FROM project.member WHERE idx=#{no}
+	</select>
+	
+	
+	<!-- XML List -->
+	<select id="selectTotalXmlList"
+			resultType="com.aia.mvc.model.memberXML">
+		SELECT * FROM project.member ORDER BY idx DESC
 	</select>
 </mapper>

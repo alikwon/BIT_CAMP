@@ -4,9 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import com.aia.mvc.model.Member;
+import com.aia.mvc.model.MemberXML;
 
 public interface MemberDaoInterface {
+	
+	//전체 XML회원리스트
+	public List<MemberXML> selectTotalXmlList();
 
+	//회원 idx기반으로 검색한 회원의 정보를 반환
+	public Member selectByIdx(int idx);
 	//로그인
 	public Member logincheck(String uid,String upw);
 	//회원가입

@@ -21,6 +21,7 @@
 		<c:if test="${!empty loginInfo}">
 		</c:if>
 			<li><a href="<c:url value="/member/memberList"/>">전체회원목록</a></li>
+			<li><a href="<c:url value="/member/memberList.xml"/>">XML회원목록</a></li>
 	</ul>
 	
 	
