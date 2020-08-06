@@ -140,7 +140,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- XML List -->
 	<select id="selectTotalXmlList"
-			resultType="com.aia.mvc.model.memberXML">
+			resultType="com.aia.mvc.model.MemberXML">
+		SELECT * FROM project.member ORDER BY idx DESC
+	</select>
+	
+	<!-- 전체회원리스트(JSON) -->
+	<select id="selectTotalList"
+			resultMap="resultMember">
 		SELECT * FROM project.member ORDER BY idx DESC
 	</select>
 </mapper>

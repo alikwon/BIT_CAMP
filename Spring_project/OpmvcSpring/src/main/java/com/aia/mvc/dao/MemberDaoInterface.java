@@ -10,7 +10,8 @@ public interface MemberDaoInterface {
 	
 	//전체 XML회원리스트
 	public List<MemberXML> selectTotalXmlList();
-
+	//전체 JSON회원리스트
+	public List<Member>selectTotalList();
 	//회원 idx기반으로 검색한 회원의 정보를 반환
 	public Member selectByIdx(int idx);
 	//로그인
@@ -25,7 +26,7 @@ public interface MemberDaoInterface {
 	public int selectById(String id);
 	//전체게시물개수 : 검색까지 포함
 	public int totalCount(Map search);
-	//전체게시물의 리스트
+	//전체게시물의 리스트(페이징처리정보==> limit)
 	public List<Member> selectList(Map search);
 	
 	
