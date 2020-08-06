@@ -14,7 +14,10 @@ public class MemberXmlList {
 	@XmlElement(name = "member")//<member>.....</member>
 	private List<MemberXML> members;
 	
+	public MemberXmlList() {}
+	
 	public MemberXmlList(List<MemberXML>members) {
 		this.members=members;
 	}
+	
 }
