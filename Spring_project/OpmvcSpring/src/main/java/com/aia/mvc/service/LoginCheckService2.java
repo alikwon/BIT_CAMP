@@ -1,5 +1,6 @@
 package com.aia.mvc.service;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -10,28 +11,23 @@ import com.aia.mvc.dao.MemberDaoInterface;
 import com.aia.mvc.model.Member;
 
 @Component
-public class LoginCheckService{
-	
+public class LoginCheckService2 {
+
 //	@Autowired
 //	private JdbcTemplateMemberDao dao;
-	
+
 	private MemberDaoInterface dao;
-	
+
 	@Autowired
-	private SqlSessionTemplate st;
-	
+	private SqlSessionTemplate sessionTemplate;
+
 	public Member loginResult(Member mb, HttpServletRequest request) {
-		dao= st.getMapper(MemberDaoInterface.class);
 		String uid = mb.getUid();
 		String upw = mb.getUpw();
 		Member member = null;
-		try {
-			member = dao.logincheck(uid,upw);
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
+		dao = sessionTemplate.getMapper(MemberDaoInterface.class);
+		member = dao.logincheck(uid, upw);
+
 		return member;
 	}
 

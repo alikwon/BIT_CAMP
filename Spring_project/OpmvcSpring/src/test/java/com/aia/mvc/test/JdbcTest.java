@@ -3,11 +3,14 @@ package com.aia.mvc.test;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -15,20 +18,36 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/*.xml")
 
 public class JdbcTest {
+	
+	@Autowired // 스프링에서만 쓸수있고
+	private DataSource dataSource;
 
-   @Autowired
-   private DataSource dataSource;
+	@Inject // 오토와이어드랑 비슷함, 자바에서 지원해주는것
+	private JdbcTemplate template;
+	
+	@Test
+	public void jdbcTemplateTest() {
+		System.out.println("JdbcTemplate ======>" + template);
+	}
 
-   @Test
-   public void connectionTest() throws SQLException {
+	@Inject
+	private SqlSessionTemplate sessionTemplate;
+	
+	@Test
+	public void sessionTemplateTest() {
+		System.out.println("sessionTemplate ======>"+sessionTemplate);
+	}
+	
+	@Test
+	public void connectionTest() throws SQLException {
 
-      System.out.println("dataSource ======> " + dataSource);
+		System.out.println("dataSource ======> " + dataSource);
 
-      Connection conn = null;
+		Connection conn = null;
 
-      conn = dataSource.getConnection();
+		conn = dataSource.getConnection();
 
-      System.out.println("Connection =====>" + conn);
-   }
+		System.out.println("Connection =====>" + conn);
+	}
 
 }

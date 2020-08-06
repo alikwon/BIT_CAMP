@@ -2,33 +2,34 @@ package com.aia.mvc.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aia.mvc.dao.MemberDao;
-import com.aia.mvc.jdbc.ConnectionProvider;
+import com.aia.mvc.dao.MemberDaoInterface;
 import com.aia.mvc.model.Member;
 import com.aia.mvc.model.MemberRegInfo;
 
 @Service
 public class MemberEditService {
 
+//	@Autowired
+//	private JdbcTemplateMemberDao dao;
+	
+	private MemberDaoInterface dao;
+	
 	@Autowired
-	private MemberDao dao;
+	private SqlSessionTemplate st;
 
 	public int getViewPage(HttpServletRequest request, MemberRegInfo info, String oldimg) {
-
+		dao=st.getMapper(MemberDaoInterface.class);
 		int resultCnt = 0;
 		String uphoto = null;// 사진수정을 하지 않으면 null
 		MultipartFile file = null;
-
-		Connection conn = null;
 		try {
 			file = info.getUphoto();
 
@@ -65,14 +66,11 @@ public class MemberEditService {
 			Member member = info.setMember();
 			member.setUphoto(uphoto);
 			
-			conn = ConnectionProvider.getConnection();
-			resultCnt = dao.editMemeber(conn, member);// 0이 나올가능성
+			resultCnt = dao.editMemeber(member);// 0이 나올가능성
 
 			if (resultCnt > 0) {
 				request.getSession().setAttribute("loginInfo", member);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} // 예외발생가능
  catch (IllegalStateException e) {
 			e.printStackTrace();
@@ -80,15 +78,6 @@ public class MemberEditService {
 			e.printStackTrace();
 		} catch(Exception e) {
 			e.printStackTrace();
-		}finally {
-			if(conn!=null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 
 		return resultCnt;

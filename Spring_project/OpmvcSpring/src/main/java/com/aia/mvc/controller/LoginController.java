@@ -11,13 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aia.mvc.model.Member;
 import com.aia.mvc.service.LoginCheckService;
+import com.aia.mvc.service.LoginCheckService2;
 
 @Controller
 @RequestMapping("/member/login")
 public class LoginController {
 	
+//	@Autowired
+//	private LoginCheckService login;
+	
 	@Autowired
-	private LoginCheckService login;
+	private LoginCheckService2 login;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getLoginForm() {

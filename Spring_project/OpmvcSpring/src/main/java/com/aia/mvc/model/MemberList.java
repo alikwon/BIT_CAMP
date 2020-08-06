@@ -5,73 +5,65 @@ import java.util.List;
 
 public class MemberList {
 
-		//회원 리스트
-		private List<Member> mbList;
-		//전체 게시물의 개수
-		private int memberTotalCount;
-		//현재 페이지 번호
-		private int currentPageNumber;
-		//전체페이지의 개수
-		private int pageTotalCount;
-		//페이지당 표현 게시물의 개수
-		private int memberCountPerPage;
-		//게시물 시작행
-		private int startRaw;
-		public MemberList(List<Member> mbList, int memberTotalCount, int currentPageNumber, int pageTotalCount,
-				int memberCountPerPage, int startRaw) {
-			this.mbList = mbList;
-			this.memberTotalCount = memberTotalCount;
-			this.currentPageNumber = currentPageNumber;
-			this.pageTotalCount = pageTotalCount;
-			this.memberCountPerPage = memberCountPerPage;
-			this.startRaw = startRaw;
-			calTotalPageCount();
-		}
-		
-		private void calTotalPageCount() {
-			if(memberTotalCount==0) {
-				pageTotalCount=0;
-			}else {
-				pageTotalCount= memberTotalCount/memberCountPerPage;
-				if(memberTotalCount%memberCountPerPage > 0) {
-					pageTotalCount++;
-				}
+	private int memberTotalCount;
+	private int currentPageNumber;
+	private List<Member> memberList;
+	private int pageTotalCount;
+	private int memberCountPerpage;
+	private int startRow;
+
+	public MemberList(int memberTotalCount, int currentPageNumber, List<Member> memberList, int memberCountPerpage,
+			int startRow) {
+		this.memberTotalCount = memberTotalCount;
+		this.currentPageNumber = currentPageNumber;
+		this.memberList = memberList;
+		this.memberCountPerpage = memberCountPerpage;
+		this.startRow = startRow;
+		calTotalCount();
+	}
+
+	private void calTotalCount() {
+		if(memberTotalCount==0) {
+			pageTotalCount = 0;
+		} else {
+			pageTotalCount = memberTotalCount/memberCountPerpage;
+			System.out.println(memberTotalCount%memberCountPerpage);
+			if(memberTotalCount%memberCountPerpage > 0) {
+				pageTotalCount ++;
 			}
+			System.out.println(pageTotalCount);
 		}
+	}
 
-		public List<Member> getMbList() {
-			return mbList;
-		}
+	public int getMemberTotalCount() {
+		return memberTotalCount;
+	}
 
-		public int getMemberTotalCount() {
-			return memberTotalCount;
-		}
+	public int getCurrentPageNumber() {
+		return currentPageNumber;
+	}
 
-		public int getCurrentPageNumber() {
-			return currentPageNumber;
-		}
+	public List<Member> getMemberList() {
+		return memberList;
+	}
 
-		public int getPageTotalCount() {
-			return pageTotalCount;
-		}
+	public int getPageTotalCount() {
+		return pageTotalCount;
+	}
 
-		public int getMemberCountPerPage() {
-			return memberCountPerPage;
-		}
+	public int getMemberCountPerpage() {
+		return memberCountPerpage;
+	}
 
-		public int getStartRaw() {
-			return startRaw;
-		}
+	public int getStartRow() {
+		return startRow;
+	}
 
-		@Override
-		public String toString() {
-			return "MemberList [msgList=" + mbList + ", memberTotalCount=" + memberTotalCount + ", currentPageNumber="
-					+ currentPageNumber + ", pageTotalCount=" + pageTotalCount + ", memberCountPerPage="
-					+ memberCountPerPage + ", startRaw=" + startRaw + "]";
-		}
-		
-		public boolean isEmpty() {
-			return memberTotalCount==0;
-		}
+	@Override
+	public String toString() {
+		return "MemberListView [memberTotalCount=" + memberTotalCount + ", currentPageNumber=" + currentPageNumber
+				+ ", memberList=" + memberList + ", pageTotalCount=" + pageTotalCount + ", memberCountPerpage="
+				+ memberCountPerpage + ", startRow=" + startRow + "]";
+	}
 		
 }

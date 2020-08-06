@@ -2,35 +2,33 @@ package com.aia.mvc.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aia.mvc.dao.MemberDao;
-import com.aia.mvc.jdbc.ConnectionProvider;
+import com.aia.mvc.dao.MemberDaoInterface;
 import com.aia.mvc.model.Member;
 import com.aia.mvc.model.MemberRegInfo;
 
 @org.springframework.stereotype.Service
 public class MemberRegService {
 
+//	@Autowired
+//	private JdbcTemplateMemberDao dao;
+	
+//	@Autowired
+//	private MybatisMemberDao dao;
+
+	private MemberDaoInterface dao;
+	
 	@Autowired
-	private MemberDao dao;
-
+	private SqlSessionTemplate st;
+	
 	public HttpServletRequest regMember(MemberRegInfo info, HttpServletRequest request) {
-
+		dao = st.getMapper(MemberDaoInterface.class);
 		// dao결과값
 		int resultCnt = 0;
 
@@ -39,7 +37,6 @@ public class MemberRegService {
 
 		// DB에 저장할 사진경로
 		String uphoto = null;
-		Connection conn = null;
 
 		try {
 			
@@ -65,32 +62,18 @@ public class MemberRegService {
 			Member member = info.setMember();
 			member.setUphoto(uphoto);
 
-			conn = ConnectionProvider.getConnection();
-
-			resultCnt = dao.insertMemeber(conn, member);// 0이 나올가능성
-
+			
+			System.out.println("전idx : "+member.getIdx());
+			
+			resultCnt = dao.insertMember(member);// 0이 나올가능성
+			System.out.println("후idx : "+member.getIdx());
 			request.setAttribute("member", member);
 			request.setAttribute("result", resultCnt);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch(Exception e) {
 			e.printStackTrace();
-		}finally {
-			if(conn!=null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 
 		return request;

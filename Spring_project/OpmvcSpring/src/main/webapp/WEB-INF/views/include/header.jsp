@@ -19,8 +19,8 @@
 		
 		<li><a href="<c:url value="/guestbook/list.jsp"/>">방명록(비회원)</a></li>
 		<c:if test="${!empty loginInfo}">
-			<li><a href="<c:url value="/member/memberList"/>">전체회원목록</a></li>
 		</c:if>
+			<li><a href="<c:url value="/member/memberList"/>">전체회원목록</a></li>
 	</ul>
 	
 	

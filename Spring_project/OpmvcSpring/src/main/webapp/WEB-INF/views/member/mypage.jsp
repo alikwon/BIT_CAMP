@@ -31,7 +31,7 @@ img {
 		</tr>
 		<tr>
 			<td>사진</td>
-			<td><img src="<c:url value="${loginInfo.uphoto}"/>"></td>
+			<td><img src="<c:url value="/${loginInfo.uphoto}"/>"></td>
 		</tr>
 		<tr>
 			<td>가입날짜</td>

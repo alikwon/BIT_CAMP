@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>MEMBER LIST</title>
 </head>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/default.css">
 <style>
 table{
 	margin-top: 20px;
@@ -74,7 +74,7 @@ div.searchBox{
 		</form>
 	</div>
 	<div class="list">
-		<c:if test="${not empty listView.mbList}">
+		<c:if test="${not empty listView.memberList}">
 		<table border="1">
 			<tr class="category">
 				<td>아이디</td>
@@ -83,11 +83,11 @@ div.searchBox{
 				<td>가입날짜</td>
 				
 			</tr>
-			<c:forEach items="${listView.mbList}" var="member">
+			<c:forEach items="${listView.memberList}" var="member">
 				<tr class="member_box">
 					<td>${member.uid}</td>
 					<td>${member.uname}</td>
-					<td><img src="<c:url value="${member.uphoto}"/>" id="thumbnail"/></td>
+					<td><img src="<c:url value="/${member.uphoto}"/>" id="thumbnail"/></td>
 					<td>${member.regdate}</td>
 		<%-- 			<td><a href="memberDel.do?delid=${member.uid}">삭제</a></td> --%>
 				</tr>
@@ -98,7 +98,7 @@ div.searchBox{
 	<div class="paging">
 	<c:if test="${listView.pageTotalCount > 0}">
 		<c:forEach var="num" begin="1" end="${listView.pageTotalCount}">
-			<div class="${listView.currentPageNumber == num? 'list_num_sel':'list_num'}"><a href="memberList.do?page=${num}" >&nbsp;${num}&nbsp;</a></div>
+			<div class="${listView.currentPageNumber == num? 'list_num_sel':'list_num'}"><a href="memberList.do?page=${num}&searchType=${param.searchType}&keyword=${param.keyword}" >&nbsp;${num}&nbsp;</a></div>
 		</c:forEach>
 	</c:if>
 	</div>
