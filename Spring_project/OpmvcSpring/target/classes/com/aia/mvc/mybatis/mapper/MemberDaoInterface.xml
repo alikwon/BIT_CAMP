@@ -146,7 +146,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 전체회원리스트(JSON) -->
 	<select id="selectTotalList"
-			resultMap="resultMember">
+			resultType="com.aia.mvc.model.Member">
 		SELECT * FROM project.member ORDER BY idx DESC
 	</select>
 </mapper>

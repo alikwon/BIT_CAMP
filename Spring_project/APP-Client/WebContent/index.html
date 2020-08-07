@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>APP-Client</title>
+<style>
+	#memberList{
+		overflow: hidden;
+	}
+	div.card{
+		width: 45%;
+		float: left;
+		border : 1px solid #DDD;
+	}
+	
+</style>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+
+	<h1>회원 리스트</h1>
+	<hr>
+	<h1>회원수정</h1>
+	<div id="editArea">
+		<form id="editForm" onsubmit="return false">
+			idx<input type="text" name="idx" id="idx" readonly><br>
+			아이디<input type="text" name="uid" id="euid" value="" readonly><br>
+			비번<input type="text" name="upw" id="eupw"><br>
+			이름<input type="text" name="uname" id="euname"><br>
+			사진<input type="file" name="uphoto" id="euphoto"><br>
+			현재사진<input type="text" name="oldfile" id="oldfile"><br>
+			<input type="submit" value="회원수정" onclick="editSubmit()"><br>
+		</form>
+	</div>
+	<hr>
+	<h1>회원가입</h1>
+	<div id="regArea">
+		<form id="regForm" onsubmit="return false">
+			아이디<input type="text" name="uid" id="uid"><br>
+			비번<input type="text" name="upw" id="upw"><br>
+			이름<input type="text" name="uname" id="uname"><br>
+			사진<input type="file" name="uphoto" id="uphoto"><br>
+			<input type="submit" value="회원가입" onclick="regSubmit()"><br>
+		</form>
+	</div>
+	<div id="memberList">
+		
+	</div>
+	
+	
+	
+<script>
+	$(document).ready(function(){
+		//memberList출력영역
+		memberList();	
+		
+		
+	});
+	
+	function editForm(idx){
+		$.ajax({
+			url:'http://localhost:8080/aa/members/'+idx,
+			type:'get',
+			success : function(member){
+				$('#idx').val(member.idx);
+				$('#euid').val(member.uid);
+				$('#euname').val(member.uname);
+				$('#oldfile').val(member.uphoto);
+				$('#eupw').focus();
+			}			
+		});	
+	}
+	
+	function delMember(idx){
+		if(confirm('리얼삭제??')){
+			$.ajax({
+				url:'http://localhost:8080/aa/members/'+idx,
+				type:'delete',
+				success : function(data){
+					if(data==1){alert('삭제됐음ㅇㅇ');}
+					location.reload();
+				}			
+			});
+		}
+	}
+	
+	function editSubmit(){
+		var regFormData = new FormData();
+		regFormData.append('uid',$('#euid').val());
+		regFormData.append('upw',$('#eupw').val());
+		regFormData.append('uname',$('#euname').val());
+		regFormData.append('oldFile',$('#oldfile').val());
+		
+		if($('#euphoto')[0].files[0]!=null){
+			regFormData.append('uphoto',$('#euphoto')[0].files[0]); //file
+		}
+		
+		$.ajax({
+			url:'http://localhost:8080/aa/members/'+$('#idx').val(),
+			type:'post',
+			processData: false, // File전송시 필수
+			contentType: false, // false = Multipart/form-data
+			data: regFormData,
+			success:function(result){
+				location.reload();
+			}
+		});
+	}
+	
+	function regSubmit(){
+		var regFormData = new FormData();
+		regFormData.append('uid',$('#uid').val());
+		regFormData.append('upw',$('#upw').val());
+		regFormData.append('uname',$('#uname').val());
+		
+		if($('#uphoto')[0].files[0] != null){
+			regFormData.append('uphoto',$('#uphoto')[0].files[0]); //file
+		}
+		
+		$.ajax({
+			url:'http://localhost:8080/aa/members',
+			type:'post',
+			processData: false, // File전송시 필수
+			contentType: false, // false = Multipart/form-data
+			data:
+				/* {
+				uid:$('#uid').val(),
+				upw:$('#upw').val(),
+				uname:$('#uname').val(),
+				uphoto:$('#uphoto').val()
+				  }, */
+				  regFormData,
+			success:function(result){
+				//location.reload();
+				memberList();
+				document.getElementById('regForm').reset();
+			}
+		});
+	}
+	
+	function memberList(){
+		const ml = $('#memberList');
+		$.ajax({
+			url:'http://localhost:8080/aa/members',
+			type:'get',
+			success:function(list){
+				/* ml.html(JSON.stringify(aaa)); */
+				var html = '';
+				
+				
+				for(var i =0;i<list.length;i++){
+					html += '<div class="card">';
+					html += '	<ul>';
+					html += '		<li> idx : '+list[i].idx+'</li>';
+					html += '		<li> uid : '+list[i].uid+'</li>';
+					html += '		<li> uid : '+list[i].upw+'</li>';
+					html += '		<li> uname : '+list[i].uname+'</li>';
+					html += '		<li> uphoto : '+list[i].uphoto+'</li>';
+					html += '		<li><input type="button" value="수정" id="edit" onclick="editForm('+list[i].idx+')"/>';
+					html += '			<input type="button" value="삭제" id="del" onclick="delMember('+list[i].idx+')"/></li>';
+					html += '	</ul>';
+					html += '</div>';
+					
+					ml.html(html);
+				}
+			}
+		});
+	}
+</script>
+</body>
+</html>

@@ -41,7 +41,7 @@ public class MemberRegService {
 		try {
 			
 			file = info.getUphoto();
-			if(file.getSize()>0 && file !=null) {
+			if(file.getSize()>0 && file !=null&& !file.isEmpty()) {
 				String uri = 
 						request.getSession().getServletContext().getInitParameter("uploadPath");
 				String realPath = request.getSession().getServletContext().getRealPath(uri);
