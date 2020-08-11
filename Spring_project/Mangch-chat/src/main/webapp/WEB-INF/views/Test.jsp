@@ -21,6 +21,7 @@
 		$('#message').focus();
 	});
 	let sock = new SockJS("http://localhost:8080/mc-chat/echo/");
+	console.log(sock);
 	sock.onmessage = onMessage;
 	sock.onclose = onClose;
 	// 메시지 전송
