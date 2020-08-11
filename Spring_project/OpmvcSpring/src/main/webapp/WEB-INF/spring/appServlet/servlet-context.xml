@@ -32,6 +32,14 @@
 		</beans:property>
 	</beans:bean>
 	
+	<!-- 암호화 클래스 등록 (default생성자) -->
+	<beans:bean id="sha256" class="com.aia.mvc.util.Sha256"/>
+	
+	<!-- 암호화 클래스 등록 (생성자) -->
+	<beans:bean id="aes256" class="com.aia.mvc.util.AES256Util">
+		<beans:constructor-arg value="1313131313131313"/>
+	</beans:bean>
+	
 	<context:component-scan base-package="com.aia.mvc" />
 	
 	
