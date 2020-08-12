@@ -7,7 +7,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
 		p:driverClassName="com.mysql.cj.jdbc.Driver"
-		p:jdbcUrl="jdbc:mysql://localhost:3306/project?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC"
+		p:jdbcUrl="jdbc:mysql://aia.cgcmfq7auqmh.ap-northeast-2.rds.amazonaws.com:3306/project?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC"
 		p:username="bit" p:password="bit">
 	</bean>
 	<!-- sqlSessionFactory 생성 mybatis-spring : SqlSessionfactoryBean : dataSource 

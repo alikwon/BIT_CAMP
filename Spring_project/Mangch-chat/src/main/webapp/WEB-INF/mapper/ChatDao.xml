@@ -5,6 +5,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 1. mapper의 namespace 필수: interface의 fullname으로 -->
 <mapper namespace="com.aia.mangch.dao.ChatDao">
+	<resultMap id="chatRoomInfo" type="com.aia.mangch.model.ChatRoomInfo">
+		<id property="idx" column="room_idx" />
+		<result property="reqIdx" column="request_idx" />
+		<result property="reqTitle" column="request_title" />
+		<result property="mbNick1" column="member1" />
+		<result property="mbNick2" column="member2" />
+	</resultMap>
+	<resultMap id="chatMsgInfo" type="com.aia.mangch.model.ChatMsgInfo">
+		<id property="idx" column="room_idx" />
+		<result property="roomIdx" column="room_idx" />
+		<result property="sender" column="member_nick" />
+		<result property="receiver" column="msg_receiver" />
+		<result property="text" column="msg_text" />
+		<result property="img" column="msg_img" />
+		<result property="date" column="msg_date" />
+		<result property="readChk" column="msg_readcheck" />
+	</resultMap>
 	
+	<select id="selectChatRoomList"
+			resultMap="chatRoomInfo"
+			parameterType="String">
+		SELECT * FROM Mangchi.chat_room natural join Mangchi.request_list WHERE member1=#{nick} or member2=#{nick}
+	</select>
 	
+	<select id="selectMsgList"
+			resultMap="chatMsgInfo">
+		SELECT * FROM Mangchi.chat_msg WHERE room_idx=#{idx} ORDER BY msg_date
+	</select>
+	
+	<update id="readMsg">
+		UPDATE Mangchi.chat_msg SET msg_readcheck =1 WHERE msg_receiver=#{nick}
+	</update>
+	
+	<select id="newMsgCount"
+			resultType="int">
+		SELECT count(*) FROM Mangchi.chat_msg WHERE room_idx=#{param1} and msg_receiver=#{param2} and msg_readcheck=0
+	</select>
 </mapper>
