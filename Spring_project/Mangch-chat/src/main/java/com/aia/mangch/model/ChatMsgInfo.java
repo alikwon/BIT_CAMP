@@ -11,9 +11,10 @@ public class ChatMsgInfo {
 	private String img;
 	private Date date;
 	private int readChk;
+	private int reqIdx;
 	
 	public ChatMsgInfo(int idx, int roomIdx, String sender, String receiver, String text, String img, Date date,
-			int readChk) {
+			int readChk, int reqIdx) {
 		this.idx = idx;
 		this.roomIdx = roomIdx;
 		this.sender = sender;
@@ -22,9 +23,19 @@ public class ChatMsgInfo {
 		this.img = img;
 		this.date = date;
 		this.readChk = readChk;
+		this.reqIdx = reqIdx;
 	}
-	
+
 	public ChatMsgInfo() {}
+
+	
+	public int getReqIdx() {
+		return reqIdx;
+	}
+
+	public void setReqIdx(int reqIdx) {
+		this.reqIdx = reqIdx;
+	}
 
 	public int getIdx() {
 		return idx;

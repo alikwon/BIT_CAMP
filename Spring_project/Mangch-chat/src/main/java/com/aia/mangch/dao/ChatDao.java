@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.aia.mangch.model.ChatMsgInfo;
 import com.aia.mangch.model.ChatRoomInfo;
+import com.aia.mangch.model.NewMsgForBadge;
 
 
 public interface ChatDao {
@@ -12,8 +13,19 @@ public interface ChatDao {
 
 	List<ChatMsgInfo> selectMsgList(int idx);
 
-	void readMsg(String nick);
+	void readMsg(String nick, int idx);
 
-	int newMsgCount(int idx, String nick);
+	List<NewMsgForBadge> newMsgList(String nick);
+
+	int insertMsg(ChatMsgInfo chat);
+
+	void updateRoomDate(int roomIdx);
+
+	int roomExistChk(int roomIdx);
+
+	void createChatRoom(ChatRoomInfo chatRoom);
+
+	void insertMsgWithImg(ChatMsgInfo chat);
+
 
 }

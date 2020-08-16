@@ -1,10 +1,14 @@
 package com.aia.mangch.service;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aia.mangch.dao.ChatDao;
+import com.aia.mangch.model.ChatMsgInfo;
+import com.aia.mangch.model.NewMsgForBadge;
 
 @Service
 public class NewMsgService {
@@ -13,8 +17,8 @@ public class NewMsgService {
 	private SqlSessionTemplate st;
 	private ChatDao dao;
 	
-	public int getNewMsg(int idx, String nick) {
+	public List<NewMsgForBadge> getNewMsg(String nick) {
 		dao= st.getMapper(ChatDao.class);
-		return dao.newMsgCount(idx,nick);
+		return dao.newMsgList(nick);
 	}
 }

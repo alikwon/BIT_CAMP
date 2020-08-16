@@ -18,7 +18,7 @@ public class ChatMsgListService {
 	
 	public List<ChatMsgInfo> getMsgList(int idx, String nick) {
 		dao = st.getMapper(ChatDao.class);
-		dao.readMsg(nick);
+		dao.readMsg(nick,idx);
 		return dao.selectMsgList(idx);
 	}
 	

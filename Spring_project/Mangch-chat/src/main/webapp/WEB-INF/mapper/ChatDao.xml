@@ -22,24 +22,85 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="date" column="msg_date" />
 		<result property="readChk" column="msg_readcheck" />
 	</resultMap>
+	<resultMap id="newMsgForBadge" type="com.aia.mangch.model.NewMsgForBadge">
+		<result property="roomIdx" column="room_idx" />
+		<result property="newMsgCount" column="newMsgCount" />
+	</resultMap>
 	
+	<!-- 채팅방 리스트 -->
 	<select id="selectChatRoomList"
 			resultMap="chatRoomInfo"
 			parameterType="String">
-		SELECT * FROM Mangchi.chat_room natural join Mangchi.request_list WHERE member1=#{nick} or member2=#{nick}
+		SELECT * 
+		FROM Mangchi.chat_room NATURAL JOIN Mangchi.request_list 
+		WHERE member1=#{nick} or member2=#{nick} 
+		ORDER BY room_update DESC
 	</select>
 	
+	<!-- 채팅방의 메세지리스트 -->
 	<select id="selectMsgList"
 			resultMap="chatMsgInfo">
-		SELECT * FROM Mangchi.chat_msg WHERE room_idx=#{idx} ORDER BY msg_date
+		SELECT * 
+		FROM Mangchi.chat_msg 
+		WHERE room_idx=#{idx} 
+		ORDER BY msg_date
 	</select>
 	
+	<!-- 읽음으로 변경 -->
 	<update id="readMsg">
-		UPDATE Mangchi.chat_msg SET msg_readcheck =1 WHERE msg_receiver=#{nick}
+		UPDATE Mangchi.chat_msg 
+		SET msg_readcheck =1 
+		WHERE msg_receiver=#{param1} and room_idx=#{param2}
 	</update>
 	
-	<select id="newMsgCount"
-			resultType="int">
-		SELECT count(*) FROM Mangchi.chat_msg WHERE room_idx=#{param1} and msg_receiver=#{param2} and msg_readcheck=0
+	<!-- 새로운 메세지 카운트 -->
+	<select id="newMsgList"
+			resultType="com.aia.mangch.model.NewMsgForBadge">
+		SELECT room_idx roomIdx,count(msg_readcheck) newMsgCount
+		FROM Mangchi.chat_msg 
+		WHERE msg_readcheck=0 and msg_receiver=#{param1} 
+		GROUP BY room_idx;  
 	</select>
+	
+	<!-- 새로운 메세지 입력 -->
+	<insert id="insertMsg"
+			parameterType="com.aia.mangch.model.ChatMsgInfo">
+		INSERT INTO Mangchi.chat_msg 
+		(room_idx,member_nick,msg_receiver,msg_text) 
+		VALUES (#{roomIdx},#{sender},#{receiver},#{text})
+	</insert>
+	<!-- 이미지가 있을때 -->
+	<insert id="insertMsgWithImg"
+			parameterType="com.aia.mangch.model.ChatMsgInfo">
+		INSERT INTO Mangchi.chat_msg 
+		(room_idx,member_nick,msg_receiver,msg_img) 
+		VALUES(#{roomIdx},#{sender},#{receiver},#{img})
+	</insert>
+	
+	<!-- 메세지 입력시 채팅방이 있는지 확인 -->
+	<select id="roomExistChk"
+			resultType="int">
+		SELECT COUNT(*) 
+		FROM Mangchi.chat_room 
+		WHERE room_idx = #{roomIdx}
+	</select>
+	
+	<!--채팅방이 없으면 채팅방 생성 -->
+	<insert id="createChatRoom"
+			parameterType="com.aia.mangch.model.ChatRoomInfo"
+			useGeneratedKeys="true"
+			keyProperty="idx">
+		INSERT INTO Mangchi.chat_room 
+		(request_idx, member1,member2) 
+		VALUES(#{reqIdx},#{mbNick1},#{mbNick2})
+	</insert>
+	
+	<!-- 새로운 메세지 입력시 채팅방 시간 업데이트 -->
+	<update id="updateRoomDate">
+		UPDATE Mangchi.chat_room 
+		SET room_update = now() 
+		WHERE room_idx=#{roomIdx}
+	</update>
+	
+	
 </mapper>
