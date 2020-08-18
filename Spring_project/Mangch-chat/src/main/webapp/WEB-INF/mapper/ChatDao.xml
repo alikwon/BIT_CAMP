@@ -34,7 +34,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			parameterType="String">
 		SELECT * 
 		FROM Mangchi.chat_room 
-		WHERE room_delUser IS NULL OR room_delUser!=#{nick}
+		WHERE (room_delUser IS NULL OR room_delUser!=#{nick})
+		AND (member1=#{nick} OR member2=#{nick})
 		ORDER BY room_update DESC;
 	</select>
 	
@@ -44,6 +45,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT request_title
 		FROM Mangchi.request_list
 		WHERE request_idx = #{reqIdx}
+	</select>
+	
+	<select id="selectRoomList"
+			parameterType="java.util.List"
+			resultType="com.aia.mangch.model.RequestTitleInfo">
+		SELECT request_idx,request_title
+		FROM Mangchi.request_list
+		WHERE request_idx IN
+		<foreach collection="list" item="item" open="(" close=")"
+				 separator=",">
+		#{item.reqIdx}
+		</foreach>
 	</select>
 	<!-- 채팅방의 메세지리스트 -->
 	<select id="selectMsgList"
@@ -105,16 +118,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE room_idx=#{roomIdx}
 	</update>
 	
+	<!-- 채팅방삭제 전에 해당채팅방에서 주고받은 사진지우기위해 경로가져오기 -->
+	<!-- <select id="getMsgImgPath"
+			resultType="String">
+		SELECT * 
+		FROM Mangchi.chat_msg 
+		WHERE room_idx=#{roomIdx}
+		AND msg_img IS NOT NULL
+	</select> -->
+	
+	<!-- 채팅방삭제 -->
 	<delete id="delChatRoom"
 			parameterType="com.aia.mangch.model.DelChatRoomInfo">
 		DELETE FROM Mangchi.chat_room
 		WHERE room_idx=#{roomIdx} 
 	</delete>
 	
+	<!-- 내가먼저 삭제한거면 삭제유저 컬럼에 내이름 업데이트 -->
 	<update id="updateDelUser">
 		UPDATE Mangchi.chat_room 
 		SET room_delUser = #{loginUser}
 		WHERE room_idx=#{roomIdx}
 	</update>
+	
 	
 </mapper>

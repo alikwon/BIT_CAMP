@@ -47,8 +47,10 @@ public class ChatController {
 	
 	//채팅방 삭제
 	@PostMapping("/chatRoom")
-	public int delChatRoom(DelChatRoomInfo info) {
-		return roomDelsv.delChatRoom(info);
+	public int delChatRoom(
+				DelChatRoomInfo info,
+				HttpServletRequest req) {
+		return roomDelsv.delChatRoom(info,req);
 	}
 	
 	//내가선택한 채팅방의 메세지리스트
