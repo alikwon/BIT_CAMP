@@ -1,4 +1,4 @@
-package com.aia.socket.handler;
+package com.aia.mangchi.handler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,12 +12,13 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import com.aia.socket.HomeController;
-import com.aia.socket.domain.Message;
+import com.aia.mangchi.model.LoginInfo;
+import com.aia.mangchi.model.Message;
 import com.google.gson.Gson;
 
-public class EchoHandler extends TextWebSocketHandler {
 
+public class EchoHandler extends TextWebSocketHandler {
+	
 	private static final Logger logger = LoggerFactory.getLogger(EchoHandler.class);
 
 	private List<WebSocketSession> sessionList = new ArrayList<WebSocketSession>();
@@ -26,8 +27,8 @@ public class EchoHandler extends TextWebSocketHandler {
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		
-		String chatMember = (String) session.getAttributes().get("user");
-
+		LoginInfo chatMember = (LoginInfo) session.getAttributes().get("loginInfo");
+		
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + chatMember);
 
 		sessionList.add(session);
@@ -51,7 +52,7 @@ public class EchoHandler extends TextWebSocketHandler {
 		
 		System.out.println(msg);
 		
-		WebSocketSession ws = sessionMap.get(msg.getTo());
+		WebSocketSession ws = sessionMap.get("");
 		
 		// 전달 메시지
 		TextMessage sendMsg = new TextMessage(gson.toJson(msg));
@@ -79,5 +80,5 @@ public class EchoHandler extends TextWebSocketHandler {
 		System.out.println("체팅 퇴장 : " + chatMember);
 		// System.out.println("체팅 퇴장 : " + session.getPrincipal().getName());
 	}
-
+	
 }
