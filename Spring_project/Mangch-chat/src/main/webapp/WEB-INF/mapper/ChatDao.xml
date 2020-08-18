@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="reqTitle" column="request_title" />
 		<result property="mbNick1" column="member1" />
 		<result property="mbNick2" column="member2" />
+		<result property="delUser" column="room_delUser"/>
 	</resultMap>
 	<resultMap id="chatMsgInfo" type="com.aia.mangch.model.ChatMsgInfo">
 		<id property="idx" column="room_idx" />
@@ -32,18 +33,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			resultMap="chatRoomInfo"
 			parameterType="String">
 		SELECT * 
-		FROM Mangchi.chat_room NATURAL JOIN Mangchi.request_list 
-		WHERE member1=#{nick} or member2=#{nick} 
-		ORDER BY room_update DESC
+		FROM Mangchi.chat_room 
+		WHERE room_delUser IS NULL OR room_delUser!=#{nick}
+		ORDER BY room_update DESC;
 	</select>
 	
+	<!-- 채팅방리스트출력에 필요한 게시글 제목 -->
+	<select id="getRequestTitle"
+			resultType="String">
+		SELECT request_title
+		FROM Mangchi.request_list
+		WHERE request_idx = #{reqIdx}
+	</select>
 	<!-- 채팅방의 메세지리스트 -->
 	<select id="selectMsgList"
 			resultMap="chatMsgInfo">
-		SELECT * 
-		FROM Mangchi.chat_msg 
-		WHERE room_idx=#{idx} 
-		ORDER BY msg_date
+		SELECT *
+		FROM (
+			SELECT * 
+			FROM Mangchi.chat_room r NATURAL JOIN Mangchi.chat_msg m
+			WHERE m.room_idx=#{param1}) e
+		WHERE e.room_delUser IS NULL OR e.room_delUser != #{param2}
+		ORDER BY msg_date;
 	</select>
 	
 	<!-- 읽음으로 변경 -->
@@ -77,14 +88,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{roomIdx},#{sender},#{receiver},#{img})
 	</insert>
 	
-	<!-- 메세지 입력시 채팅방이 있는지 확인 -->
-	<select id="roomExistChk"
-			resultType="int">
-		SELECT COUNT(*) 
-		FROM Mangchi.chat_room 
-		WHERE room_idx = #{roomIdx}
-	</select>
-	
 	<!--채팅방이 없으면 채팅방 생성 -->
 	<insert id="createChatRoom"
 			parameterType="com.aia.mangch.model.ChatRoomInfo"
@@ -102,5 +105,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE room_idx=#{roomIdx}
 	</update>
 	
+	<delete id="delChatRoom"
+			parameterType="com.aia.mangch.model.DelChatRoomInfo">
+		DELETE FROM Mangchi.chat_room
+		WHERE room_idx=#{roomIdx} 
+	</delete>
+	
+	<update id="updateDelUser">
+		UPDATE Mangchi.chat_room 
+		SET room_delUser = #{loginUser}
+		WHERE room_idx=#{roomIdx}
+	</update>
 	
 </mapper>

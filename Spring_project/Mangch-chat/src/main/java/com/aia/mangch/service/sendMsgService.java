@@ -23,7 +23,6 @@ public class sendMsgService {
 	
 	public int sendMsg(InsertChatMsgInfo insertInfo, ChatRoomInfo chatRoom, HttpServletRequest req) {
 		dao=st.getMapper(ChatDao.class);
-		String msgImg = null;
 		ChatMsgInfo chat= insertInfo.setChatMsgInfo();
 		MultipartFile file = insertInfo.getMsgPhoto();
 		try {
@@ -33,21 +32,19 @@ public class sendMsgService {
 				String realPath = req.getSession().getServletContext().getRealPath(uri);
 
 				// 파일 덮어쓰면 안되니까 앞에 나노초 붙여줌
-				String newFileName = System.nanoTime() + "_" + file.getOriginalFilename();
+				String newFileName = System.nanoTime() + "_" + file.getOriginalFilename();// 사진이름경로
 
 				File saveFile = new File(realPath, newFileName);
 				file.transferTo(saveFile);
 				System.out.println("저장완료" + newFileName);
 
-				msgImg = uri + "/" + newFileName; // 웹경로
-				chat.setImg(msgImg);
-				System.out.println("sendMsgService>>>>img : "+chat.getImg());
+				// 웹경로
+				chat.setImg(newFileName);
 			} else {
 				//사진이 없을땐 텍스트를 ChatMsgInfo에 저장한다
 				chat.setText(insertInfo.getText());
 			}
 
-			//int existRoom = dao.roomExistChk(chat.getRoomIdx());
 			//채팅방없이 첫 메세지일 경우 roomIdx를 -1로 설정했음 ==>채팅방생성
 			if (chat.getRoomIdx() ==-1) {
 				dao.createChatRoom(chatRoom);
@@ -69,6 +66,7 @@ public class sendMsgService {
 			e.printStackTrace();
 		}
 		return chat.getRoomIdx();
+//		return 0;
 	}
 
 }

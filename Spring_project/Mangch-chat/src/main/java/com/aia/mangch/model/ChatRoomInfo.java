@@ -10,11 +10,14 @@ public class ChatRoomInfo {
 	private String mbNick1;
 	private String mbNick2;
 	private Date roomDate;
+	private String delUser;
 	
 	public ChatRoomInfo() {}
 	
+	
 	public ChatRoomInfo(int idx, String roomName, int reqIdx, String reqTitle, String mbNick1, String mbNick2,
-			Date roomDate) {
+			Date roomDate, String delUser) {
+		super();
 		this.idx = idx;
 		this.roomName = roomName;
 		this.reqIdx = reqIdx;
@@ -22,7 +25,18 @@ public class ChatRoomInfo {
 		this.mbNick1 = mbNick1;
 		this.mbNick2 = mbNick2;
 		this.roomDate = roomDate;
+		this.delUser = delUser;
 	}
+
+	
+	public String getDelUser() {
+		return delUser;
+	}
+
+	public void setDelUser(String delUser) {
+		this.delUser = delUser;
+	}
+
 	public int getIdx() {
 		return idx;
 	}
@@ -65,4 +79,13 @@ public class ChatRoomInfo {
 	public void setRoomDate(Date roomDate) {
 		this.roomDate = roomDate;
 	}
+
+
+	@Override
+	public String toString() {
+		return "ChatRoomInfo [idx=" + idx + ", roomName=" + roomName + ", reqIdx=" + reqIdx + ", reqTitle=" + reqTitle
+				+ ", mbNick1=" + mbNick1 + ", mbNick2=" + mbNick2 + ", roomDate=" + roomDate + ", delUser=" + delUser
+				+ "]";
+	}
+	
 }

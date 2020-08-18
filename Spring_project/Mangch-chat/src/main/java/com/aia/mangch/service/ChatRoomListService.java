@@ -18,7 +18,17 @@ public class ChatRoomListService {
 	
 	public List<ChatRoomInfo> getChatList(String nick){
 		dao = st.getMapper(ChatDao.class);
-		return dao.selectChatRoomList(nick);
+		String title = null;
+		List<ChatRoomInfo> list = dao.selectChatRoomList(nick);
+		for(int i=0;i<list.size();i++) {
+			if(list.get(i).getReqIdx()!=0) {
+				title = dao.getRequestTitle(list.get(i).getReqIdx());
+				list.get(i).setReqTitle(title);
+			}else if(list.get(i).getReqIdx()==0){
+				list.get(i).setReqTitle("(삭제된 게시물입니다)");
+			}
+		}
+		return list;
 	}
 	
 }

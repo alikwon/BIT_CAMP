@@ -5,18 +5,22 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aia.mangch.model.ChatMsgInfo;
 import com.aia.mangch.model.ChatRoomInfo;
+import com.aia.mangch.model.DelChatRoomInfo;
 import com.aia.mangch.model.InsertChatMsgInfo;
 import com.aia.mangch.model.NewMsgForBadge;
 import com.aia.mangch.service.ChatMsgListService;
+import com.aia.mangch.service.ChatRoomDelService;
 import com.aia.mangch.service.ChatRoomListService;
 import com.aia.mangch.service.NewMsgService;
 import com.aia.mangch.service.sendMsgService;
@@ -33,15 +37,22 @@ public class ChatController {
 	private NewMsgService newMsgsv;
 	@Autowired
 	private sendMsgService sendsv;
+	@Autowired
+	private ChatRoomDelService roomDelsv;
 	//채팅방 리스트
 	@GetMapping("/chatRoom")
 	public List<ChatRoomInfo> getChatList(@RequestParam("uNick") String nick){
 		return listsv.getChatList(nick);
-//		return null;
+	}
+	
+	//채팅방 삭제
+	@PostMapping("/chatRoom")
+	public int delChatRoom(DelChatRoomInfo info) {
+		return roomDelsv.delChatRoom(info);
 	}
 	
 	//내가선택한 채팅방의 메세지리스트
-	@GetMapping("{idx}")
+	@GetMapping("/{idx}")
 	public List<ChatMsgInfo> getMsgList(
 				@PathVariable("idx") int idx,
 				@RequestParam("uNick") String nick) {
@@ -61,9 +72,7 @@ public class ChatController {
 	@PostMapping
 	public int insertMsg(InsertChatMsgInfo chat,HttpServletRequest req) {
 		ChatRoomInfo chatRoom = chat.setRoomInfo();
-		System.out.println("ChatController>>>>"+chat.toString());
-		
-		//return 0;
 		return sendsv.sendMsg(chat,chatRoom,req);
+//		return 1;
 	}
 }
