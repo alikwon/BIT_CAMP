@@ -32,6 +32,7 @@
 <body>
 <script>
 var user = '${user}';
+
 $(function(){
 	initWebsocket();
 	initEvent();

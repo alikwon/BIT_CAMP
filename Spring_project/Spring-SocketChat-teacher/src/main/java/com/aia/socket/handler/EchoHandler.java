@@ -12,7 +12,6 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import com.aia.socket.HomeController;
 import com.aia.socket.domain.Message;
 import com.google.gson.Gson;
 
@@ -41,7 +40,7 @@ public class EchoHandler extends TextWebSocketHandler {
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 
-		String chatMember = (String) session.getAttributes().get("user");
+		String chatMember = (String) session.getAttributes().get("loginUser");
 		
 		logger.info("{}로 부터 {}를 전달 받았습니다.", chatMember, message.getPayload());
 		
