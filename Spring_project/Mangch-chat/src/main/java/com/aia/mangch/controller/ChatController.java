@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,14 +40,18 @@ public class ChatController {
 	private sendMsgService sendsv;
 	@Autowired
 	private ChatRoomDelService roomDelsv;
+	
+	
 	//채팅방 리스트
 	@GetMapping("/chatRoom")
+	@CrossOrigin //크로스 도메인 이슈 --> 보안문제때문에 적어줘야함
 	public List<ChatRoomInfo> getChatList(@RequestParam("uNick") String nick){
 		return listsv.getChatList(nick);
 	}
 	
 	//채팅방 삭제
 	@PostMapping("/chatRoom")
+	@CrossOrigin
 	public int delChatRoom(
 				DelChatRoomInfo info,
 				HttpServletRequest req) {
@@ -55,6 +60,7 @@ public class ChatController {
 	
 	//내가선택한 채팅방의 메세지리스트
 	@GetMapping("/{idx}")
+	@CrossOrigin
 	public List<ChatMsgInfo> getMsgList(
 				@PathVariable("idx") int idx,
 				@RequestParam("uNick") String nick) {
@@ -63,6 +69,7 @@ public class ChatController {
 	
 	//나에게 온 새로운 메세지 개수 받아오기(채팅방 별로 정렬)
 	@GetMapping
+	@CrossOrigin
 	public List<NewMsgForBadge> getNewMsg(
 			@RequestParam("uNick") String nick
 			//@RequestParam("idx") int idx
@@ -72,6 +79,7 @@ public class ChatController {
 	
 	//새로운 메세지 전송
 	@PostMapping
+	@CrossOrigin
 	public ChatMsgInfo insertMsg(InsertChatMsgInfo chat,HttpServletRequest req) {
 		ChatRoomInfo chatRoom = chat.setRoomInfo();
 		return sendsv.sendMsg(chat,chatRoom,req);
