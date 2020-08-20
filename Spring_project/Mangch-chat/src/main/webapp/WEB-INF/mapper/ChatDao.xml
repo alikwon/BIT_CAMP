@@ -77,7 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT room_idx roomIdx,count(msg_readcheck) newMsgCount
 		FROM Mangchi.chat_msg 
 		WHERE msg_readcheck=0 and msg_receiver=#{param1} 
-		GROUP BY room_idx;  
+		GROUP BY room_idx;
 	</select>
 	
 	<!-- 새로운 메세지 입력 -->
