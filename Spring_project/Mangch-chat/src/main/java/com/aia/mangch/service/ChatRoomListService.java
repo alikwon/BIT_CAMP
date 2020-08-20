@@ -20,15 +20,18 @@ public class ChatRoomListService {
 	public List<ChatRoomInfo> getChatList(String nick) {
 		dao = st.getMapper(ChatDao.class);
 		List<ChatRoomInfo> roomList = dao.selectChatRoomList(nick);
-		List<RequestTitleInfo> titleList = dao.selectRoomList(roomList);
-		for (int i = 0; i < roomList.size(); i++) {
-			for (int j = 0; j < titleList.size(); j++) {
-				if (titleList.get(j).getRequest_idx() == roomList.get(i).getReqIdx()) {
-					roomList.get(i).setReqTitle(titleList.get(j).getRequest_title());
+		List<RequestTitleInfo> titleList =null;
+		if(roomList.size()>0) {
+			titleList = dao.selectRoomList(roomList);
+			for (int i = 0; i < roomList.size(); i++) {
+				for (int j = 0; j < titleList.size(); j++) {
+					if (titleList.get(j).getRequest_idx() == roomList.get(i).getReqIdx()) {
+						roomList.get(i).setReqTitle(titleList.get(j).getRequest_title());
+					}
 				}
-			}
-			if (roomList.get(i).getReqTitle() == null) {
-				roomList.get(i).setReqTitle("(삭제된 게시물 입니다)");
+				if (roomList.get(i).getReqTitle() == null) {
+					roomList.get(i).setReqTitle("(삭제된 게시물 입니다)");
+				}
 			}
 		}
 		return roomList;

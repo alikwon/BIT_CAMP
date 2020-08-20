@@ -72,7 +72,7 @@ public class ChatController {
 	
 	//새로운 메세지 전송
 	@PostMapping
-	public int insertMsg(InsertChatMsgInfo chat,HttpServletRequest req) {
+	public ChatMsgInfo insertMsg(InsertChatMsgInfo chat,HttpServletRequest req) {
 		ChatRoomInfo chatRoom = chat.setRoomInfo();
 		return sendsv.sendMsg(chat,chatRoom,req);
 //		return 1;

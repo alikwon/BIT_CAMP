@@ -1,6 +1,7 @@
 package com.aia.mangch.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.aia.mangch.model.ChatMsgInfo;
 import com.aia.mangch.model.ChatRoomInfo;
@@ -32,8 +33,6 @@ public interface ChatDao {
 	int delChatRoom(DelChatRoomInfo info);
 
 	int updateDelUser(DelChatRoomInfo info);
-
-	String getRequestTitle(int reqIdx);
 
 	List<String> getMsgImgPath(int roomIdx);
 

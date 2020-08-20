@@ -27,10 +27,10 @@ public class MemberEditService {
 		String uphoto = null;// 사진수정을 하지 않으면 null
 		MultipartFile file = null;
 		try {
-			file = info.getUphoto();
 
 			// 유저가 사진을 수정했을 경우
-			if (file != null&&file.getSize() > 0 ) {
+			if (info.getUphoto() != null&&info.getUphoto().getSize() > 0 ) {
+				file = info.getUphoto();
 				String uri = "/upload";
 				String realPath = request.getSession().getServletContext().getRealPath(uri);
 

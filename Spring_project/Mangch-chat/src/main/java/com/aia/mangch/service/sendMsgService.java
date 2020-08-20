@@ -21,7 +21,7 @@ public class sendMsgService {
 	private SqlSessionTemplate st;
 	private ChatDao dao;
 	
-	public int sendMsg(InsertChatMsgInfo insertInfo, ChatRoomInfo chatRoom, HttpServletRequest req) {
+	public ChatMsgInfo sendMsg(InsertChatMsgInfo insertInfo, ChatRoomInfo chatRoom, HttpServletRequest req) {
 		dao=st.getMapper(ChatDao.class);
 		ChatMsgInfo chat= insertInfo.setChatMsgInfo();
 		MultipartFile image = insertInfo.getMsgPhoto();
@@ -73,7 +73,7 @@ public class sendMsgService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return chat.getRoomIdx();
+		return chat;
 	}
 
 }

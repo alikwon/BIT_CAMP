@@ -12,9 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="mbNick1" column="member1" />
 		<result property="mbNick2" column="member2" />
 		<result property="delUser" column="room_delUser"/>
+		<result property="readCnt" column="room_readcnt"/>
 	</resultMap>
 	<resultMap id="chatMsgInfo" type="com.aia.mangch.model.ChatMsgInfo">
-		<id property="idx" column="room_idx" />
+		<id property="idx" column="msg_idx" />
 		<result property="roomIdx" column="room_idx" />
 		<result property="sender" column="member_nick" />
 		<result property="receiver" column="msg_receiver" />
@@ -40,13 +41,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 채팅방리스트출력에 필요한 게시글 제목 -->
-	<select id="getRequestTitle"
-			resultType="String">
-		SELECT request_title
-		FROM Mangchi.request_list
-		WHERE request_idx = #{reqIdx}
-	</select>
-	
 	<select id="selectRoomList"
 			parameterType="java.util.List"
 			resultType="com.aia.mangch.model.RequestTitleInfo">
@@ -111,10 +105,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{reqIdx},#{mbNick1},#{mbNick2})
 	</insert>
 	
-	<!-- 새로운 메세지 입력시 채팅방 시간 업데이트 -->
+	<!-- 새로운 메세지 입력시 해당채팅방 업데이트 -->
 	<update id="updateRoomDate">
 		UPDATE Mangchi.chat_room 
-		SET room_update = now() 
+		SET room_update = now()
 		WHERE room_idx=#{roomIdx}
 	</update>
 	

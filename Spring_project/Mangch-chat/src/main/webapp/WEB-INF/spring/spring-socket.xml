@@ -10,7 +10,7 @@
 	<bean id="echohandler" class="com.aia.mangch.handler.EchoHandler"/>
 	
 	<websocket:handlers>
-		<websocket:mapping handler="echohandler" path="/mcchatting"/>
+		<websocket:mapping handler="echohandler" path="/chatting"/>
 		<websocket:handshake-interceptors>
 			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
 		</websocket:handshake-interceptors>
