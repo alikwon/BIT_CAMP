@@ -25,7 +25,7 @@ import com.aia.mangch.service.ChatRoomDelService;
 import com.aia.mangch.service.ChatRoomListService;
 import com.aia.mangch.service.NewMsgService;
 import com.aia.mangch.service.sendMsgService;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/chat")
 public class ChatController {
@@ -43,15 +43,15 @@ public class ChatController {
 	
 	
 	//채팅방 리스트
-	@GetMapping("/chatRoom")
 	@CrossOrigin //크로스 도메인 이슈 --> 보안문제때문에 적어줘야함
+	@GetMapping("/chatRoom")
 	public List<ChatRoomInfo> getChatList(@RequestParam("uNick") String nick){
 		return listsv.getChatList(nick);
 	}
 	
 	//채팅방 삭제
-	@PostMapping("/chatRoom")
 	@CrossOrigin
+	@PostMapping("/chatRoom")
 	public int delChatRoom(
 				DelChatRoomInfo info,
 				HttpServletRequest req) {
@@ -59,8 +59,8 @@ public class ChatController {
 	}
 	
 	//내가선택한 채팅방의 메세지리스트
-	@GetMapping("/{idx}")
 	@CrossOrigin
+	@GetMapping("/{idx}")
 	public List<ChatMsgInfo> getMsgList(
 				@PathVariable("idx") int idx,
 				@RequestParam("uNick") String nick) {
@@ -68,8 +68,8 @@ public class ChatController {
 	}
 	
 	//나에게 온 새로운 메세지 개수 받아오기(채팅방 별로 정렬)
-	@GetMapping
 	@CrossOrigin
+	@GetMapping
 	public List<NewMsgForBadge> getNewMsg(
 			@RequestParam("uNick") String nick
 			//@RequestParam("idx") int idx
@@ -78,8 +78,8 @@ public class ChatController {
 	}
 	
 	//새로운 메세지 전송
-	@PostMapping
 	@CrossOrigin
+	@PostMapping
 	public ChatMsgInfo insertMsg(InsertChatMsgInfo chat,HttpServletRequest req) {
 		ChatRoomInfo chatRoom = chat.setRoomInfo();
 		return sendsv.sendMsg(chat,chatRoom,req);
