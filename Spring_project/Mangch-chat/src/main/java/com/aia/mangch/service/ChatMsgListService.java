@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.aia.mangch.dao.ChatDao;
 import com.aia.mangch.model.ChatMsgInfo;
+import com.aia.mangch.model.RequestInfo;
 
 @Service
 public class ChatMsgListService {
@@ -22,5 +23,15 @@ public class ChatMsgListService {
 		return dao.selectMsgList(idx,nick);
 	}
 	
+	public String getMemberImg(String nick) {
+		dao = st.getMapper(ChatDao.class);
+		String img = dao.selectMemberImg(nick);
+		System.out.println(img);
+		return img; 
+	}
 	
+	public RequestInfo getRequestInfo(int idx) {
+		dao = st.getMapper(ChatDao.class);
+		return dao.selectRequest(idx);
+	}
 }

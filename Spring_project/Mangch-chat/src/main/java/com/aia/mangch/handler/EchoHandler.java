@@ -17,7 +17,7 @@ import com.aia.mangch.model.Message;
 import com.google.gson.Gson;
 
 public class EchoHandler extends TextWebSocketHandler {
-
+	private String url = "";
 	private static final Logger logger = LoggerFactory.getLogger(EchoHandler.class);
 
 	private List<WebSocketSession> sessionList = new ArrayList<WebSocketSession>();
@@ -31,7 +31,7 @@ public class EchoHandler extends TextWebSocketHandler {
 	
 	//접속한 uri가 채팅서버를 통해 접속한것인지 확인
 	public void CheckUri(WebSocketSession session,Message msg) throws Exception {
-		if(msg.getUri().equals("/mangh/WEB-INF/views/chatting/chatting3.jsp")) {
+		if(msg.getUrl().equals("/mangh/WEB-INF/views/chatting/chatting3.jsp")) {
 			sessionList.add(session);
 			//올바른 접속이면 맵에 저장 --> 닉네임을 키값으로 소켓세션저장
 			sessionMap.put(msg.getSender(), session);

@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.aia.mangch.model.Member;
+import com.aia.mangch.model.RequestInfo;
 
 /**
  * Handles requests for the application home page.
@@ -31,10 +31,6 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		Member mb = new Member();
-		mb.setNick("테스트용");
-		mb.setId("test@gmail.com");
-		ss.setAttribute("loginInfo", mb);
 		
 		String formattedDate = dateFormat.format(date);
 		

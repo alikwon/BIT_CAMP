@@ -7,6 +7,7 @@ import com.aia.mangch.model.ChatMsgInfo;
 import com.aia.mangch.model.ChatRoomInfo;
 import com.aia.mangch.model.DelChatRoomInfo;
 import com.aia.mangch.model.NewMsgForBadge;
+import com.aia.mangch.model.RequestInfo;
 import com.aia.mangch.model.RequestTitleInfo;
 
 
@@ -36,10 +37,11 @@ public interface ChatDao {
 
 	List<String> getMsgImgPath(int roomIdx);
 
-	List<RequestTitleInfo> selectRoomList(List<ChatRoomInfo> roomList);
+	List<RequestTitleInfo> selectTitleList(List<ChatRoomInfo> roomList);
 
+	String selectMemberImg(String nick);
 
-
+	RequestInfo selectRequest(int idx);
 
 
 }

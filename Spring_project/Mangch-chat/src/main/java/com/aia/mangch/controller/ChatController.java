@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +20,7 @@ import com.aia.mangch.model.ChatMsgInfo;
 import com.aia.mangch.model.ChatRoomInfo;
 import com.aia.mangch.model.DelChatRoomInfo;
 import com.aia.mangch.model.InsertChatMsgInfo;
+import com.aia.mangch.model.RequestInfo;
 import com.aia.mangch.model.NewMsgForBadge;
 import com.aia.mangch.service.ChatMsgListService;
 import com.aia.mangch.service.ChatRoomDelService;
@@ -84,5 +86,17 @@ public class ChatController {
 		ChatRoomInfo chatRoom = chat.setRoomInfo();
 		return sendsv.sendMsg(chat,chatRoom,req);
 //		return 1;
+	}
+	
+	@CrossOrigin
+	@PostMapping("/img")
+	public String getMemberImg(@RequestParam("nick") String nick) {
+		return msgListsv.getMemberImg(nick);
+	}
+	
+	@CrossOrigin
+	@GetMapping("/req")
+	public RequestInfo getRequestInfo(RequestInfo info) {
+		return msgListsv.getRequestInfo(info.getReqIdx());
 	}
 }

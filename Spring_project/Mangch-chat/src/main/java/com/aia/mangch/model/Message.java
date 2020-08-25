@@ -10,7 +10,7 @@ public class Message {
 	private String receiver;
 	private String text;
 	private String img;
-	private String uri;
+	private String url;
 	private long date = new Date().getTime();
 	
 	
@@ -56,15 +56,15 @@ public class Message {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public String getUri() {
-		return uri;
+	public String getUrl() {
+		return url;
 	}
 	public void setUri(String uri) {
-		this.uri = uri;
+		this.url = uri;
 	}
 	@Override
 	public String toString() {
 		return "Message [code=" + code + ", idx=" + idx + ", roomIdx=" + roomIdx + ", sender=" + sender + ", receiver="
-				+ receiver + ", text=" + text + ", img=" + img + ", uri=" + uri + "]";
+				+ receiver + ", text=" + text + ", img=" + img + ", uri=" + url + "]";
 	}
 }

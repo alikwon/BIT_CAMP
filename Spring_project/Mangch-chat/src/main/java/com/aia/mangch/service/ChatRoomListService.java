@@ -22,7 +22,7 @@ public class ChatRoomListService {
 		List<ChatRoomInfo> roomList = dao.selectChatRoomList(nick);
 		List<RequestTitleInfo> titleList =null;
 		if(roomList.size()>0) {
-			titleList = dao.selectRoomList(roomList);
+			titleList = dao.selectTitleList(roomList);
 			for (int i = 0; i < roomList.size(); i++) {
 				for (int j = 0; j < titleList.size(); j++) {
 					if (titleList.get(j).getRequest_idx() == roomList.get(i).getReqIdx()) {

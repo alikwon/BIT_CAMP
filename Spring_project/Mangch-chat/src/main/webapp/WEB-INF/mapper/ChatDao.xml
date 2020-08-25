@@ -12,7 +12,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="mbNick1" column="member1" />
 		<result property="mbNick2" column="member2" />
 		<result property="delUser" column="room_delUser"/>
-		<result property="readCnt" column="room_readcnt"/>
 	</resultMap>
 	<resultMap id="chatMsgInfo" type="com.aia.mangch.model.ChatMsgInfo">
 		<id property="idx" column="msg_idx" />
@@ -34,14 +33,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			resultMap="chatRoomInfo"
 			parameterType="String">
 		SELECT * 
-		FROM Mangchi.chat_room 
-		WHERE (room_delUser IS NULL OR room_delUser!=#{nick})
-		AND (member1=#{nick} OR member2=#{nick})
+		FROM Mangchi.chat_room
+		WHERE (room_delUser IS NULL OR room_delUser != #{nick})
+		AND member1=#{nick} OR member2=#{nick}
 		ORDER BY room_update DESC;
 	</select>
 	
-	<!-- 채팅방리스트출력에 필요한 게시글 제목 -->
-	<select id="selectRoomList"
+	<!-- 채팅방리스트출력에 맴버의 사진 -->
+	<select id="selectTitleList"
 			parameterType="java.util.List"
 			resultType="com.aia.mangch.model.RequestTitleInfo">
 		SELECT request_idx,request_title
@@ -129,11 +128,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<!-- 내가먼저 삭제한거면 삭제유저 컬럼에 내이름 업데이트 -->
-	<update id="updateDelUser">
+	<update id="updateDelUser"
+			parameterType="com.aia.mangch.model.DelChatRoomInfo">
 		UPDATE Mangchi.chat_room 
 		SET room_delUser = #{loginUser}
 		WHERE room_idx=#{roomIdx}
 	</update>
 	
+	<!-- 상대방 사진 -->
+	<select id="selectMemberImg"
+			resultType="String">
+		SELECT member_img
+		FROM Mangchi.member
+		WHERE member_nick=#{nick}
+	</select>
 	
+	<!-- 요청글 정보:   -->
+	<select id="selectRequest"
+			resultType="com.aia.mangch.model.RequestInfo">
+		SELECT request_idx reqIdx, request_writer reqNick, request_addr reqLoc
+		FROM Mangchi.request_list
+		WHERE request_idx= #{idx}
+	</select>
 </mapper>
