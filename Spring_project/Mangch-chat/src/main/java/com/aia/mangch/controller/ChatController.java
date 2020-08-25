@@ -22,7 +22,7 @@ import com.aia.mangch.model.DelChatRoomInfo;
 import com.aia.mangch.model.InsertChatMsgInfo;
 import com.aia.mangch.model.RequestInfo;
 import com.aia.mangch.model.NewMsgForBadge;
-import com.aia.mangch.service.ChatMsgListService;
+import com.aia.mangch.service.ChatMsgService;
 import com.aia.mangch.service.ChatRoomDelService;
 import com.aia.mangch.service.ChatRoomListService;
 import com.aia.mangch.service.NewMsgService;
@@ -35,7 +35,7 @@ public class ChatController {
 	@Autowired
 	private ChatRoomListService listsv;
 	@Autowired
-	private ChatMsgListService msgListsv;
+	private ChatMsgService msgListsv;
 	@Autowired
 	private NewMsgService newMsgsv;
 	@Autowired
@@ -57,6 +57,7 @@ public class ChatController {
 	public int delChatRoom(
 				DelChatRoomInfo info,
 				HttpServletRequest req) {
+		System.out.println(info.toString());
 		return roomDelsv.delChatRoom(info,req);
 	}
 	
@@ -67,6 +68,13 @@ public class ChatController {
 				@PathVariable("idx") int idx,
 				@RequestParam("uNick") String nick) {
 		return msgListsv.getMsgList(idx,nick);
+	}
+	@CrossOrigin
+	@GetMapping("/msg/{idx}")
+	public int readMsg(
+			@PathVariable("idx") int idx,
+			@RequestParam("uNick") String nick) {
+		return msgListsv.readMsg(idx,nick);
 	}
 	
 	//나에게 온 새로운 메세지 개수 받아오기(채팅방 별로 정렬)

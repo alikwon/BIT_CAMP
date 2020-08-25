@@ -32,14 +32,17 @@ public class ChatRoomDelService {
 			}
 			folder.delete();
 		}
-		
 		//상대가 삭제한 채팅이면 바로삭제
 		//아니면 삭제한 유저컬럼에 내이름을 올림
-		if(info.getDelUser()!=null) {
-			return dao.delChatRoom(info);
+		if(info.getDelUser()!=null&&info.getDelUser().length()>0) {
+			System.out.println("ChatRoomDelService>>삭제됨");
+			dao.delChatRoom(info);
+			return 1;
 		}else {
+			System.out.println("ChatRoomDelService>>삭제목록에 올라감");
 			dao.updateRoomDate(info.getRoomIdx());
-			return dao.updateDelUser(info);
+			dao.updateDelUser(info);
+			return 0;
 		}
 	}
 

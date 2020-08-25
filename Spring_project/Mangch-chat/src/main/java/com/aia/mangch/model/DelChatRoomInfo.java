@@ -24,5 +24,9 @@ public class DelChatRoomInfo {
 	public void setLoginUser(String loginUser) {
 		this.loginUser = loginUser;
 	}
+	@Override
+	public String toString() {
+		return "DelChatRoomInfo [roomIdx=" + roomIdx + ", delUser=" + delUser + ", loginUser=" + loginUser + "]";
+	}
 	
 }

@@ -1,7 +1,5 @@
 package com.aia.mangch.model;
 
-import java.util.Date;
-
 public class Message {
 	private String code;
 	private int idx;
@@ -10,8 +8,8 @@ public class Message {
 	private String receiver;
 	private String text;
 	private String img;
-	private String url;
-	private long date = new Date().getTime();
+	private String uri;
+	private long date;
 	
 	
 	public String getCode() {
@@ -56,15 +54,23 @@ public class Message {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public String getUrl() {
-		return url;
+	public String getUri() {
+		return uri;
 	}
 	public void setUri(String uri) {
-		this.url = uri;
+		this.uri = uri;
+	}
+	public long getDate() {
+		return date;
+	}
+	
+	public void setDate(long date) {
+		this.date = date;
 	}
 	@Override
 	public String toString() {
 		return "Message [code=" + code + ", idx=" + idx + ", roomIdx=" + roomIdx + ", sender=" + sender + ", receiver="
-				+ receiver + ", text=" + text + ", img=" + img + ", uri=" + url + "]";
+				+ receiver + ", text=" + text + ", img=" + img + ", uri=" + uri + ", date=" + date + "]";
 	}
+	
 }

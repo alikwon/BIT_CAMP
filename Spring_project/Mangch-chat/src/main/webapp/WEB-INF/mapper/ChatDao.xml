@@ -146,7 +146,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 요청글 정보:   -->
 	<select id="selectRequest"
 			resultType="com.aia.mangch.model.RequestInfo">
-		SELECT request_idx reqIdx, request_writer reqNick, request_addr reqLoc
+		SELECT request_idx reqIdx, request_writer reqNick, request_addr reqLoc, request_title reqTitle
 		FROM Mangchi.request_list
 		WHERE request_idx= #{idx}
 	</select>

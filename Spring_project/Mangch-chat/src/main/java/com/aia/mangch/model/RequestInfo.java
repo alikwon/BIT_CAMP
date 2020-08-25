@@ -3,8 +3,16 @@ package com.aia.mangch.model;
 public class RequestInfo {
 	private int reqIdx;
 	private String reqNick;
+	private String reqTitle;
 	private String reqLoc;
 	
+	
+	public String getReqTitle() {
+		return reqTitle;
+	}
+	public void setReqTitle(String reqTitle) {
+		this.reqTitle = reqTitle;
+	}
 	public int getReqIdx() {
 		return reqIdx;
 	}

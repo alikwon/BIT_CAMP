@@ -17,7 +17,7 @@ public interface ChatDao {
 
 	List<ChatMsgInfo> selectMsgList(int idx, String nick);
 
-	void readMsg(String nick, int idx);
+	int readMsg(String nick, int idx);
 
 	List<NewMsgForBadge> newMsgList(String nick);
 
