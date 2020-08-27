@@ -51,16 +51,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{item.reqIdx}
 		</foreach>
 	</select>
+	
+	<!-- 메세지 총 개수 -->
+	<select id="selectMsgCount"
+			parameterType="int"
+			resultType="int">
+		SELECT count(*) FROM Mangchi.chat_msg WHERE room_idx=#{idx}	
+	</select>
+	
+	<select id="isTextMsg"
+			resultType="int">
+		SELECT count(*) FROM Mangchi.chat_msg WHERE msg_idx = #{idx} AND msg_img IS NULL
+	</select>
 	<!-- 채팅방의 메세지리스트 -->
 	<select id="selectMsgList"
+			parameterType="map"
 			resultMap="chatMsgInfo">
 		SELECT *
 		FROM (
 			SELECT * 
 			FROM Mangchi.chat_room r NATURAL JOIN Mangchi.chat_msg m
-			WHERE m.room_idx=#{param1}) e
-		WHERE e.room_delUser IS NULL OR e.room_delUser != #{param2}
-		ORDER BY msg_date;
+			WHERE m.room_idx=#{idx}) e
+		WHERE e.room_delUser IS NULL OR e.room_delUser != #{nick}
+		ORDER BY msg_idx DESC
+		LIMIT #{startRow},#{msgPerPage};
 	</select>
 	
 	<!-- 읽음으로 변경 -->
@@ -112,14 +126,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<!-- 채팅방삭제 전에 해당채팅방에서 주고받은 사진지우기위해 경로가져오기 -->
-	<!-- <select id="getMsgImgPath"
+	<select id="getMsgImgPath"
 			resultType="String">
-		SELECT * 
+		SELECT msg_img 
 		FROM Mangchi.chat_msg 
-		WHERE room_idx=#{roomIdx}
+		WHERE msg_idx=#{idx}
 		AND msg_img IS NOT NULL
-	</select> -->
+	</select>
 	
+	<update id="delMessage">
+		UPDATE Mangchi.chat_msg
+		SET 
+		msg_text=#{param2},
+		msg_img=null
+		WHERE msg_idx=#{param1};
+	</update>
 	<!-- 채팅방삭제 -->
 	<delete id="delChatRoom"
 			parameterType="com.aia.mangch.model.DelChatRoomInfo">
@@ -150,4 +171,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM Mangchi.request_list
 		WHERE request_idx= #{idx}
 	</select>
+	
 </mapper>

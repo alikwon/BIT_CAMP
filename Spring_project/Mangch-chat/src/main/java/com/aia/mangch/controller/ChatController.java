@@ -35,7 +35,7 @@ public class ChatController {
 	@Autowired
 	private ChatRoomListService listsv;
 	@Autowired
-	private ChatMsgService msgListsv;
+	private ChatMsgService msgsv;
 	@Autowired
 	private NewMsgService newMsgsv;
 	@Autowired
@@ -66,17 +66,24 @@ public class ChatController {
 	@GetMapping("/{idx}")
 	public List<ChatMsgInfo> getMsgList(
 				@PathVariable("idx") int idx,
-				@RequestParam("uNick") String nick) {
-		return msgListsv.getMsgList(idx,nick);
+				@RequestParam("uNick") String nick,
+				@RequestParam("page") int page) {
+		return msgsv.getMsgList(idx,nick,page);
 	}
 	@CrossOrigin
 	@GetMapping("/msg/{idx}")
 	public int readMsg(
 			@PathVariable("idx") int idx,
 			@RequestParam("uNick") String nick) {
-		return msgListsv.readMsg(idx,nick);
+		return msgsv.readMsg(idx,nick);
 	}
 	
+	@CrossOrigin
+	@PostMapping("/msg/{idx}")
+	public int delMessage(@PathVariable("idx") int idx) {
+		System.out.println("삭제할 메세지idx:"+idx);
+		return msgsv.deleteMsg(idx);
+	}
 	//나에게 온 새로운 메세지 개수 받아오기(채팅방 별로 정렬)
 	@CrossOrigin
 	@GetMapping
@@ -99,12 +106,12 @@ public class ChatController {
 	@CrossOrigin
 	@PostMapping("/img")
 	public String getMemberImg(@RequestParam("nick") String nick) {
-		return msgListsv.getMemberImg(nick);
+		return msgsv.getMemberImg(nick);
 	}
 	
 	@CrossOrigin
 	@GetMapping("/req")
 	public RequestInfo getRequestInfo(RequestInfo info) {
-		return msgListsv.getRequestInfo(info.getReqIdx());
+		return msgsv.getRequestInfo(info.getReqIdx());
 	}
 }

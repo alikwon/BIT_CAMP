@@ -15,7 +15,7 @@ public interface ChatDao {
 
 	List<ChatRoomInfo> selectChatRoomList(String nick);
 
-	List<ChatMsgInfo> selectMsgList(int idx, String nick);
+	List<ChatMsgInfo> selectMsgList(Map map);
 
 	int readMsg(String nick, int idx);
 
@@ -42,6 +42,12 @@ public interface ChatDao {
 	String selectMemberImg(String nick);
 
 	RequestInfo selectRequest(int idx);
+
+	int selectMsgCount(int idx);
+
+	int delMessage(int idx, String str);
+
+	int isTextMsg(int idx);
 
 
 }
