@@ -26,7 +26,7 @@
 
 ​	○ [HTML5 프로젝트(카페키오스크)](https://github.com/alikwon/BIT_CAMP/tree/master/CafeProject)
 
-​	○ [JSP프로젝트 ](https://github.com/BogyeumKim/AIA-Mangchi/tree/master/Mangchi)
+​	○ JSP프로젝트
 
 ​		  ● [Board 파트 DAO, Service, Model](https://github.com/BogyeumKim/AIA-Mangchi/tree/master/Mangchi/src/board)
 
