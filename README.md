@@ -28,7 +28,7 @@
 
 ​	○ [JSP프로젝트 ](https://github.com/BogyeumKim/AIA-Mangchi/tree/master/Mangchi)
 
-​		● [Board 파트 DAO, Service, Model](https://github.com/BogyeumKim/AIA-Mangchi/tree/master/Mangchi/src/board)
+​		  ● [Board 파트 DAO, Service, Model](https://github.com/BogyeumKim/AIA-Mangchi/tree/master/Mangchi/src/board)
 
-​		● [View](https://github.com/BogyeumKim/AIA-Mangchi/tree/master/Mangchi/WebContent/WEB-INF/views/board)
+​		  ● [View](https://github.com/BogyeumKim/AIA-Mangchi/tree/master/Mangchi/WebContent/WEB-INF/views/board)
 
