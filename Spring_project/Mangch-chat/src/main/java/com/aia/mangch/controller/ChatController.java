@@ -99,6 +99,7 @@ public class ChatController {
 	@PostMapping
 	public ChatMsgInfo insertMsg(InsertChatMsgInfo chat,HttpServletRequest req) {
 		ChatRoomInfo chatRoom = chat.setRoomInfo();
+		System.out.println(chat.toString());
 		return sendsv.sendMsg(chat,chatRoom,req);
 //		return 1;
 	}
