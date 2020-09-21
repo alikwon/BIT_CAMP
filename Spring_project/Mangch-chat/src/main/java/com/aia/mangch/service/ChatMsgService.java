@@ -23,7 +23,7 @@ public class ChatMsgService {
 	public List<ChatMsgInfo> getMsgList(int idx, String nick, int page) {
 		dao = st.getMapper(ChatDao.class);
 
-		final int MSG_PER_PAGE = 10;
+		final int MSG_PER_PAGE = 15;
 		int startRow = page * MSG_PER_PAGE;
 		int totalMsgCnt = dao.selectMsgCount(idx);
 		int totalPage = totalMsgCnt / MSG_PER_PAGE;
