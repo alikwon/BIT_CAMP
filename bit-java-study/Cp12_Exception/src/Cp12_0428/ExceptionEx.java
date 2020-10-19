@@ -17,7 +17,8 @@ public class ExceptionEx {
 				
 				
 			}
-		}catch(AgeInputException e){
+			System.out.println(age+"살");
+		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		System.out.println("프로그램 종료");

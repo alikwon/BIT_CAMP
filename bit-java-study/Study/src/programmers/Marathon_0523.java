@@ -28,7 +28,7 @@ public class Marathon_0523 {
 				return answer;
 			}
 		}
-		if (answer.isEmpty()) {
+		if (answer.length()==0) {
 			return participant[participant.length-1];
 		}
 		return answer;

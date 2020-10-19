@@ -97,9 +97,7 @@ public class AlgoChapter3 {
 
 	int seqSearchSen3(int[] a, int n, int key) {
 		int i;
-
 		a[n] = key; // 보초를 추가
-
 		for (i = 0; a[i] != key; i++);
 		return i == n ? -1 : i;
 	}

@@ -6,6 +6,7 @@ public class TwoNum {
 	int num2 = 0;
 	int num3 = 0;
 	
+	
 	void addOneNum() {
 		synchronized (this) {
 			num1 += 1;

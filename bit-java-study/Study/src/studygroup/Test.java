@@ -1,15 +1,35 @@
 package studygroup;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Stack;
+
 public class Test {
-	public static void main(String[] args) {
-//		int a = 10;
-		Integer a = new Integer(10);
-		System.out.println("Before: " + a);
-		changeInteger(a);
-		System.out.println("After: " + a);
+	static enum Company {
+		APPLE
 	}
 
-	public static void changeInteger(Integer param) {
-		param += 10;
+	static class Fruit2 {
+		public final static Fruit2 apple = new Fruit2();
+		public final static Fruit2 banana = new Fruit2();
+	}
+
+	static class Company2 {
+		public final static Company2 apple = new Company2();
+		public final static Company2 google = new Company2();
+	}
+
+	public static void main(String[] args) {
+		Company type = Company.APPLE;
+		Fruit2 a =Fruit2.apple;
+		switch (type) {
+		case APPLE:
+			System.out.println(a);
+			break;
+
+		default:
+			break;
+		}
 	}
 }
