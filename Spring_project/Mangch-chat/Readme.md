@@ -9,11 +9,13 @@
 5. [View](https://github.com/alikwon/Mangchi-Final/tree/master/Mangch_Client/src/main/webapp/WEB-INF/views/chatting)
 6. [소켓Handler](https://github.com/alikwon/BIT_CAMP/blob/master/Spring_project/Mangch-chat/src/main/java/com/aia/mangch/handler/EchoHandler.java)
 
+------
+
 
 
 ### ▶ [프로젝트 PPT](https://docs.google.com/presentation/d/1DmOVaqESFTq9CG8V9gJBoi3uH0eRIA_U1siTAqJq2-U/edit#slide=id.p14)
 
-###  ◎ [시연 동영상](https://www.youtube.com/watch?v=47HEWiG-Sws&feature=emb_title)
+###  ▶ [시연 동영상](https://www.youtube.com/watch?v=47HEWiG-Sws&feature=emb_title)
 
    - [동영상에서 채팅 파트](https://www.youtube.com/watch?v=47HEWiG-Sws&t=243s)
 

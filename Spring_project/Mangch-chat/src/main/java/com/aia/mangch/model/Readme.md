@@ -1,0 +1,6 @@
+1. [채팅 메세지](https://github.com/alikwon/BIT_CAMP/blob/master/Spring_project/Mangch-chat/src/main/java/com/aia/mangch/model/ChatMsgInfo.java)
+2. [채팅방](https://github.com/alikwon/BIT_CAMP/blob/master/Spring_project/Mangch-chat/src/main/java/com/aia/mangch/model/ChatRoomInfo.java)
+3. [삭제할 채팅방](https://github.com/alikwon/BIT_CAMP/blob/master/Spring_project/Mangch-chat/src/main/java/com/aia/mangch/model/DelChatRoomInfo.java)
+4. [보낸 메세지](https://github.com/alikwon/BIT_CAMP/blob/master/Spring_project/Mangch-chat/src/main/java/com/aia/mangch/model/InsertChatMsgInfo.java)
+5. [소켓에 보낼 메세지 정보](https://github.com/alikwon/BIT_CAMP/blob/master/Spring_project/Mangch-chat/src/main/java/com/aia/mangch/model/Message.java)
+6. [새로운 메세지개수를 표시해주는 뱃지를 위한 정보](https://github.com/alikwon/BIT_CAMP/blob/master/Spring_project/Mangch-chat/src/main/java/com/aia/mangch/model/NewMsgForBadge.java)
