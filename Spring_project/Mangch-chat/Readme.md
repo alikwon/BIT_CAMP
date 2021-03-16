@@ -4,7 +4,7 @@
 
 ### ▶ 프로젝트 PPT
 
-​	[LINK](https://github.com/seongMinS2/Mangchi-Final)
+​	[LINK](https://docs.google.com/presentation/d/1DmOVaqESFTq9CG8V9gJBoi3uH0eRIA_U1siTAqJq2-U/edit#slide=id.g9ae78c4272_5_7)
 
 ------
 
