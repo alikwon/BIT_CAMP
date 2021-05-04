@@ -13,6 +13,9 @@ public class ShowThread extends Thread {
 	public void run() {
 		for (int i = 0; i < 10; i++) {
 			System.out.println("하이염! "+ threadName + "임");
+			
+			try {sleep(100);}
+			catch(InterruptedException e) {e.printStackTrace();}
 		}
 	}
 
